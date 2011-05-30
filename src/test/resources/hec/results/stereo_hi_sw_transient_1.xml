@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:26</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT stereo_hi_sw_transient.HEC_id,stereo_hi_sw_transient.date,stereo_hi_sw_transient.instrument,stereo_hi_sw_transient.v,stereo_hi_sw_transient.v_err,stereo_hi_sw_transient.long_hg,stereo_hi_sw_transient.long_err,stereo_hi_sw_transient.time_start,stereo_hi_sw_transient.time_1au FROM stereo_hi_sw_transient WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=stereo_hi_sw_transient]]></INFO>
+<INFO name="TABLE_NAME" value="stereo_hi_sw_transient"/>
+<TABLE name="hec_stereo_hi_sw_transient">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="date" xtype="iso8601">
+<DESCRIPTION>Date that event appears in H12 cameras field of view expressed as YYYY-MM-DD.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="instrument">
+<DESCRIPTION>Instrument: STEREO_A__HI or  STEREO_B__HI.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="v">
+<DESCRIPTION>Velocity of the event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="v_err">
+<DESCRIPTION>Uncertainty in velocity.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="long_hg">
+<DESCRIPTION>Longitude from S-E line.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="long_err">
+<DESCRIPTION>Uncertainty in longitude from S-E line.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Estimated launch time of event (assuming instant acceleration).</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_1au" xtype="iso8601">
+<DESCRIPTION>Predicted time of arrival at 1 AU.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

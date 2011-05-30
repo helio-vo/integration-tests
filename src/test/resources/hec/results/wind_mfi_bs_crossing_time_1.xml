@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:31</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT wind_mfi_bs_crossing_time.HEC_id,wind_mfi_bs_crossing_time.last_bs_crossing,wind_mfi_bs_crossing_time.flag_last_bs,wind_mfi_bs_crossing_time.first_hr_kept,wind_mfi_bs_crossing_time.flag_first_hr,wind_mfi_bs_crossing_time.last_hr_kept,wind_mfi_bs_crossing_time.flag_last_hr,wind_mfi_bs_crossing_time.first_bs_crossing,wind_mfi_bs_crossing_time.flag_first_bs,wind_mfi_bs_crossing_time.time_start,wind_mfi_bs_crossing_time.time_end FROM wind_mfi_bs_crossing_time WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=wind_mfi_bs_crossing_time]]></INFO>
+<INFO name="TABLE_NAME" value="wind_mfi_bs_crossing_time"/>
+<TABLE name="hec_wind_mfi_bs_crossing_time">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="last_bs_crossing">
+<DESCRIPTION>The time of the last BS crossing as the spacecraft was leaving the Earth's magnetosheath.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="flag_last_bs">
+<DESCRIPTION>A flag to indicate one of the following for the last BS crossing time:   #: First data point in our data set    *: BS occurred in data gap, time listed is the last point before the gap    +: Strong foreshock activity before BS also excluded</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="first_hr_kept">
+<DESCRIPTION>The first full hour which has only unshocked solar wind data in it.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="flag_first_hr">
+<DESCRIPTION>A flag to indicate one of the following for the last BS crossing time:   +: Strong foreshock activity before BS also excluded</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="last_hr_kept">
+<DESCRIPTION>The last full hour which still contains interplanetary magnetic field data.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="flag_last_hr">
+<DESCRIPTION>A flag to indicate one of the following for the last BS crossing time:   +: Strong foreshock activity before BS also excluded</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="first_bs_crossing">
+<DESCRIPTION>The time of the 1st BS crossing on the way into the Earth magnetosphere.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="flag_first_bs">
+<DESCRIPTION>A flag to indicate one of the following for the last BS crossing time:   #: First data point in our data set    *: BS occurred in data gap, time listed is the last point before the gap    +: Strong foreshock activity before BS also excluded</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time set as the last BS crossing time.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time set as the time of the 1st BS crossing on the way into the Earth magnetosphere.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

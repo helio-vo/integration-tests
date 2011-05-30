@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:58</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT ulysses_swoops_icme.HEC_id,ulysses_swoops_icme.time_start,ulysses_swoops_icme.time_end,ulysses_swoops_icme.lat_hgi,ulysses_swoops_icme.long_hgi,ulysses_swoops_icme.r_hgi,ulysses_swoops_icme.v_p,ulysses_swoops_icme.v_p_err,ulysses_swoops_icme.b,ulysses_swoops_icme.b_err FROM ulysses_swoops_icme WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=ulysses_swoops_icme]]></INFO>
+<INFO name="TABLE_NAME" value="ulysses_swoops_icme"/>
+<TABLE name="hec_ulysses_swoops_icme">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>CME start time</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>CME end time.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="lat_hgi">
+<DESCRIPTION>The spacecraft heliographic inertial (HGI) latitude at the beginning of the event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="long_hgi">
+<DESCRIPTION>The spacecraft heliographic inertial (HGI) longitude for the the day in which the event was identified.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="r_hgi">
+<DESCRIPTION>Ulysses-Sun radial distance using the heliographic inertial (HGI) coordinate system.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="v_p">
+<DESCRIPTION>Average proton velocity within the event timeframe.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="v_p_err">
+<DESCRIPTION>Error in the average proton velocity.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="b">
+<DESCRIPTION>Average total magnetic field strength of the plasma within the event timeframe.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="b_err">
+<DESCRIPTION>Error in the magnetic field strength.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>153</TD>
+    <TD>2003-02-04T01:00:00</TD>
+    <TD>2003-02-04T19:00:00</TD>
+    <TD>21.6</TD>
+    <TD>77.1</TD>
+    <TD>4.6</TD>
+    <TD>488.0</TD>
+    <TD>6.0</TD>
+    <TD>0.87</TD>
+    <TD>0.09</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

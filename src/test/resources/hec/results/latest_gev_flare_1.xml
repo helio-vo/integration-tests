@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:49</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT latest_gev_flare.latest_gev_flare_id,latest_gev_flare.time_start,latest_gev_flare.time_peak,latest_gev_flare.time_end,latest_gev_flare.nar,latest_gev_flare.latitude,latest_gev_flare.longitude,latest_gev_flare.xray_class,latest_gev_flare.optical_class FROM latest_gev_flare WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=latest_gev_flare]]></INFO>
+<TABLE name="hec_latest_gev_flare">
+<FIELD datatype="int" name="latest_gev_flare_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of the flare.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak" xtype="iso8601">
+<DESCRIPTION>Peak time of the flare.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time of the flare.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="nar">
+<DESCRIPTION>The number for the closest NOAA active region index</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="double" name="latitude">
+<DESCRIPTION>Heliographic Latitude.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="longitude">
+<DESCRIPTION>Heliographic Longitude.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="xray_class">
+<DESCRIPTION>Importance of flare at X-ray wavelengths -- the peak flux measured at Earth in the 0.1 to 0.8 nm range in units of Watts/sq meter.  (See the 'X-ray Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="optical_class">
+<DESCRIPTION>Average optical importance of flare -- a measurement of flare size and brilliance.  (See the 'Optical Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:28:05</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT noaa_daily_solar_data.HEC_id,noaa_daily_solar_data.time_start,noaa_daily_solar_data.radio_10cm,noaa_daily_solar_data.sesc_ssn,noaa_daily_solar_data.ss_area,noaa_daily_solar_data.new_regions,noaa_daily_solar_data.stan_smf,noaa_daily_solar_data.xray_bkg,noaa_daily_solar_data.n_c_flares,noaa_daily_solar_data.m_flares,noaa_daily_solar_data.x_flares,noaa_daily_solar_data.opts_flares,noaa_daily_solar_data.opt1_flares,noaa_daily_solar_data.opt2_flares,noaa_daily_solar_data.opt3_flares FROM noaa_daily_solar_data WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=noaa_daily_solar_data]]></INFO>
+<INFO name="TABLE_NAME" value="noaa_daily_solar_data"/>
+<TABLE name="hec_noaa_daily_solar_data">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Date.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="radio_10cm">
+<DESCRIPTION>Radio Flux Penticton 10.7 cm: The 10.7 cm (2800 MHz) full Sun radio flux reported by the Dominion Radio Astrophysical Observatory at Penticton, B.C., Canada on the date indicated.  Measurements are made at approximately 2000UT. Values are in units of 10 E-22/Sq Wm/Hz and are not corrected for the variable Sun-Earth distance resulting from the eccentric orbit of the Earth around the Sun.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="sesc_ssn">
+<DESCRIPTION>Sunspot No: The SESC sunspot number for the indicated date is from the daily Solar Region Summary issued by SESC. The SESC sunspot number is computed according to the Wolf Sunspot Number R=k (10g+s), where g is the number of sunspot groups (regions), s is the total number of individual spots in all the groups, and k is a variable scaling factor (usually less than 1) that indicates the combined effects of observing conditions, telescope, and bias of the solar observers.  A sunspot number of zero indicates there were no visible sunspots on that date; a * indicates that no observations were taken. The   sunspot region information used to compute the daily sunspot number incorporates reports from as many as six observatories.  These reports are used to form a composite picture of each individual region, including sunspot number, area and classification, taking into account such factors as  the time of observation and the quality of seeing.  This composite information is the daily average obtained from the reporting observatories and may not represent the latest data. It is reported daily in the Solar Region Summary and listed in the Region Summary section of the Weekly.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="ss_area">
+<DESCRIPTION>Sunspot Area : Sum of the corrected area of all observed sunspots, in units of millionths of the solar hemisphere.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="new_regions">
+<DESCRIPTION>New Regions.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="stan_smf">
+<DESCRIPTION>Stanford Solar Mean Field.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="xray_bkg">
+<DESCRIPTION>X-ray Background Flux : The daily average background x-ray flux as measured on the SWPC primary GOES satellite. Note: X-ray flux values below the B1 level can be erroneous. Energetic electron contamination of the x-ray sensors occurs. At times of high electron flux at geosynchronous altitude, the x-ray measurementsin the low A-class range can be in error by 20-30%. Measurements taken duringperiods of low energetic electron fluxes are much more accurate.   Daily GOES X-ray Background Flux algorithm:     o The 24 one-hour X-ray 1-8 Angstrom; values are divided into three        8-hour sections     o The minimum for each of these three 8-hour sections is determined;         ... Call them min1, min2, and min3     o The average of the minima from the first and last 8-hour sections         is calculated: min_avg = 1/2 (min1 + min3)     o Daily Background X-Ray Flux is the smallest of min2 or min_avg      X-Ray_background = minimum of (min2 or min_avg)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="n_c_flares">
+<DESCRIPTION>Number of Type C X-Ray Flares.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="m_flares">
+<DESCRIPTION>Number of Type M X-Ray Flares.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="x_flares">
+<DESCRIPTION>Number of Type X X-Ray Flares.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="opts_flares">
+<DESCRIPTION>Number of Type S Optical Flares.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="opt1_flares">
+<DESCRIPTION>Number of Type 1 Optical Flares.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="opt2_flares">
+<DESCRIPTION>Number of Type 2 Optical Flares.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="opt3_flares">
+<DESCRIPTION>Number of Type 3 Optical Flares.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>344836</TD>
+    <TD>2003-02-01T20:00:00</TD>
+    <TD>126</TD>
+    <TD>75</TD>
+    <TD>460</TD>
+    <TD>1</TD>
+    <TD>-999</TD>
+    <TD>B4.5</TD>
+    <TD>8</TD>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>3</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344837</TD>
+    <TD>2003-02-02T20:00:00</TD>
+    <TD>127</TD>
+    <TD>61</TD>
+    <TD>430</TD>
+    <TD>0</TD>
+    <TD>-999</TD>
+    <TD>B4.2</TD>
+    <TD>7</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>5</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344838</TD>
+    <TD>2003-02-03T20:00:00</TD>
+    <TD>133</TD>
+    <TD>69</TD>
+    <TD>450</TD>
+    <TD>0</TD>
+    <TD>-999</TD>
+    <TD>B3.9</TD>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344839</TD>
+    <TD>2003-02-04T20:00:00</TD>
+    <TD>135</TD>
+    <TD>77</TD>
+    <TD>470</TD>
+    <TD>2</TD>
+    <TD>-999</TD>
+    <TD>B3.9</TD>
+    <TD>2</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344840</TD>
+    <TD>2003-02-05T20:00:00</TD>
+    <TD>140</TD>
+    <TD>89</TD>
+    <TD>430</TD>
+    <TD>1</TD>
+    <TD>-999</TD>
+    <TD>B4.0</TD>
+    <TD>2</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>3</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344841</TD>
+    <TD>2003-02-06T20:00:00</TD>
+    <TD>150</TD>
+    <TD>135</TD>
+    <TD>510</TD>
+    <TD>2</TD>
+    <TD>-999</TD>
+    <TD>B5.9</TD>
+    <TD>4</TD>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>16</TD>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344842</TD>
+    <TD>2003-02-07T20:00:00</TD>
+    <TD>147</TD>
+    <TD>153</TD>
+    <TD>490</TD>
+    <TD>2</TD>
+    <TD>-999</TD>
+    <TD>B3.8</TD>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>2</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344843</TD>
+    <TD>2003-02-08T20:00:00</TD>
+    <TD>139</TD>
+    <TD>162</TD>
+    <TD>470</TD>
+    <TD>2</TD>
+    <TD>-999</TD>
+    <TD>B3.1</TD>
+    <TD>1</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+  <TR>
+    <TD>344844</TD>
+    <TD>2003-02-09T20:00:00</TD>
+    <TD>141</TD>
+    <TD>194</TD>
+    <TD>430</TD>
+    <TD>1</TD>
+    <TD>-999</TD>
+    <TD>B3.2</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>2</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

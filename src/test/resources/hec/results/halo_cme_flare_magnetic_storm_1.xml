@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:28:18</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT halo_cme_flare_magnetic_storm.HEC_id,halo_cme_flare_magnetic_storm.time_start,halo_cme_flare_magnetic_storm.cme_speed,halo_cme_flare_magnetic_storm.pa_measure,halo_cme_flare_magnetic_storm.lat_hg,halo_cme_flare_magnetic_storm.long_hg,halo_cme_flare_magnetic_storm.pos_flag,halo_cme_flare_magnetic_storm.time_flare,halo_cme_flare_magnetic_storm.xray_class,halo_cme_flare_magnetic_storm.time_storm,halo_cme_flare_magnetic_storm.dst FROM halo_cme_flare_magnetic_storm WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=halo_cme_flare_magnetic_storm]]></INFO>
+<INFO name="TABLE_NAME" value="halo_cme_flare_magnetic_storm"/>
+<TABLE name="hec_halo_cme_flare_magnetic_storm">
+<FIELD datatype="int" name="hec_id"/>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of the CME</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="cme_speed">
+<DESCRIPTION>Speed of the CME</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="pa_measure">
+<DESCRIPTION>Measurement Position Angle (MPA) at which CME height-time measurement was made.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="lat_hg">
+<DESCRIPTION>Latitude solar source location of the CME heliographic coordinates given for frontside halos.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="long_hg">
+<DESCRIPTION>Latitude solar source location of the CME heliographic coordinates given for frontside halos.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="pos_flag">
+<DESCRIPTION>If the CME source location is on the Earthward side of the solar disk then this entry will be blank and the postion will be given in the the latitude and longitude fields. Otherwise flag will take one of the following values:"Backside": The source is behind the Sun "B?":             The source is most likely backside. There may be some disk activity, but not associated with the CME "Blimb":       The source is behind the limb, with subscripts E, W, NE, NW, SE, SW indicating the limb position from which the CME moves out. There is usually a dimming signature above the limb from which we infer that the eruption took place behind the limb.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_flare" xtype="iso8601">
+<DESCRIPTION>Time of the associated GOES X-ray flare</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="xray_class">
+<DESCRIPTION>Importance of flare at X-ray wavelengths -- the peak flux measured at Earth in the 0.1 to 0.8 nm range in units of Watts/sq meter.  (See the 'X-ray Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_storm" xtype="iso8601">
+<DESCRIPTION>Time of the associated geomagnetic storm correspodning to the time of minimum Dst index.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="dst">
+<DESCRIPTION>Minimum Dst value.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

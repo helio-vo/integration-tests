@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:26:58</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT ngdc_aastar_storm.HEC_id,ngdc_aastar_storm.time_start,ngdc_aastar_storm.time_peak,ngdc_aastar_storm.time_end,ngdc_aastar_storm.duration,ngdc_aastar_storm.aastar_max,ngdc_aastar_storm.aastar_ave,ngdc_aastar_storm.aastar_sum FROM ngdc_aastar_storm WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=ngdc_aastar_storm]]></INFO>
+<INFO name="TABLE_NAME" value="ngdc_aastar_storm"/>
+<TABLE name="hec_ngdc_aastar_storm">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of onset of magnetic storm.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak" xtype="iso8601">
+<DESCRIPTION>Time of maximum AA*.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time of the magnetic storm.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="duration">
+<DESCRIPTION>Duation of event in hours</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="aastar_max">
+<DESCRIPTION>Maximum AA* during the event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="aastar_ave">
+<DESCRIPTION>Average AA* value over the event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="aastar_sum">
+<DESCRIPTION>AA* sum.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>94244</TD>
+    <TD>2003-02-01T12:00:00</TD>
+    <TD>2003-02-01T21:00:00</TD>
+    <TD>2003-02-02T06:00:00</TD>
+    <TD>21.0</TD>
+    <TD>80.0</TD>
+    <TD>73.0</TD>
+    <TD>896.0</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

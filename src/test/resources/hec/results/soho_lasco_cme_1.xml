@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:26:46</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT soho_lasco_cme.HEC_id,soho_lasco_cme.time_start,soho_lasco_cme.pa,soho_lasco_cme.pa_width,soho_lasco_cme.v,soho_lasco_cme.v_init,soho_lasco_cme.v_final,soho_lasco_cme.v_20r,soho_lasco_cme.accel,soho_lasco_cme.pa_measure FROM soho_lasco_cme WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=soho_lasco_cme]]></INFO>
+<INFO name="TABLE_NAME" value="soho_lasco_cme"/>
+<TABLE name="hec_soho_lasco_cme">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time - the time of first appearance in the LASCO/C2 field of view.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="pa">
+<DESCRIPTION>Central position angle for the CME</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="pa_width">
+<DESCRIPTION>Position angle width of the CME</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="v">
+<DESCRIPTION>the linear speed obtained by fitting a straight line to the height-time measurements made at the fastest section of CMEs</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="v_init">
+<DESCRIPTION>quadratic speed obtained by fitting a parabola and evaluating the speed at the initial time of the event</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="v_final">
+<DESCRIPTION>quadratic speed obtained by fitting a parabola and evaluating the speed at the time of final height measurement</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="v_20r">
+<DESCRIPTION>quadratic speed obtained by fitting a parabola and evaluating the speed at 20 solar radii</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="accel">
+<DESCRIPTION>Acceleration is obtained from the quadratic fit to the height-time measurements</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="pa_measure">
+<DESCRIPTION>The position angle at which the height-time measurements are made (MPA for measurement position angle).</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>848040</TD>
+    <TD>2003-02-01T01:55:33</TD>
+    <TD>283.0</TD>
+    <TD>101.0</TD>
+    <TD>524.0</TD>
+    <TD>585.0</TD>
+    <TD>455.0</TD>
+    <TD>499.0</TD>
+    <TD>-10.4</TD>
+    <TD>295.0</TD>
+  </TR>
+  <TR>
+    <TD>848041</TD>
+    <TD>2003-02-01T14:35:05</TD>
+    <TD>178.0</TD>
+    <TD>30.0</TD>
+    <TD>769.0</TD>
+    <TD>725.0</TD>
+    <TD>812.0</TD>
+    <TD>909.0</TD>
+    <TD>12.7</TD>
+    <TD>176.0</TD>
+  </TR>
+  <TR>
+    <TD>848042</TD>
+    <TD>2003-02-01T17:20:05</TD>
+    <TD>72.0</TD>
+    <TD>45.0</TD>
+    <TD>207.0</TD>
+    <TD>175.0</TD>
+    <TD>238.0</TD>
+    <TD>604.0</TD>
+    <TD>13.6</TD>
+    <TD>67.0</TD>
+  </TR>
+  <TR>
+    <TD>848043</TD>
+    <TD>2003-02-02T16:50:05</TD>
+    <TD>306.0</TD>
+    <TD>69.0</TD>
+    <TD>166.0</TD>
+    <TD>0.0</TD>
+    <TD>331.0</TD>
+    <TD>472.0</TD>
+    <TD>10.0</TD>
+    <TD>307.0</TD>
+  </TR>
+  <TR>
+    <TD>848044</TD>
+    <TD>2003-02-02T23:55:07</TD>
+    <TD>234.0</TD>
+    <TD>64.0</TD>
+    <TD>445.0</TD>
+    <TD>307.0</TD>
+    <TD>592.0</TD>
+    <TD>619.0</TD>
+    <TD>11.9</TD>
+    <TD>234.0</TD>
+  </TR>
+  <TR>
+    <TD>848045</TD>
+    <TD>2003-02-03T03:25:05</TD>
+    <TD>141.0</TD>
+    <TD>47.0</TD>
+    <TD>1056.0</TD>
+    <TD>1304.0</TD>
+    <TD>802.0</TD>
+    <TD>0.0</TD>
+    <TD>-75.5</TD>
+    <TD>146.0</TD>
+  </TR>
+  <TR>
+    <TD>848046</TD>
+    <TD>2003-02-03T03:50:06</TD>
+    <TD>76.0</TD>
+    <TD>60.0</TD>
+    <TD>210.0</TD>
+    <TD>171.0</TD>
+    <TD>248.0</TD>
+    <TD>529.0</TD>
+    <TD>10.4</TD>
+    <TD>68.0</TD>
+  </TR>
+  <TR>
+    <TD>848047</TD>
+    <TD>2003-02-03T10:36:14</TD>
+    <TD>238.0</TD>
+    <TD>82.0</TD>
+    <TD>297.0</TD>
+    <TD>177.0</TD>
+    <TD>432.0</TD>
+    <TD>400.0</TD>
+    <TD>5.6</TD>
+    <TD>235.0</TD>
+  </TR>
+  <TR>
+    <TD>848048</TD>
+    <TD>2003-02-04T01:36:59</TD>
+    <TD>226.0</TD>
+    <TD>54.0</TD>
+    <TD>398.0</TD>
+    <TD>431.0</TD>
+    <TD>366.0</TD>
+    <TD>373.0</TD>
+    <TD>-2.1</TD>
+    <TD>241.0</TD>
+  </TR>
+  <TR>
+    <TD>848049</TD>
+    <TD>2003-02-04T10:30:28</TD>
+    <TD>236.0</TD>
+    <TD>47.0</TD>
+    <TD>392.0</TD>
+    <TD>408.0</TD>
+    <TD>374.0</TD>
+    <TD>370.0</TD>
+    <TD>-1.3</TD>
+    <TD>235.0</TD>
+  </TR>
+  <TR>
+    <TD>848050</TD>
+    <TD>2003-02-04T14:54:05</TD>
+    <TD>72.0</TD>
+    <TD>92.0</TD>
+    <TD>725.0</TD>
+    <TD>733.0</TD>
+    <TD>716.0</TD>
+    <TD>716.0</TD>
+    <TD>-1.0</TD>
+    <TD>62.0</TD>
+  </TR>
+  <TR>
+    <TD>848051</TD>
+    <TD>2003-02-04T19:31:49</TD>
+    <TD>118.0</TD>
+    <TD>60.0</TD>
+    <TD>780.0</TD>
+    <TD>773.0</TD>
+    <TD>787.0</TD>
+    <TD>783.0</TD>
+    <TD>0.8</TD>
+    <TD>115.0</TD>
+  </TR>
+  <TR>
+    <TD>848052</TD>
+    <TD>2003-02-05T05:06:05</TD>
+    <TD>296.0</TD>
+    <TD>27.0</TD>
+    <TD>462.0</TD>
+    <TD>497.0</TD>
+    <TD>430.0</TD>
+    <TD>0.0</TD>
+    <TD>-13.2</TD>
+    <TD>297.0</TD>
+  </TR>
+  <TR>
+    <TD>848053</TD>
+    <TD>2003-02-05T22:06:05</TD>
+    <TD>50.0</TD>
+    <TD>68.0</TD>
+    <TD>251.0</TD>
+    <TD>229.0</TD>
+    <TD>274.0</TD>
+    <TD>315.0</TD>
+    <TD>1.9</TD>
+    <TD>52.0</TD>
+  </TR>
+  <TR>
+    <TD>848054</TD>
+    <TD>2003-02-05T22:30:05</TD>
+    <TD>215.0</TD>
+    <TD>44.0</TD>
+    <TD>446.0</TD>
+    <TD>466.0</TD>
+    <TD>427.0</TD>
+    <TD>415.0</TD>
+    <TD>-1.9</TD>
+    <TD>229.0</TD>
+  </TR>
+  <TR>
+    <TD>848055</TD>
+    <TD>2003-02-05T23:06:06</TD>
+    <TD>131.0</TD>
+    <TD>29.0</TD>
+    <TD>375.0</TD>
+    <TD>282.0</TD>
+    <TD>470.0</TD>
+    <TD>1107.0</TD>
+    <TD>51.9</TD>
+    <TD>135.0</TD>
+  </TR>
+  <TR>
+    <TD>848056</TD>
+    <TD>2003-02-06T04:30:05</TD>
+    <TD>67.0</TD>
+    <TD>114.0</TD>
+    <TD>322.0</TD>
+    <TD>326.0</TD>
+    <TD>318.0</TD>
+    <TD>317.0</TD>
+    <TD>-0.2</TD>
+    <TD>45.0</TD>
+  </TR>
+  <TR>
+    <TD>848057</TD>
+    <TD>2003-02-06T10:30:25</TD>
+    <TD>37.0</TD>
+    <TD>177.0</TD>
+    <TD>763.0</TD>
+    <TD>797.0</TD>
+    <TD>728.0</TD>
+    <TD>750.0</TD>
+    <TD>-3.2</TD>
+    <TD>43.0</TD>
+  </TR>
+  <TR>
+    <TD>848058</TD>
+    <TD>2003-02-06T18:54:05</TD>
+    <TD>291.0</TD>
+    <TD>55.0</TD>
+    <TD>308.0</TD>
+    <TD>334.0</TD>
+    <TD>282.0</TD>
+    <TD>201.0</TD>
+    <TD>-3.0</TD>
+    <TD>288.0</TD>
+  </TR>
+  <TR>
+    <TD>848059</TD>
+    <TD>2003-02-07T00:30:05</TD>
+    <TD>232.0</TD>
+    <TD>24.0</TD>
+    <TD>519.0</TD>
+    <TD>467.0</TD>
+    <TD>574.0</TD>
+    <TD>685.0</TD>
+    <TD>10.7</TD>
+    <TD>237.0</TD>
+  </TR>
+  <TR>
+    <TD>848060</TD>
+    <TD>2003-02-07T04:06:05</TD>
+    <TD>232.0</TD>
+    <TD>19.0</TD>
+    <TD>615.0</TD>
+    <TD>631.0</TD>
+    <TD>598.0</TD>
+    <TD>549.0</TD>
+    <TD>-4.2</TD>
+    <TD>234.0</TD>
+  </TR>
+  <TR>
+    <TD>848061</TD>
+    <TD>2003-02-07T06:54:07</TD>
+    <TD>113.0</TD>
+    <TD>17.0</TD>
+    <TD>619.0</TD>
+    <TD>665.0</TD>
+    <TD>573.0</TD>
+    <TD>442.0</TD>
+    <TD>-10.9</TD>
+    <TD>111.0</TD>
+  </TR>
+  <TR>
+    <TD>848062</TD>
+    <TD>2003-02-07T16:30:05</TD>
+    <TD>289.0</TD>
+    <TD>36.0</TD>
+    <TD>880.0</TD>
+    <TD>930.0</TD>
+    <TD>828.0</TD>
+    <TD>854.0</TD>
+    <TD>-5.8</TD>
+    <TD>289.0</TD>
+  </TR>
+  <TR>
+    <TD>848063</TD>
+    <TD>2003-02-07T18:06:05</TD>
+    <TD>287.0</TD>
+    <TD>31.0</TD>
+    <TD>415.0</TD>
+    <TD>399.0</TD>
+    <TD>433.0</TD>
+    <TD>434.0</TD>
+    <TD>1.2</TD>
+    <TD>297.0</TD>
+  </TR>
+  <TR>
+    <TD>848064</TD>
+    <TD>2003-02-08T00:30:05</TD>
+    <TD>295.0</TD>
+    <TD>17.0</TD>
+    <TD>240.0</TD>
+    <TD>202.0</TD>
+    <TD>285.0</TD>
+    <TD>315.0</TD>
+    <TD>2.5</TD>
+    <TD>295.0</TD>
+  </TR>
+  <TR>
+    <TD>848065</TD>
+    <TD>2003-02-08T09:06:17</TD>
+    <TD>91.0</TD>
+    <TD>13.0</TD>
+    <TD>347.0</TD>
+    <TD>320.0</TD>
+    <TD>374.0</TD>
+    <TD>730.0</TD>
+    <TD>18.6</TD>
+    <TD>92.0</TD>
+  </TR>
+  <TR>
+    <TD>848066</TD>
+    <TD>2003-02-08T13:31:44</TD>
+    <TD>103.0</TD>
+    <TD>28.0</TD>
+    <TD>1033.0</TD>
+    <TD>1007.0</TD>
+    <TD>1061.0</TD>
+    <TD>1040.0</TD>
+    <TD>3.6</TD>
+    <TD>103.0</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

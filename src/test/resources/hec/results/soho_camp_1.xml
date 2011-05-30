@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:28:08</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT soho_camp.soho_id,soho_camp.time_start,soho_camp.time_end,soho_camp.sohoc_num,soho_camp.sohoc_name,soho_camp.sohoc_type,soho_camp.sohoc_obj,soho_camp.sohoc_coord,soho_camp.sohoc_part,soho_camp.sohoc_comm FROM soho_camp WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=soho_camp]]></INFO>
+<TABLE name="hec_soho_camp">
+<FIELD datatype="int" name="soho_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of campaign.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time of campaign.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="sohoc_num">
+<DESCRIPTION>SOHO Campaign Number.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="sohoc_name">
+<DESCRIPTION>SOHO Campaign Name.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="sohoc_type">
+<DESCRIPTION>SOHO Campaign type.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="sohoc_obj">
+<DESCRIPTION>SOHO Campaign objectives.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="sohoc_coord">
+<DESCRIPTION>SOHO Campaign coordinators.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="sohoc_part"/>
+<FIELD arraysize="*" datatype="char" name="sohoc_comm">
+<DESCRIPTION>Comments.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>898</TD>
+    <TD>2003-02-06T00:00:00</TD>
+    <TD>2003-02-06T23:59:59</TD>
+    <TD>6922</TD>
+    <TD>ICAL01</TD>
+    <TD>ICAL01</TD>
+    <TD/>
+    <TD>Andrzej Fludra; Scott McIntosh</TD>
+    <TD/>
+    <TD>CDS; EIT</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

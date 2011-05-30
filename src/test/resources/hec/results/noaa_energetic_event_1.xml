@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:26:43</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT noaa_energetic_event.HEC_id,noaa_energetic_event.time_start,noaa_energetic_event.time_peak,noaa_energetic_event.time_end,noaa_energetic_event.nar,noaa_energetic_event.lat_hg,noaa_energetic_event.long_hg,noaa_energetic_event.long_carr,noaa_energetic_event.xray_class,noaa_energetic_event.optical_class,noaa_energetic_event.radio_245mhz,noaa_energetic_event.radio_10cm,noaa_energetic_event.radio_sweep_ii,noaa_energetic_event.radio_sweep_iv,noaa_energetic_event.swf FROM noaa_energetic_event WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=noaa_energetic_event]]></INFO>
+<INFO name="TABLE_NAME" value="noaa_energetic_event"/>
+<TABLE name="hec_noaa_energetic_event">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak" xtype="iso8601">
+<DESCRIPTION>Peak time</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="nar">
+<DESCRIPTION>NOAA active region index</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="float" name="lat_hg">
+<DESCRIPTION>Heliographic latitude of the active region</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="long_hg">
+<DESCRIPTION>Stonyhurst longitude of active region</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="long_carr">
+<DESCRIPTION>Carrington longitude of active region</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="xray_class">
+<DESCRIPTION>Importance of flare at X-ray wavelengths -- the peak flux measured at Earth in the 0.1 to 0.8 nm range in units of Watts/sq meter.  (See the 'X-ray Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="optical_class">
+<DESCRIPTION>Average optical importance of flare -- a measurement of flare size and brilliance.  (See the 'Optical Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="radio_245mhz">
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="radio_10cm">
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="boolean" name="radio_sweep_ii">
+<DESCRIPTION>Type II sweep frequency</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="radio_sweep_iv">
+<DESCRIPTION>Type IV sweep frequency</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="swf">
+<DESCRIPTION>Shortwave fade</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>473357</TD>
+    <TD>2003-02-01T08:48:00</TD>
+    <TD>2003-02-01T09:05:00</TD>
+    <TD>2003-02-01T09:38:00</TD>
+    <TD>10276</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>M1.2</TD>
+    <TD/>
+    <TD>-2147483648</TD>
+    <TD>-2147483648</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>473358</TD>
+    <TD>2003-02-06T03:30:00</TD>
+    <TD>2003-02-06T03:49:00</TD>
+    <TD>2003-02-06T04:01:00</TD>
+    <TD>-2147483648</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>M1.2</TD>
+    <TD/>
+    <TD>-2147483648</TD>
+    <TD>57</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>473359</TD>
+    <TD>2003-02-06T15:32:00</TD>
+    <TD>2003-02-06T15:32:00</TD>
+    <TD>2003-02-06T15:32:00</TD>
+    <TD>-2147483648</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>130</TD>
+    <TD>-2147483648</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

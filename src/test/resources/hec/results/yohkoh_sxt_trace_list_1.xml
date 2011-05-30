@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:21</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT yohkoh_sxt_trace_list.yst_id,yohkoh_sxt_trace_list.link,yohkoh_sxt_trace_list.time_start_sxt,yohkoh_sxt_trace_list.time_end_sxt,yohkoh_sxt_trace_list.xray_class,yohkoh_sxt_trace_list.n_img,yohkoh_sxt_trace_list.x_arcsec_sxt,yohkoh_sxt_trace_list.y_arcsec_sxt,yohkoh_sxt_trace_list.time_start,yohkoh_sxt_trace_list.time_end,yohkoh_sxt_trace_list.time_sxt_trace,yohkoh_sxt_trace_list.wl_dom,yohkoh_sxt_trace_list.x_arcsec,yohkoh_sxt_trace_list.y_arcsec,yohkoh_sxt_trace_list.n171,yohkoh_sxt_trace_list.n195,yohkoh_sxt_trace_list.n284,yohkoh_sxt_trace_list.n1600,yohkoh_sxt_trace_list.n1216,yohkoh_sxt_trace_list.nwl FROM yohkoh_sxt_trace_list WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=yohkoh_sxt_trace_list]]></INFO>
+<TABLE name="hec_yohkoh_sxt_trace_list">
+<FIELD datatype="int" name="yst_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="link">
+<DESCRIPTION>Link to the SXT PFI file at ISAS.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start_sxt" xtype="iso8601">
+<DESCRIPTION>Time of first flare mode SXT image.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end_sxt" xtype="iso8601">
+<DESCRIPTION>Time of last flare mode SXT image.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="xray_class">
+<DESCRIPTION>Importance of flare at X-ray wavelengths -- the peak flux measured at Earth in the 0.1 to 0.8 nm range in units of Watts/sq meter.  (See the 'X-ray Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="n_img">
+<DESCRIPTION>Number of flare mode SXT images.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="double" name="x_arcsec_sxt">
+<DESCRIPTION>X coordinate (in arcsec from disk center) of the center of the 6th SXT flare mode image. Picked up the 6th because SXT sometimes changes the field of view after the first flare mode image.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="y_arcsec_sxt">
+<DESCRIPTION>Y coordinate (in arcsec from disk center) of the center of the 6th SXT flare mode image. Picked up the 6th because SXT sometimes changes the field of view after the first flare mode image.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>First TRACE image in the period (time_start_sxt - 30min</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>Last TRACE image in the period (time_start_sxt - 30min</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_sxt_trace" xtype="iso8601">
+<DESCRIPTION>Time of the TRACE image closest to time_start_sxt.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="wl_dom">
+<DESCRIPTION>Wavelength at which the greatest number of TRACE images is taken.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="double" name="x_arcsec">
+<DESCRIPTION>X coordinate (in arcsec from disk center) of the center of the TRACE image at time_sxt_trace.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="y_arcsec">
+<DESCRIPTION>Y coordinate (in arcsec from disk center) of the center of the TRACE image at time_sxt_trace.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="n171">
+<DESCRIPTION>Number of TRACE images at 171 Angstroms.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="n195">
+<DESCRIPTION>Number of TRACE images at 195 Angstroms.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="n284">
+<DESCRIPTION>Number of TRACE images at 284 Angstroms.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="n1600">
+<DESCRIPTION>Number of TRACE images at 1600 Angstroms.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="n1216">
+<DESCRIPTION>Number of TRACE images at 1216 Angstroms.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="nwl">
+<DESCRIPTION>Number of TRACE White Light images.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:26:53</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT bas_magnetic_storms.bms_id,bas_magnetic_storms.time_start,bas_magnetic_storms.time_peak,bas_magnetic_storms.time_end,bas_magnetic_storms.dst,bas_magnetic_storms.hduration FROM bas_magnetic_storms WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=bas_magnetic_storms]]></INFO>
+<TABLE name="hec_bas_magnetic_storms">
+<FIELD datatype="int" name="bms_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of a geo-effective storm determined by a drop in the Dst.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak" xtype="iso8601">
+<DESCRIPTION>The time of maximum enhancement of the ring-current during a geo-effective storm as characterised by the maximum (negative) deviation of the Dst index.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End associated with the end of a geo-effective storm as characterised by the dst index returning to its nominal value.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="dst">
+<DESCRIPTION>A measure of the strength of a geo-effective storm as characterised by the maximum negative deviation in the Dst ring current index.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="hduration">
+<DESCRIPTION>The duration of the event measured in hours.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

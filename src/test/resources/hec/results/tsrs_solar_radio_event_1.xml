@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:46</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT tsrs_solar_radio_event.HEC_id,tsrs_solar_radio_event.time_start,tsrs_solar_radio_event.time_peak,tsrs_solar_radio_event.time_end,tsrs_solar_radio_event.freq,tsrs_solar_radio_event.cpp,tsrs_solar_radio_event.ps,tsrs_solar_radio_event.sfu_max,tsrs_solar_radio_event.radio_class,tsrs_solar_radio_event.comment,tsrs_solar_radio_event.data_url FROM tsrs_solar_radio_event WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=tsrs_solar_radio_event]]></INFO>
+<INFO name="TABLE_NAME" value="tsrs_solar_radio_event"/>
+<TABLE name="hec_tsrs_solar_radio_event">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of event.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak" xtype="iso8601">
+<DESCRIPTION>Peak time of event.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time of event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="freq">
+<DESCRIPTION>Radio frequency of observation.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="cpp">
+<DESCRIPTION>Circular polarization percentage measured at peak flux.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="ps">
+<DESCRIPTION>Polarization sense (R - Right-handed; L - Left-handed).</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="sfu_max">
+<DESCRIPTION>Maximum flux (solar flux units).</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="radio_class">
+<DESCRIPTION>Morphological classification of the radio events based on Solar-Geophysical Data, Explanation                    of data reports (July 1987, No. 515)                Morphological classes:                SPIKE: Very fast and narrow event                S 1: Simple and impulsive event with a narrow maximum region                S 2: Simple and impulsive event with a wider maximum region                C: Complex event: combination of a few or many simple bursts                F: Fluctuation: minor C sometimes superposed in the main burst                GB: Great Burst: particularly complex, long lasting event                SER: Series of events occurring in a short time period                Combinations of this symbols can be used for events not completely described by the previous classification classes.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="comment">
+<DESCRIPTION>Comments. Events that saturated the receiver are flagged as "SAT"(uration).</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="data_url">
+<DESCRIPTION>URL link to quick-look picture file.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

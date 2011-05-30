@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:33</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT istp_sw_event.HEC_id,istp_sw_event.time_start,istp_sw_event.time_end,istp_sw_event.category,istp_sw_event.spacecraft,istp_sw_event.comment FROM istp_sw_event WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=istp_sw_event]]></INFO>
+<INFO name="TABLE_NAME" value="istp_sw_event"/>
+<TABLE name="hec_istp_sw_event">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of event.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time of event.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="category">
+<DESCRIPTION>Category of event - one or more of the following features separated by a /.BzN  - Interplanetary magnetic B-field North (GSM coordinate system) A B-field North event is defined as an extended period of magnetic field oriented northwardPresently the catalog includes only those BzN events that extend for periods longer than 4 hours, within which only brief southward excurtions may occur.BzS - Interplanetary magnetic B-field South (GSM coordinate system) A B-field South event is defined as an extended period of magnetic field oriented southwardPresently the catalog includes under this entry only those BzS events that extend for periods longer than 4 hours, within which only brief Northward violations may occur.EyC - Change of the "y" component of the Interplanetary Electric Field Included are the observed events characterized by a sudden sign change and large amplitude variation in Ey (Ey=Bz*Vx) (the dawn to dusk component of the interplanetary electric field).HSS - High Speed StreamAn HSS is defined as a SW flow moving outward from the Sun with a high speed (usually a bulk velocity Vb great than 500 Km/sec), accompanied by low density and high temperature protons.Presently the catalog includes only those HSS events that extended for periods longer than a day.IMC - Interplanetary Magnetic CloudAn Interplanetary Magnetic Cloud is defined as (1) a smooth variation of the magnetic field direction, through a large angle; (2) strong magnetic fields; and (3) low ion temperature and low proton beta; all occurrring on a time scale of about 1 day or so. IR - Interaction RegionRegion of approximately half a day or longer showing unusually high magnetic and plasma pressures.IS - Interplanetary Fast ShockAn IS is defined in term of simultaneous changes in the bulk velocity (Vb) of the SW ions, their thermal velocity (Vth), and density (n) as well as the magnitude of the magnetic field (|B|), (and sometimes its direction), so that the Rankine-Hugoniot equations are expected to be satisfied for the event. Fast forward shocks, those most commonly seen in the interplanetary medium at 1 AU, are identified by positive changes in all of these quantities in time. Strong IS accompanied by a Southward oriented B-field have been associated with the observance of strong geomagnetic storms.The catalog contains only "candidates" for the IS category, based in the observations of the sudden change in the B-field and plasma quantities that within the resolution of the available KPs can be interpreted as being consistent with an interplanetary shock.LSS - Low Speed StreamOnly those periods of LSS when the Vb less than 330Km/sec are included.An occassional feature of a LSS is the presence of multiple SBCs (see def. Below), and PC disruptions.PC - Pressure ChangeThese are PCs other than IS. PC is defined as the sudden or gradual change (i.e. Over a short period of time; usually less than an hour) in the type of the SW pressure (+ or -), i.e., between kinetic and the magnetic field pressures. There may or may not be pressure equilibrium accross this region during the change.SBC - Sector Boundaries Crossing, also heliospheric current sheet crossingA SBC is identified by an usually rapid change in field direction by 180+/-60 Degs. Such that the field goes from one relatively stable direction (over several days) to another after the change(s).Sometimes this transition ocurrs after a large (and odd) number of such crossings, for many hours. Commonly there is a brief dip in field intensity (magnetic hole) at a crossing.MISC - Miscellaneous EventsEvents/Information deemed relevant to Solar, SW, or magnetospheric studies but failing to fit the other categories are added to the catalog under the MISC category.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="spacecraft">
+<DESCRIPTION>Spacecraft - can be one or more of 8 (for IMP-8),  W (for WIND) and ACE.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="comment">
+<DESCRIPTION>Comments</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

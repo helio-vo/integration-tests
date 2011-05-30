@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:16</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT kso_halpha_flare.HEC_id,kso_halpha_flare.time_start,kso_halpha_flare.time_start_m,kso_halpha_flare.time_peak,kso_halpha_flare.time_peak_m,kso_halpha_flare.time_end,kso_halpha_flare.time_end_m,kso_halpha_flare.lat_hg,kso_halpha_flare.long_hg,kso_halpha_flare.long_carr,kso_halpha_flare.optical_class FROM kso_halpha_flare WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=kso_halpha_flare]]></INFO>
+<INFO name="TABLE_NAME" value="kso_halpha_flare"/>
+<TABLE name="hec_kso_halpha_flare">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Observed beginning of flare.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start_m" xtype="iso8601">
+<DESCRIPTION>Time modifier:  E  means  Earlier                             U means  Uncertain                             D means  Later</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak" xtype="iso8601">
+<DESCRIPTION>Observed maximum of flare.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak_m" xtype="iso8601">
+<DESCRIPTION>Time modifier:  E  means  Earlier                             U means  Uncertain                             D means  Later</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>Observed end of the flare.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end_m" xtype="iso8601">
+<DESCRIPTION>Time modifier:  E  means  Earlier                             U means  Uncertain                             D means  Later</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="lat_hg">
+<DESCRIPTION>Heliographic latitude of flare</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="long_hg">
+<DESCRIPTION>Heliographic longitude of flare</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="long_carr">
+<DESCRIPTION>Carrington longitude of active region.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="optical_class">
+<DESCRIPTION>Average optical importance of flare -- a measurement of flare size and brilliance.  (See the 'Optical Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>462579</TD>
+    <TD>2003-02-06T08:43:00</TD>
+    <TD/>
+    <TD>2003-02-06T08:47:00</TD>
+    <TD/>
+    <TD>2003-02-06T08:58:00</TD>
+    <TD/>
+    <TD>17.0</TD>
+    <TD>-60.0</TD>
+    <TD>123.37</TD>
+    <TD>sf</TD>
+  </TR>
+  <TR>
+    <TD>462580</TD>
+    <TD>2003-02-06T09:16:00</TD>
+    <TD/>
+    <TD>2003-02-06T09:25:00</TD>
+    <TD/>
+    <TD>2003-02-06T09:37:00</TD>
+    <TD/>
+    <TD>17.0</TD>
+    <TD>-60.0</TD>
+    <TD>123.07</TD>
+    <TD>sf</TD>
+  </TR>
+  <TR>
+    <TD>462581</TD>
+    <TD>2003-02-06T11:18:00</TD>
+    <TD/>
+    <TD>2003-02-06T11:27:00</TD>
+    <TD/>
+    <TD>2003-02-06T11:43:00</TD>
+    <TD/>
+    <TD>18.0</TD>
+    <TD>-56.0</TD>
+    <TD>125.95</TD>
+    <TD>sf</TD>
+  </TR>
+  <TR>
+    <TD>462582</TD>
+    <TD>2003-02-06T12:46:00</TD>
+    <TD/>
+    <TD>2003-02-06T12:53:00</TD>
+    <TD/>
+    <TD>2003-02-06T12:55:00</TD>
+    <TD/>
+    <TD>-16.0</TD>
+    <TD>-50.0</TD>
+    <TD>131.15</TD>
+    <TD>sf</TD>
+  </TR>
+  <TR>
+    <TD>462583</TD>
+    <TD>2003-02-06T13:11:00</TD>
+    <TD/>
+    <TD>2003-02-06T13:19:00</TD>
+    <TD/>
+    <TD>2003-02-06T13:30:00</TD>
+    <TD/>
+    <TD>-14.0</TD>
+    <TD>-22.0</TD>
+    <TD>158.92</TD>
+    <TD>sf</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

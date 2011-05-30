@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:03</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT ngdc_ssc.HEC_id,ngdc_ssc.time_start,ngdc_ssc.nstn_a,ngdc_ssc.nstn_b,ngdc_ssc.nstn_c,ngdc_ssc.nsi FROM ngdc_ssc WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=ngdc_ssc]]></INFO>
+<INFO name="TABLE_NAME" value="ngdc_ssc"/>
+<TABLE name="hec_ngdc_ssc">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Begin time for sudden storm commencement.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="nstn_a">
+<DESCRIPTION>Number of stations reporting an A event. Letter A -- denotes very remarkable event observed.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="nstn_b">
+<DESCRIPTION>Number of stations reporting a B event. Letter B -- denotes fair, ordinary, but unmistakable event observed.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="nstn_c">
+<DESCRIPTION>Number of stations reporting a C event. Letter C -- denotes very poor, doubtful event observed.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="nsi">
+<DESCRIPTION>Number of stations reporting an "si" event. Letters "si" -- sudden impulse event (sudden magnetic change which could not be classified as ssc (sudden storm commencement), bs, etc.)</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

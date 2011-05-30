@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:23</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT lasco_cme_list.lcl_id,lasco_cme_list.time_start,lasco_cme_list.pa_central,lasco_cme_list.description FROM lasco_cme_list WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=lasco_cme_list]]></INFO>
+<TABLE name="hec_lasco_cme_list">
+<FIELD datatype="int" name="lcl_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="pa_central">
+<DESCRIPTION>Central position angle.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="description">
+<DESCRIPTION>Short description of event.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>5432</TD>
+    <TD>2003-02-01T01:51:00</TD>
+    <TD>270.0</TD>
+    <TD>Bright multiple-loop core with LE visible in C3 images. Possibly connected to Type II burst reported by SEC from 22:09. Some gusty outflow. Already in progress.</TD>
+  </TR>
+  <TR>
+    <TD>5433</TD>
+    <TD>2003-02-01T01:51:00</TD>
+    <TD>0.0</TD>
+    <TD>Fairly wide bright loop front with multiple- loop core. Possibly connected to earlier event to form ~150 deg partial halo; much gusty outflow between both.</TD>
+  </TR>
+  <TR>
+    <TD>5434</TD>
+    <TD>2003-02-01T14:40:00</TD>
+    <TD>180.0</TD>
+    <TD>Faint ragged loop front.</TD>
+  </TR>
+  <TR>
+    <TD>5435</TD>
+    <TD>2003-02-01T20:20:00</TD>
+    <TD>315.0</TD>
+    <TD>Thin faint well-defined loops move very slowly along wide bright streamer leading to partial blowout. Faster fronts from ~19 UT next day.</TD>
+  </TR>
+  <TR>
+    <TD>5436</TD>
+    <TD>2003-02-02T23:20:00</TD>
+    <TD>225.0</TD>
+    <TD>Wide bright loop front with cavity and ragged core along streamer.</TD>
+  </TR>
+  <TR>
+    <TD>5437</TD>
+    <TD>2003-02-03T03:25:00</TD>
+    <TD>135.0</TD>
+    <TD>Faint nebulous front.</TD>
+  </TR>
+  <TR>
+    <TD>5438</TD>
+    <TD>2003-02-03T10:55:00</TD>
+    <TD>225.0</TD>
+    <TD>Slow loop front along streamer, gusty outflow removes substantial part of it.</TD>
+  </TR>
+  <TR>
+    <TD>5439</TD>
+    <TD>2003-02-04T15:30:00</TD>
+    <TD>45.0</TD>
+    <TD>Ragged front along S edge of streamer, wider brighter loop front with cavity follows at 15:30 then some outflow.</TD>
+  </TR>
+  <TR>
+    <TD>5440</TD>
+    <TD>2003-02-04T19:31:00</TD>
+    <TD>135.0</TD>
+    <TD>Moderately faint loop front, quite wide and fast, faint corelike region follows.</TD>
+  </TR>
+  <TR>
+    <TD>5441</TD>
+    <TD>2003-02-05T05:30:00</TD>
+    <TD>315.0</TD>
+    <TD>Ragged front along streamer. some gusty outflow follows.</TD>
+  </TR>
+  <TR>
+    <TD>5442</TD>
+    <TD>2003-02-05T22:30:00</TD>
+    <TD>45.0</TD>
+    <TD>Moderately wide bright loop front along streamer, cavity and some core-like material follow, then slow narrow loops.</TD>
+  </TR>
+  <TR>
+    <TD>5443</TD>
+    <TD>2003-02-05T22:54:00</TD>
+    <TD>225.0</TD>
+    <TD>Asymmetric loop front fades somewhat through C2.</TD>
+  </TR>
+  <TR>
+    <TD>5444</TD>
+    <TD>2003-02-06T04:30:00</TD>
+    <TD>45.0</TD>
+    <TD>Fairly wide bright loop front eventually fills quadrant. Cavity and bright structured core follow. M1.2 X-ray flare AR 0278 N19E57.</TD>
+  </TR>
+  <TR>
+    <TD>5445</TD>
+    <TD>2003-02-06T10:30:00</TD>
+    <TD>45.0</TD>
+    <TD>Faster brighter front follows previous event. Fast eruptive prominence from/near same active region. Partial streamer blowout results from last two events including very faint fronts spanning into NW. Gusty outflow follows for &gt;24 hrs.</TD>
+  </TR>
+  <TR>
+    <TD>5446</TD>
+    <TD>2003-02-06T18:54:00</TD>
+    <TD>315.0</TD>
+    <TD>Faint ragged front, follows even fainter front at 17:30.</TD>
+  </TR>
+  <TR>
+    <TD>5447</TD>
+    <TD>2003-02-07T06:54:00</TD>
+    <TD>135.0</TD>
+    <TD>Moderately faint spray-like front.</TD>
+  </TR>
+  <TR>
+    <TD>5448</TD>
+    <TD>2003-02-07T16:30:00</TD>
+    <TD>270.0</TD>
+    <TD>Asymmetric loop front with slight cavity, quite faint, some gusty outflow including faint fronts.</TD>
+  </TR>
+  <TR>
+    <TD>5449</TD>
+    <TD>2003-02-08T13:31:00</TD>
+    <TD>135.0</TD>
+    <TD>Bright narrow loop front with slight cavity and some gusty outflow.</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

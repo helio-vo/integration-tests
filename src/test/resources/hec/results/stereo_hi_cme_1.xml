@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:26:48</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT stereo_hi_cme.HEC_id,stereo_hi_cme.time_start,stereo_hi_cme.time_end,stereo_hi_cme.instrument,stereo_hi_cme.data_gap,stereo_hi_cme.cme_type,stereo_hi_cme.brightness,stereo_hi_cme.pa,stereo_hi_cme.pa_width,stereo_hi_cme.time_onset,stereo_hi_cme.not_in_list,stereo_hi_cme.v,stereo_hi_cme.long_hg,stereo_hi_cme.long_err,stereo_hi_cme.time_1au,stereo_hi_cme.comment FROM stereo_hi_cme WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=stereo_hi_cme]]></INFO>
+<INFO name="TABLE_NAME" value="stereo_hi_cme"/>
+<TABLE name="hec_stereo_hi_cme">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time - approximate time that CME enters HI field of view.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time - approximate time CME front leaves HI field of view.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="instrument">
+<DESCRIPTION>This is the ID of the instrument on STEREO that was used to identify the event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="data_gap">
+<DESCRIPTION>Indication of a data gap during the event</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="cme_type">
+<DESCRIPTION>Classification of the CME type</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="brightness">
+<DESCRIPTION>Classification of the CME brightness</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="pa">
+<DESCRIPTION>Central position angle for the observed CME</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="pa_width">
+<DESCRIPTION>Position angle width of the CME</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_onset" xtype="iso8601">
+<DESCRIPTION>Estimated onset time for the event</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="not_in_list">
+<DESCRIPTION>Flag to indicate if the event is in the HI solar event list</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="float" name="v">
+<DESCRIPTION>Fitted CME speed.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="long_hg">
+<DESCRIPTION>Fitted Stonyhurst longitude of the event</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="long_err">
+<DESCRIPTION>Error in the fitted longitude measurement</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_1au" xtype="iso8601">
+<DESCRIPTION>Time at which the CME was expected to reach 1 AU based on fitted time elongation profile</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="comment">
+<DESCRIPTION>Description of the CME feature</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

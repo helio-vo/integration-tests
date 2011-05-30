@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:36</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT soho_pm_ip_shock.HEC_id,soho_pm_ip_shock.time_start,soho_pm_ip_shock.zone,soho_pm_ip_shock.comment FROM soho_pm_ip_shock WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=soho_pm_ip_shock]]></INFO>
+<INFO name="TABLE_NAME" value="soho_pm_ip_shock"/>
+<TABLE name="hec_soho_pm_ip_shock">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of shock.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="zone">
+<DESCRIPTION>Zone of shock-- which indicates the likelihood of the event being a shock.There are 2 questions one must ask: 1) How many of the events found by Shockspotter are actually shocks?The percentage shocks entries given in the table below were derived by comparing the Shockspotter output for the 6-year period from Jan 21, 1996 to March 31, 2002 with the shock events listed on the Figs web page. The shock events listed on that page were originally subjectively identified by eye, and then checked to be at least consistent with the magnetic field behavior from either the ACE or WIND spacecraft. Since some of those identifications may be incorrect, the stated percentage shocks is only approximate. The Confidence Level is derived a bit more conservatively by decreasing the # shocks entries by 1 for each category. In general, a stronger shock will fall into a higher Zone than a weaker shock, and a shock detected during quiet pre-existing solar wind conditions wil fall into a higher zone than one detected during turbulent conditions. Type        Zone    # Events  # shocks  percentage shocks  Confidence Level  Forward     1             38           17                    45%                          42%  Forward     2             28           20                    71%                          68%  Forward     3             36           34                    94%                          92%  Forward     4             67           67                   100%                         99%  Reverse     1             13             6                     46%                         38%  2) How many shocks are missed by Shockspotter? This is a much more difficult question to answer. There are 105 forward or reverse shocks from 21 Jan 1996 to 21 Jan 2001 listed on the Figs page (as of this writing), of which 93 were found by Shockspotter. However, the shock list on the Figs page is far from complete; there are undoubtedly many weaker shocks that were not identified with this subjective procedure. For example, one of the Shockspotter tests requires a minimum speed jump of about 25 km/s (this minimum required jump speed is actually a function of density, see here for details). If one asks How many relatively large shocks are missed by Shcoksptter?, then one can estimate that less than 10% of shocks of sufficient strength to reach Zone category 2 or higher are undetected by Shockspotter.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="comment">
+<DESCRIPTION>Comments.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

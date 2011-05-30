@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:19</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT soho_eit_wave_transient.HEC_id,soho_eit_wave_transient.time_start,soho_eit_wave_transient.previmg_time,soho_eit_wave_transient.img_time,soho_eit_wave_transient.quality,soho_eit_wave_transient.lat_hg,soho_eit_wave_transient.long_hg,soho_eit_wave_transient.v_ps,soho_eit_wave_transient.v_proj,soho_eit_wave_transient.pa,soho_eit_wave_transient.comment FROM soho_eit_wave_transient WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=soho_eit_wave_transient]]></INFO>
+<INFO name="TABLE_NAME" value="soho_eit_wave_transient"/>
+<TABLE name="hec_soho_eit_wave_transient">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of event (same as Image Time)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="previmg_time" xtype="iso8601">
+<DESCRIPTION>Time of previous image.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="img_time" xtype="iso8601">
+<DESCRIPTION>Image Time.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="quality">
+<DESCRIPTION>Quality Rating:   Q0: Very low reliability;    Q1: Low reliability;    Q2: Low reliability;    Q3: Intermediate reliability;   Q4: High reliability;    Q5: Nearly definite reliability;</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="lat_hg">
+<DESCRIPTION>Heliographic Latitude</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="long_hg">
+<DESCRIPTION>Heliographic Longitude. (A source longitude of 90 or ???90 indicates that the apparent source of the wave was either at, above, or possibly behind the solar limb.)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="v_ps">
+<DESCRIPTION>Speed of wave-front on the plane of the sky.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="v_proj">
+<DESCRIPTION>Speed of wave front assuming the wave travels in a great circle along the Sun's photosphere.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="pa">
+<DESCRIPTION>Direction of Measurement on the photosphere expressed as a position angle (measured N through E) in relation to the Sun-Earth line..</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="comment">
+<DESCRIPTION>Comments.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

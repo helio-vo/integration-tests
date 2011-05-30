@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:08</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT solar_wind_event.solar_wind_event_id,solar_wind_event.sw_list,solar_wind_event.time_start,solar_wind_event.time_end,solar_wind_event.bzn,solar_wind_event.bzs,solar_wind_event.eyc,solar_wind_event.hss,solar_wind_event.imc,solar_wind_event.ir,solar_wind_event.is_,solar_wind_event.lss,solar_wind_event.pc,solar_wind_event.sbc,solar_wind_event.misc,solar_wind_event.w,solar_wind_event.i8,solar_wind_event.ace,solar_wind_event.rem FROM solar_wind_event WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=solar_wind_event]]></INFO>
+<TABLE name="hec_solar_wind_event">
+<FIELD datatype="int" name="solar_wind_event_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="sw_list">
+<DESCRIPTION>The specific event category that the fature has been associated with</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="bzn">
+<DESCRIPTION>Strong northward Bz for extended period  Interplanetary magnetic B-field North (GSM coordinate system)  A B-field North event is defined as an extended period of magnetic field oriented northward</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="bzs">
+<DESCRIPTION>Strong southward Bz for extended period  Interplanetary magnetic B-field South (GSM coordinate system)  A B-field South event is defined as an extended period of magnetic field oriented southward</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="eyc">
+<DESCRIPTION>Change in Ey=VxBz  Change of the "y" component of the Interplanetary Electric Field  Included are the observed events characterized by a sudden sign change and large amplitude variation in Ey (Ey=Bz*Vx) (the dawn to dusk component of the interplanetary electric field.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="hss">
+<DESCRIPTION>Very high speed stream for extended period  High Speed Stream An HSS is defined as a SW flow moving outward from the Sun with a high speed (usually a bulk velocity Vb great than 500 Km/sec)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="imc">
+<DESCRIPTION>Interplanetary magnetic cloud  An Interplanetary Magnetic Cloud is defined as (1) a smooth variation of the magnetic field direction</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="ir">
+<DESCRIPTION>Interaction Region  Region of approximately half a day or longer showing unusually high magnetic and plasma pressures</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="is_">
+<DESCRIPTION>Interplanetary shock  Interplanetary Fast Shock An IS is defined in term of simultaneous changes in the bulk velocity (Vb) of the SW ions</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="lss">
+<DESCRIPTION>Very low speed stream for extended period</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="pc">
+<DESCRIPTION>Pressure change  These are PCs other than IS. PC is defined as the sudden or gradual change (i.e. over a short period of time; usually less than an hour) in the type of the SW pressure (+ or -)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="sbc">
+<DESCRIPTION>Interplanetary sector boundary crossings (usually in a set)  Sector Boundaries Crossing</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="misc">
+<DESCRIPTION>Miscelaneous</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="w">
+<DESCRIPTION>Feature seen on the WIND spacecraft</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="i8">
+<DESCRIPTION>Feature seen on the IMP-8 spacecraft</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="ace">
+<DESCRIPTION>Feature seen on the ACE spacecraft</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="rem">
+<DESCRIPTION>Comment about the observed solar wind feature.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

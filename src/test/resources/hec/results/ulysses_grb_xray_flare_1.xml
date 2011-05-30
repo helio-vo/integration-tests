@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:28:20</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT ulysses_grb_xray_flare.HEC_id,ulysses_grb_xray_flare.time_start,ulysses_grb_xray_flare.time_start_earth,ulysses_grb_xray_flare.r_hgi,ulysses_grb_xray_flare.lat_hgi,ulysses_grb_xray_flare.long_hgi FROM ulysses_grb_xray_flare WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=ulysses_grb_xray_flare]]></INFO>
+<INFO name="TABLE_NAME" value="ulysses_grb_xray_flare"/>
+<TABLE name="hec_ulysses_grb_xray_flare">
+<FIELD datatype="int" name="hec_id"/>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>The time the X-ray flare events were detected by Ulysses</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start_earth" xtype="iso8601">
+<DESCRIPTION>The time the corresponding event was detected near the Earth by the GOES spacecraft.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="r_hgi">
+<DESCRIPTION>The heliocentric distance of Ulysses at the time of the event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="lat_hgi">
+<DESCRIPTION>The heliocentric latitude of Ulysses at the time of the event.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="long_hgi">
+<DESCRIPTION>The heliocentric longitude of Ulysses at the time of the event.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

@@ -1,0 +1,162 @@
+package eu.heliovo.integrationtest;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Test;
+
+import uk.ac.starlink.table.ColumnInfo;
+import uk.ac.starlink.table.StarTable;
+import eu.heliovo.clientapi.model.service.HelioServiceName;
+import eu.heliovo.clientapi.query.HelioQueryResult;
+import eu.heliovo.clientapi.query.asyncquery.AsyncQueryService;
+import eu.heliovo.clientapi.query.asyncquery.impl.AsyncQueryServiceFactory;
+import eu.heliovo.clientapi.utils.STILUtils;
+import eu.heliovo.clientapi.workerservice.HelioWorkerServiceHandler.Phase;
+
+/**
+ * Abstract base class for integration tests
+ * @author MarcoSoldati
+ *
+ */
+public abstract class AbstractIntegrationTest {
+    
+    /**
+     *  the name of the service
+     */
+    private final HelioServiceName serviceName;
+
+    private final String[] startTime;
+
+    private final String[] endTime;
+
+    private final String[] from;
+
+    private final String where;
+
+    private final String saveto = "integation-test";
+    
+    private final String expectedResultFile;
+    
+
+    /**
+     * Create the integration test
+     * @param startTime the start time list
+     * @param endTime the end time list
+     * @param from the list of from catalogs
+     * @param where the where clause
+     */
+    public AbstractIntegrationTest(HelioServiceName serviceName, String[] startTime, String[] endTime, String[] from, String where, String expectedResultFile) {
+        assertNotNull(serviceName);
+        assertNotNull(startTime);
+        assertNotNull(endTime);
+        assertNotNull(from);
+        assertNotNull(expectedResultFile);
+        this.serviceName = serviceName;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.from = from;
+        this.where = where;
+        this.expectedResultFile = expectedResultFile;
+    }
+    
+    @Test public void testCatalog() throws Exception {
+        HelioQueryResult result = testAsyncQuery(serviceName, Arrays.asList(startTime), Arrays.asList(endTime), Arrays.asList(from), where, saveto);
+        assertNotNull(result);
+        
+        StarTable[] actualTables = STILUtils.read(result.asURL());
+        
+        InputStream expectedResult = getClass().getResourceAsStream(expectedResultFile);
+        assertNotNull(expectedResult);
+        StarTable[] expectedTables = STILUtils.read(expectedResult);
+        assertEquals(expectedTables.length, actualTables.length);
+        assertTrue(expectedTables.length >= 1);
+        for (int i = 0; i < expectedTables.length; i++) {
+            StarTable expectedTable = expectedTables[i];
+            StarTable actualTable = actualTables[i];
+            assertEquals(expectedTable.getRowCount(), actualTable.getRowCount());
+            
+            System.out.println(Arrays.toString(this.from) + " | " + Arrays.toString(startTime) + " | " + Arrays.toString(endTime) + " | " + where + " | " + expectedResultFile + " -> " + actualTable.getRowCount());
+            if (actualTable.getRowCount() > 0) {
+                int startTimeColumn = -1; 
+                int endTimeColumn = -1; 
+                for (int j = 0; j < actualTable.getColumnCount(); j++) {
+                    ColumnInfo currentColumn = actualTable.getColumnInfo(j);
+                    if ("time_start".equals(currentColumn.getName())) {
+                        startTimeColumn = j;
+                    } else if ("time_end".equals(currentColumn.getName())) {
+                        endTimeColumn = j;
+                    }
+                }
+                // handle tables with only start time
+                if (startTimeColumn >= 0 && endTimeColumn < 0) {
+                    endTimeColumn = startTimeColumn;
+                }
+                
+                System.out.println("Covered date range: " + (startTimeColumn >= 0 ? actualTable.getRow(0)[startTimeColumn] : "n/a") + " - " +
+                        (endTimeColumn >= 0 ? actualTable.getRow(actualTable.getRowCount()-1)[endTimeColumn] : "n/a")) ;
+            }
+            
+            // ensure at least one row in result.
+            assertTrue("Result should contain at least 1 row", actualTable.getRowCount() > 0);
+            
+            // ensure the tables are the same
+            for (int j = 0; j < expectedTable.getRowCount(); j++) {
+                Object[] actualRow = actualTable.getRow(j);
+                Object[] expectedRow = expectedTable.getRow(j);
+                
+                for (int k = 0; k < expectedRow.length; k++) {
+                    if ("hec_id".equals(actualTable.getColumnInfo(k).getName())) {
+                        // ignore column
+                    } else {
+                        assertEquals(expectedRow[k], actualRow[k]);
+                    }
+                }
+            }
+        }
+    }
+    
+
+    /**
+     * Call a HQI service and wait for the result
+     * @param serviceName the service to call
+     * @param startTime the time of start
+     * @param endTime the time of end
+     * @param from the from clause
+     * @param where the where clause
+     * @param saveto where to save the resutls.
+     * @return
+     */
+    protected static HelioQueryResult testAsyncQuery(HelioServiceName serviceName, List<String> startTime, List<String> endTime, List<String> from, String where, String saveto) {
+        AsyncQueryServiceFactory queryServiceFactory = AsyncQueryServiceFactory.getInstance();
+        AsyncQueryService queryService = queryServiceFactory.getAsyncQueryService(serviceName.getName());
+        HelioQueryResult result = queryService.query(startTime, endTime, from, where, 100, 0, null, saveto);
+        
+        //System.out.println(result);
+        if (result != null) {
+            // get the result in 1 minute
+            assertNotNull(result.asURL(60, TimeUnit.SECONDS));
+            assertEquals(Phase.COMPLETED, result.getPhase());
+            return result;
+        }
+        return null;
+    }
+
+    /**
+     * the toString method will be used as Test name
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append("(").append(from).append(")");
+        return sb.toString();
+    }
+}

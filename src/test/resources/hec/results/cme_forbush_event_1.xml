@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:06</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT cme_forbush_event.HEC_id,cme_forbush_event.time_start,cme_forbush_event.flag_ssc,cme_forbush_event.fe_magn,cme_forbush_event.kpmax,cme_forbush_event.dst_min,cme_forbush_event.b_max,cme_forbush_event.vsw_max,cme_forbush_event.axy_min,cme_forbush_event.az_r,cme_forbush_event.tmin,cme_forbush_event.dc_min,cme_forbush_event.tdmn,cme_forbush_event.aftob,cme_forbush_event.tilt FROM cme_forbush_event WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=cme_forbush_event]]></INFO>
+<INFO name="TABLE_NAME" value="cme_forbush_event"/>
+<TABLE name="hec_cme_forbush_event">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="flag_ssc">
+<DESCRIPTION>Flag indicating if the onset of the event corresponds ("sc") to a Storm Sudden Commencement, otherwise the flag is left blank.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="fe_magn">
+<DESCRIPTION>Magnitude of 10 GV Cosmic Ray variation (in fact, magnitude of the FE)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="kpmax">
+<DESCRIPTION>Maximum of the Kp-index in the associated geomagnetic deisturbance</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="dst_min">
+<DESCRIPTION>Minimum of the Dst-index in the associated geomagnetic disturbance</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="b_max">
+<DESCRIPTION>Maximum of the magnitude of the Interplanetary Magnetic Field in the associated solar wind disturbance</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="vsw_max">
+<DESCRIPTION>Maximum of the solar wind speed in the associated solar wind disturbance</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="axy_min">
+<DESCRIPTION>Maximum of the equatorial component of anisotropy during the Forbush Decrease.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="az_r">
+<DESCRIPTION>Range of change for the north-south component of anisotropy during the Forbush Decrease</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="tmin">
+<DESCRIPTION>Time from onset to the Forbush Decrease minimum</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="dc_min">
+<DESCRIPTION>Maximum decrement between hourly counts of 10 GV Cosmic Rays</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="tdmn">
+<DESCRIPTION>Time from the onset to the maximum decrement in the 10 GV Cosmic Rays</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="aftob">
+<DESCRIPTION>Ratio of the variation in the 10 GV cosmic rays to the maximum of the IMF intensity in the associated solar wind distrubance (fe_magn/bimf_m)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="double" name="tilt">
+<DESCRIPTION>Heliospheric current sheet tilt for day of the event</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

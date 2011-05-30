@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:56</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT wind_stereo_ii_iv_radioburst.HEC_id,wind_stereo_ii_iv_radioburst.identifier,wind_stereo_ii_iv_radioburst.time_start,wind_stereo_ii_iv_radioburst.time_end,wind_stereo_ii_iv_radioburst.freq_start,wind_stereo_ii_iv_radioburst.freq_end,wind_stereo_ii_iv_radioburst.dyn_spec,wind_stereo_ii_iv_radioburst.comment FROM wind_stereo_ii_iv_radioburst WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=wind_stereo_ii_iv_radioburst]]></INFO>
+<INFO name="TABLE_NAME" value="wind_stereo_ii_iv_radioburst"/>
+<TABLE name="hec_wind_stereo_ii_iv_radioburst">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="identifier">
+<DESCRIPTION>An internal WAVES Experiment Type II/IV event identifier, which, as the events are organised in separate files for each year, is incremented for each event during the year and reset to 1 at the start of the next year.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of radio burst.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time of radio burst.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="freq_start">
+<DESCRIPTION>Start of frequency range measured.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="freq_end">
+<DESCRIPTION>End of frequency range measured.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="dyn_spec">
+<DESCRIPTION>Dynamic spectra type:Those marked with 'S' or 'X' are standard frequency versus time dynamic spectra.Those marked with 'F' are inverse frequency versus time, corresponding roughly to distance from the sun versus time.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="comment">
+<DESCRIPTION>Comments -brief description of type of burst.</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

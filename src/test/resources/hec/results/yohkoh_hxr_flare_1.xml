@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:27:10</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT yohkoh_hxr_flare.HEC_id,yohkoh_hxr_flare.time_start,yohkoh_hxr_flare.time_peak,yohkoh_hxr_flare.time_end,yohkoh_hxr_flare.nar,yohkoh_hxr_flare.lat_hg,yohkoh_hxr_flare.long_hg,yohkoh_hxr_flare.xray_class,yohkoh_hxr_flare.optical_class,yohkoh_hxr_flare.hxt_lo,yohkoh_hxr_flare.hxt_m1,yohkoh_hxr_flare.hxt_m2,yohkoh_hxr_flare.hxt_hi,yohkoh_hxr_flare.comment,yohkoh_hxr_flare.yoh_event FROM yohkoh_hxr_flare WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=yohkoh_hxr_flare]]></INFO>
+<INFO name="TABLE_NAME" value="yohkoh_hxr_flare"/>
+<TABLE name="hec_yohkoh_hxr_flare">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event identification number (HEC internal number)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Start time of flare.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_peak" xtype="iso8601">
+<DESCRIPTION>Time of flare maximum.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
+<DESCRIPTION>End time of flare.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="nar">
+<DESCRIPTION>NOAA active region index</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="float" name="lat_hg">
+<DESCRIPTION>Heliographic latitude.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="long_hg">
+<DESCRIPTION>Heliographic longitude.</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="xray_class">
+<DESCRIPTION>Importance of flare at X-ray wavelengths -- the peak flux measured at Earth in the 0.1 to 0.8 nm range in units of Watts/sq meter.  (See the 'X-ray Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="optical_class">
+<DESCRIPTION>Average optical importance of flare -- a measurement of flare size and brilliance.  (See the 'Optical Class' in the HEC glossary for the specification of this field)</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="hxt_lo">
+<DESCRIPTION>L-band (13.9 - 22.7 keV) peak count rate in cts/s/SC (with background of ~ 2 cts/s/SC)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="hxt_m1">
+<DESCRIPTION>M1-band (22.7 - 32.7 keV) peak count rate in cts/s/SC (with background of ~ 1 cts/s/SC)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="hxt_m2">
+<DESCRIPTION>M2-band (32.7 - 52.7 keV) peak count rate in cts/s/SC (with background of ~ 1 cts/s/SC).</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="hxt_hi">
+<DESCRIPTION>H-band (52.7 - 92.8 keV) peak count rate in cts/s/SC (with background of ~ 9 cts/s/SC).</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="comment">
+<DESCRIPTION>Comments</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="yoh_event">
+<DESCRIPTION>Yohkoh HXT event number.</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<DATA>
+<TABLEDATA>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

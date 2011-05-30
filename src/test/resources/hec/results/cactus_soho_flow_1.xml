@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
+<RESOURCE>
+<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
+<INFO name="QUERY_STATUS">OK</INFO>
+<INFO name="EXECUTED_AT">2011-05-23 19:28:29</INFO>
+<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT cactus_soho_flow.hec_id,cactus_soho_flow.sat_id,cactus_soho_flow.r_hci,cactus_soho_flow.long_hci,cactus_soho_flow.lat_hci,cactus_soho_flow.time_start,cactus_soho_flow.duration,cactus_soho_flow.pa,cactus_soho_flow.pa_width,cactus_soho_flow.v,cactus_soho_flow.dv,cactus_soho_flow.v_min,cactus_soho_flow.v_max,cactus_soho_flow.cme_number,cactus_soho_flow.flag_halo,cactus_soho_flow.event_detail FROM cactus_soho_flow WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=cactus_soho_flow]]></INFO>
+<INFO name="TABLE_NAME" value="cactus_soho_flow"/>
+<TABLE name="hec_cactus_soho_flow">
+<FIELD datatype="int" name="hec_id">
+<DESCRIPTION>Event Identification number (HEC internal number)</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="sat_id">
+<DESCRIPTION>Satellite ID</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="r_hci">
+<DESCRIPTION>Heliocentric Inertial (HCI) Radial distance</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="long_hci">
+<DESCRIPTION>Heliocentric Inertial (HCI) Longitude</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="lat_hci">
+<DESCRIPTION>Heliocentric Inertial (HCI) Latitude</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<DESCRIPTION>Onset time</DESCRIPTION>
+</FIELD>
+<FIELD datatype="int" name="duration">
+<DESCRIPTION>Duration of liftoff (hours)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="pa">
+<DESCRIPTION>Position angle (degrees</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="pa_width">
+<DESCRIPTION>Angular width of the CME (degrees)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="v">
+<DESCRIPTION>Median velocity (km/s)</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="dv">
+<DESCRIPTION>Variation (1 sigma) of velocity over the width of the CME</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="v_min">
+<DESCRIPTION>Lowest velocity detected within the CME</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD datatype="int" name="v_max">
+<DESCRIPTION>Highest velocity detected within the CME  maxv Highest velocity detected within the CME</DESCRIPTION>
+<VALUES null="-2147483648"/>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="cme_number">
+<DESCRIPTION>II if da greater than 90</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="flag_halo">
+<DESCRIPTION>CME number [[corresponds to column 'CME' in the original file without leading zeros]]</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="event_detail">
+<DESCRIPTION>Link to details and graphs of specified CME [yymm-CME0010]</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>1389</TD>
+    <TD>SOHO</TD>
+    <TD>0.9768</TD>
+    <TD>55.68</TD>
+    <TD>-5.98</TD>
+    <TD>2003-02-01T04:26:00</TD>
+    <TD>1</TD>
+    <TD>132</TD>
+    <TD>18</TD>
+    <TD>232</TD>
+    <TD>18</TD>
+    <TD>230</TD>
+    <TD>281</TD>
+    <TD>200302-Flow0001</TD>
+    <TD/>
+    <TD>http://sidc.oma.be/cactus/catalog/LASCO/2_5_0/2003/02/Flow0001/CME.html</TD>
+  </TR>
+  <TR>
+    <TD>1390</TD>
+    <TD>SOHO</TD>
+    <TD>0.9768</TD>
+    <TD>55.71</TD>
+    <TD>-5.98</TD>
+    <TD>2003-02-01T05:20:00</TD>
+    <TD>0</TD>
+    <TD>188</TD>
+    <TD>10</TD>
+    <TD>233</TD>
+    <TD>0</TD>
+    <TD>232</TD>
+    <TD>233</TD>
+    <TD>200302-Flow0002</TD>
+    <TD/>
+    <TD>http://sidc.oma.be/cactus/catalog/LASCO/2_5_0/2003/02/Flow0002/CME.html</TD>
+  </TR>
+  <TR>
+    <TD>1391</TD>
+    <TD>SOHO</TD>
+    <TD>0.9768</TD>
+    <TD>55.72</TD>
+    <TD>-5.98</TD>
+    <TD>2003-02-01T05:25:00</TD>
+    <TD>0</TD>
+    <TD>274</TD>
+    <TD>22</TD>
+    <TD>1152</TD>
+    <TD>500</TD>
+    <TD>635</TD>
+    <TD>2027</TD>
+    <TD>200302-Flow0003</TD>
+    <TD/>
+    <TD>http://sidc.oma.be/cactus/catalog/LASCO/2_5_0/2003/02/Flow0003/CME.html</TD>
+  </TR>
+  <TR>
+    <TD>1392</TD>
+    <TD>SOHO</TD>
+    <TD>0.977</TD>
+    <TD>57.4</TD>
+    <TD>-6.1</TD>
+    <TD>2003-02-02T21:25:00</TD>
+    <TD>1</TD>
+    <TD>322</TD>
+    <TD>14</TD>
+    <TD>201</TD>
+    <TD>10</TD>
+    <TD>181</TD>
+    <TD>212</TD>
+    <TD>200302-Flow0004</TD>
+    <TD/>
+    <TD>http://sidc.oma.be/cactus/catalog/LASCO/2_5_0/2003/02/Flow0004/CME.html</TD>
+  </TR>
+  <TR>
+    <TD>1393</TD>
+    <TD>SOHO</TD>
+    <TD>0.977</TD>
+    <TD>57.47</TD>
+    <TD>-6.1</TD>
+    <TD>2003-02-02T23:05:00</TD>
+    <TD>2</TD>
+    <TD>237</TD>
+    <TD>36</TD>
+    <TD>388</TD>
+    <TD>50</TD>
+    <TD>247</TD>
+    <TD>443</TD>
+    <TD>200302-Flow0005</TD>
+    <TD/>
+    <TD>http://sidc.oma.be/cactus/catalog/LASCO/2_5_0/2003/02/Flow0005/CME.html</TD>
+  </TR>
+  <TR>
+    <TD>1394</TD>
+    <TD>SOHO</TD>
+    <TD>0.9772</TD>
+    <TD>59.32</TD>
+    <TD>-6.23</TD>
+    <TD>2003-02-04T18:54:00</TD>
+    <TD>1</TD>
+    <TD>115</TD>
+    <TD>36</TD>
+    <TD>801</TD>
+    <TD>0</TD>
+    <TD>801</TD>
+    <TD>801</TD>
+    <TD>200302-Flow0006</TD>
+    <TD/>
+    <TD>http://sidc.oma.be/cactus/catalog/LASCO/2_5_0/2003/02/Flow0006/CME.html</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>
