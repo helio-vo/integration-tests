@@ -21,7 +21,7 @@ import eu.heliovo.shared.util.AssertUtil;
  * @author MarcoSoldati
  *
  */
-public class TestDataReader {
+public class DataReaderUtil {
     
     /**
      * Separator character between values
@@ -41,14 +41,14 @@ public class TestDataReader {
     /**
      * A conversion service for data type conversion.
      */
-    private final ConversionService service = new GenericConversionService();
+    private final ConversionService conversionService = new GenericConversionService();
     
     /**
      * The parsed test data.
      */
     private final Collection<Object[]> testData;
     
-    public TestDataReader(InputStream testDataStream) {
+    public DataReaderUtil(InputStream testDataStream) {
         AssertUtil.assertArgumentNotNull(testDataStream, "testDataStream");
         testData = parse(testDataStream);
     }
@@ -100,12 +100,12 @@ public class TestDataReader {
                                 Object[] arr = (Object[])Array.newInstance(type.getComponentType(), values.length);
                                 for (int j = 0; j < values.length; j++) {
                                     String val = values[j];
-                                    Object valObj = service.convert(val.trim(), type.getComponentType());
+                                    Object valObj = conversionService.convert(val.trim(), type.getComponentType());
                                     arr[j] = valObj;
                                 }
                                 currentLine[i] = arr;
                             } else {
-                                Object obj = service.convert(cell.trim(), type);
+                                Object obj = conversionService.convert(cell.trim(), type);
                                 currentLine[i] = obj;
                             }
                         }

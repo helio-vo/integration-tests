@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 import eu.heliovo.clientapi.model.service.HelioServiceName;
 import eu.heliovo.integrationtest.AbstractIntegrationTest;
-import eu.heliovo.integrationtest.TestDataReader;
+import eu.heliovo.integrationtest.DataReaderUtil;
 import eu.heliovo.integrationtest.util.LabelledParameterized;
 import eu.heliovo.integrationtest.util.LabelledParameterized.Parameters;
 
@@ -24,7 +24,7 @@ public class HecIntegrationTest extends AbstractIntegrationTest {
     }
     
     @Parameters public static Collection<Object[]> testData() {
-        TestDataReader reader = new TestDataReader(TestDataReader.class.getResourceAsStream("/hec/hec_data.txt"));
+        DataReaderUtil reader = new DataReaderUtil(DataReaderUtil.class.getResourceAsStream("/hec/hec_data.txt"));
         return reader.getTestData();
     }    
 }

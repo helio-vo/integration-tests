@@ -27,7 +27,7 @@ import eu.heliovo.clientapi.query.HelioQueryResult;
 import eu.heliovo.clientapi.utils.STILUtils;
 import eu.heliovo.clientapi.workerservice.HelioWorkerServiceHandler.Phase;
 import eu.heliovo.integrationtest.AbstractIntegrationTest;
-import eu.heliovo.integrationtest.TestDataReader;
+import eu.heliovo.integrationtest.DataReaderUtil;
 
 public class HecStressTest {
 
@@ -59,7 +59,7 @@ public class HecStressTest {
     }
     
     @Ignore @Test public void testParallelHecCalls() throws Exception {
-        TestDataReader reader = new TestDataReader(TestDataReader.class.getResourceAsStream("/hec/hec_data.txt"));
+        DataReaderUtil reader = new DataReaderUtil(DataReaderUtil.class.getResourceAsStream("/hec/hec_data.txt"));
         Collection<Object[]> testData = reader.getTestData();
         Collection<Callable<HelioQueryResult>> workers = new ArrayList<Callable<HelioQueryResult>>();
         for (Object[] objects : testData) {
