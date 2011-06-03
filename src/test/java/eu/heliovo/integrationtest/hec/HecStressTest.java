@@ -1,14 +1,9 @@
 package eu.heliovo.integrationtest.hec;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
-import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -20,14 +15,10 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import uk.ac.starlink.table.ColumnInfo;
-import uk.ac.starlink.table.StarTable;
-import eu.heliovo.clientapi.model.service.HelioServiceName;
 import eu.heliovo.clientapi.query.HelioQueryResult;
-import eu.heliovo.clientapi.utils.STILUtils;
-import eu.heliovo.clientapi.workerservice.HelioWorkerServiceHandler.Phase;
 import eu.heliovo.integrationtest.AbstractIntegrationTest;
 import eu.heliovo.integrationtest.DataReaderUtil;
+import eu.heliovo.registryclient.HelioServiceName;
 
 public class HecStressTest {
 

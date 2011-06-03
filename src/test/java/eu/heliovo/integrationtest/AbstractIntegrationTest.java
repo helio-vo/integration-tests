@@ -1,6 +1,5 @@
 package eu.heliovo.integrationtest;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -14,12 +13,12 @@ import org.junit.Test;
 
 import uk.ac.starlink.table.ColumnInfo;
 import uk.ac.starlink.table.StarTable;
-import eu.heliovo.clientapi.model.service.HelioServiceName;
 import eu.heliovo.clientapi.query.HelioQueryResult;
 import eu.heliovo.clientapi.query.asyncquery.AsyncQueryService;
 import eu.heliovo.clientapi.query.asyncquery.impl.AsyncQueryServiceFactory;
 import eu.heliovo.clientapi.utils.STILUtils;
 import eu.heliovo.clientapi.workerservice.HelioWorkerServiceHandler.Phase;
+import eu.heliovo.registryclient.HelioServiceName;
 
 /**
  * Abstract base class for integration tests

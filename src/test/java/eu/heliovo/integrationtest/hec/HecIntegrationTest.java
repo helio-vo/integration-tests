@@ -4,11 +4,11 @@ import java.util.Collection;
 
 import org.junit.runner.RunWith;
 
-import eu.heliovo.clientapi.model.service.HelioServiceName;
 import eu.heliovo.integrationtest.AbstractIntegrationTest;
 import eu.heliovo.integrationtest.DataReaderUtil;
 import eu.heliovo.integrationtest.util.LabelledParameterized;
 import eu.heliovo.integrationtest.util.LabelledParameterized.Parameters;
+import eu.heliovo.registryclient.HelioServiceName;
 
 @RunWith(LabelledParameterized.class)
 public class HecIntegrationTest extends AbstractIntegrationTest {
