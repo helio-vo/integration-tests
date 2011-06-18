@@ -1,4 +1,4 @@
-package eu.heliovo.integrationtest;
+package eu.heliovo.integrationtest.util;
 
 import java.io.IOException;
 import java.io.InputStream;

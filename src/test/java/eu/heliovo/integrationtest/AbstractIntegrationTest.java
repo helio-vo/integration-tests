@@ -18,10 +18,17 @@ import eu.heliovo.clientapi.query.asyncquery.AsyncQueryService;
 import eu.heliovo.clientapi.query.asyncquery.impl.AsyncQueryServiceFactory;
 import eu.heliovo.clientapi.utils.STILUtils;
 import eu.heliovo.clientapi.workerservice.HelioWorkerServiceHandler.Phase;
+import eu.heliovo.integrationtest.hec.HecIntegrationTest;
 import eu.heliovo.registryclient.HelioServiceName;
 
 /**
- * Abstract base class for integration tests
+ * Abstract base class for integration tests.
+ * Sub classes should overwrite the default constructor and should provide a 
+ * method with signature 
+ * <pre>
+ *     @Parameters public static Collection<Object[]> testData() {...}
+ * </pre>
+ * See {@link HecIntegrationTest} for an example.
  * @author MarcoSoldati
  *
  */
@@ -147,7 +154,7 @@ public abstract class AbstractIntegrationTest {
         }
         return null;
     }
-
+    
     /**
      * the toString method will be used as Test name
      */

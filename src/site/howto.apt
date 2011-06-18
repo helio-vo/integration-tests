@@ -1,0 +1,115 @@
+  ---
+  HELIO intgration test howto
+  ---
+  Marco Soldati
+  ---
+  June 2011
+  ---
+  
+  This document describes how the HELIO integration tests are working and provides a step by step manual for test data providers to add new test data.
+  All information is provided in a descriptive way, i.e. there is no need to write any Java code.
+  
+Introduction
+
+  The tests are based on a set of JUnit suites. Currently only services that implement the HELIO query interface are supported.
+  Moreover the tests base on the long running query interface only.
+
+Infrastructure
+
+  * The tests are organized in a {{{http://en.wikipedia.org/wiki/Apache_Maven}Maven}} module called <integration-tests>.
+  
+  * This Maven module is stored in the HELIO {{{http://de.wikipedia.org/wiki/Apache_Subversion}SVN}}: {{https://helio-vo.svn.sourceforge.net/svnroot/helio-vo/trunk/integration-tests}}.
+    You can view the files at {{http://helio-vo.svn.sourceforge.net/viewvc/helio-vo/trunk/integration-tests/}}.
+
+  * Daily at 4.00 CET the Jenkins build system fetches the content of <integration-tests> and runs the tests. 
+    Alternatively a test run can be started manually by Jenkins administrators (currently Marco Soldati).
+  
+  * The results of these tests are published to {{http://helio-dev.i4ds.ch/hudson/job/helio-integrationtests/}}.
+    Moreover a mail is sent to registered users in case of failure (send a message to Marco Soldati if you want to receive these mails)
+  
+Directory structure
+
+The maven module <integration-tests> is organized as follows.
+ 
++------------------------------------------------------+
+https://helio-vo.svn.sourceforge.net/svnroot/helio-vo/trunk/integration-tests
+|
++- src                                            the main directory
+|  +  pom.xml                                     Maven project definition file.
+|  +- test                                        the actual test directory
+|  |  +- java                                     the tests
+|  |  |  +- eu
+|  |  |  |  +- heliovo
+|  |  |  |  |  +- integrationtest                 main test classes
+|  |  |  |  |  |  +- AbstractIntegrationTest.java base class for tests.
+|  |  |  |  |  |  +- util                         utility classes
+|  |  |  |  |  |  +- hec                          the hec test dir
+|  |  |  |  |  |  |  +- HecIntegratioTest.java    the HEC test
+|  |  |  |  |  |  |  +- HecStressTest.java        a stress test running multiple parallel queries
+|  |  |  |  |  |  +- ils                          the ils test dir
+|  |  |  |  |  |  +- ...                          more services
+|  |  +- resources                                test resources. 
+|  |  |  +- hec                                   HEC test resources.
+|  |  |  |  +- hec_testdata.txt                   File that defines the HEC tests (see below)
+|  |  |  |  +- results                            directory containing the expected results.
+|  |  |  |  |  +- goes_sxr_flare_1.xml            expected result as VOTable
+|  |  |  |  |  +- ...                             expected result as VOTable
+|  |  |  +- ils                                   ILS test resources
+|  |  |  |  +- ...
+|  |  |  +- ...                                   other services
+|  +- main                                        empty, but required by Maven
+|  +- site                                        directory containing help files {such as this help file}
++------------------------------------------------------+
+
+  <<NOTE:>> As provider of test data the only files that need to be changed are in the sub directories of <resources>.
+
+The testdata file
+
+  Each service has a <$servicename_testdata.txt> file which is organized as follows:
+  
++------------------------------------------------------+
+# startTime          | endTime              | from                           | where                                  | expectedResultFile
+[Ljava.lang.String;  | [Ljava.lang.String;  | [Ljava.lang.String;            | java.lang.String                       | java.lang.String
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2003-02-01T00:00:00  | 2003-02-10T00:00:00  | goes_sxr_flare                 |                                        | /hec/results/goes_sxr_flare_1.xml  
+2003-02-01T00:00:00  | 2003-02-10T00:00:00  | ngdc_halpha_flare              |                                        | /hec/results/ngdc_halpha_flare_1.xml
+...  
++------------------------------------------------------+
+ 
+  * lines starting with # are comments and will be ignored.
+  
+  * Any white spaces are ignored
+  
+  * the first non-comment line defines the required data type. They must not be changed as they are related to the test implementation.
+  
+    * <\[Lxxx;> denotes an array. E.g. <\[Ljava.lang.String;> is a <String\[\]>, <\[[Ljava.lang.String;> is a <String\[\]\[\]>.
+  
+  * the succeeding non-comment lines define the test data.  
+  
+    * Array values are separated by <,>, e.g. 2003-02-01T00:00:00,2003-02-02T00:00:00
+  
+  * the last column contains a pointer to the expected result file. This pointer must start with a / and is treated relative to the <resources> directory.
+
+Step-by-step tutorial for test data providers (with Eclipse)
+
+  This tutorial explains how to provide new test data by using Eclipse .
+  
+* Prerequisites
+  
+  * Java SDK 1.6 (only Oracle Java has been tested)
+  
+  * {{{http://www.eclipse.org/downloads/}Eclipse IDE for Java Developers}} with the following plugins:
+  
+    * {{{m2eclipse}http://m2eclipse.sonatype.org/}}
+    
+    * {{{http://subclipse.tigris.org/}subclipse}} or {{{http://www.eclipse.org/subversive/}subversive}}
+    
+  * Sourceforge account with member's permission on {{https://sourceforge.net/projects/helio-vo/}}. Check with Marco Soldati.
+
+* Installation
+
+  * Start Eclipse
+  
+  * File - Import - Maven/Checkout Maven Project from SCM
+  
+  * 

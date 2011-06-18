@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd"
+  name="integration-tests">
+  
+  <bannerLeft>
+    <name>Helio</name>
+    <src>../images/helio_logo4_sm.jpg</src>
+    <href>helio-dev.i4ds.ch/heliovo</href>
+  </bannerLeft>
+
+  <body>
+    <head>
+      <link rel="stylesheet" type="text/css" href="../css/site.css" />
+    </head>
+    <breadcrumbs>
+        <item name="site" href="index.html" />
+    </breadcrumbs>
+  
+    <menu name="Heliophysics Integrated Observatory HELIO">
+        <item name="Howto" href="howto.html" />
+    </menu>
+    
+    <menu ref="parent"/>
+    <menu ref="modules"/>
+    <menu ref="reports"/>
+  </body>
+</project>

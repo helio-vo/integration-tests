@@ -1,4 +1,4 @@
-package eu.heliovo.integrationtest.hec;
+package eu.heliovo.integrationtest.ics;
 
 import java.util.Collection;
 
@@ -11,9 +11,9 @@ import eu.heliovo.integrationtest.util.LabelledParameterized.Parameters;
 import eu.heliovo.registryclient.HelioServiceName;
 
 @RunWith(LabelledParameterized.class)
-public class HecIntegrationTest extends AbstractIntegrationTest {
-    private static final HelioServiceName SERVICE_NAME = HelioServiceName.HEC;
-    private static final String TEST_DATA_FILE = "/hec/hec_testdata.txt";
+public class IcsIntegrationTest extends AbstractIntegrationTest {
+    private static final HelioServiceName SERVICE_NAME = HelioServiceName.ICS;
+    private static final String TEST_DATA_FILE = "/ics/ics_testdata.txt";
 
     /**
      * Create the integration test
@@ -22,7 +22,7 @@ public class HecIntegrationTest extends AbstractIntegrationTest {
      * @param from the list of from catalogs
      * @param where the where clause
      */
-    public HecIntegrationTest(String[] startTime, String[] endTime, String[] from, String where, String expectedResultFile) {
+    public IcsIntegrationTest(String[] startTime, String[] endTime, String[] from, String where, String expectedResultFile) {
         super(SERVICE_NAME, startTime, endTime, from, where, expectedResultFile);
     }
     

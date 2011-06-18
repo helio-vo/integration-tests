@@ -17,7 +17,7 @@ import org.junit.Test;
 
 import eu.heliovo.clientapi.query.HelioQueryResult;
 import eu.heliovo.integrationtest.AbstractIntegrationTest;
-import eu.heliovo.integrationtest.DataReaderUtil;
+import eu.heliovo.integrationtest.util.DataReaderUtil;
 import eu.heliovo.registryclient.HelioServiceName;
 
 public class HecStressTest {
@@ -56,6 +56,7 @@ public class HecStressTest {
         for (Object[] objects : testData) {
             Method method = getClass().getMethod("doHecStressTest", String[].class, String[].class, String[].class, String.class, String.class);
             assertNotNull(method);
+            @SuppressWarnings("unchecked")
             Callable<HelioQueryResult> worker = (Callable<HelioQueryResult>)method.invoke(this, objects);
             workers.add(worker);
         }

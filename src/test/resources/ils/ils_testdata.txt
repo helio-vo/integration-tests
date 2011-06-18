@@ -1,0 +1,4 @@
+# startTime          | endTime              | from                           | where                                  | expectedResultFile
+[Ljava.lang.String;  | [Ljava.lang.String;  | [Ljava.lang.String;            | java.lang.String                       | java.lang.String
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2003-02-01T00:00:00  | 2003-02-10T00:00:00  | trajectories                   |                                        | /ils/results/trajectories_1.xml  
