@@ -142,7 +142,7 @@ public abstract class AbstractIntegrationTest {
      */
     protected static HelioQueryResult testAsyncQuery(HelioServiceName serviceName, List<String> startTime, List<String> endTime, List<String> from, String where, String saveto) {
         AsyncQueryServiceFactory queryServiceFactory = AsyncQueryServiceFactory.getInstance();
-        AsyncQueryService queryService = queryServiceFactory.getAsyncQueryService(serviceName.getName());
+        AsyncQueryService queryService = queryServiceFactory.getAsyncQueryService(serviceName);
         HelioQueryResult result = queryService.query(startTime, endTime, from, where, 100, 0, null, saveto);
         
         //System.out.println(result);
