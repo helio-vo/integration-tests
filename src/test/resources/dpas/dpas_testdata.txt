@@ -1,0 +1,4 @@
+# startTime          | endTime              | from                           | where                                  | expectedResultFile
+[Ljava.lang.String;  | [Ljava.lang.String;  | [Ljava.lang.String;            | java.lang.String                       | java.lang.String
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2007-10-30T20:00:00  | 2007-10-31T03:59:59  | BBSO__GONG                     |                                        | /dpas/results/bbso_gong_1.xml
