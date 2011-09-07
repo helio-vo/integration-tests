@@ -29,5 +29,11 @@ public class DpasIntegrationTest extends AbstractIntegrationTest {
     @Parameters public static Collection<Object[]> testData() {
         DataReaderUtil reader = new DataReaderUtil(DataReaderUtil.class.getResourceAsStream(TEST_DATA_FILE));
         return reader.getTestData();
-    }    
+    }
+    
+    @Override
+    protected long getDefaultTimeout() {
+        return 180;
+    }
+    
 }

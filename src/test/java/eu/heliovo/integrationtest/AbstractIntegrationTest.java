@@ -165,4 +165,13 @@ public abstract class AbstractIntegrationTest {
         sb.append("(").append(from).append(")");
         return sb.toString();
     }
+    
+    /**
+     * Return the default timeout in seconds.
+     * This method can be overloaded by implmeentations to increase the timeout.
+     * @return timeout in seconds.
+     */
+    protected long getDefaultTimeout() {
+        return 60;
+    }
 }
