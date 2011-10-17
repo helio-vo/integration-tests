@@ -1,4 +1,4 @@
-package eu.heliovo.integrationtest.hec;
+package eu.heliovo.integrationtest.ils;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -20,11 +20,11 @@ import eu.heliovo.integrationtest.AbstractIntegrationTest;
 import eu.heliovo.integrationtest.util.DataReaderUtil;
 import eu.heliovo.registryclient.HelioServiceName;
 
-public class HecStressTest {
+public class IlsStressTest {
 
-    private static class HecStressTestImpl extends AbstractIntegrationTest {        
-        public HecStressTestImpl(String[] startTime, String[] endTime, String[] from, String where, String expectedResultFile) {
-            super(HelioServiceName.HEC, startTime, endTime, from, where, expectedResultFile);
+    private static class IlsStressTestImpl extends AbstractIntegrationTest {        
+        public IlsStressTestImpl(String[] startTime, String[] endTime, String[] from, String where, String expectedResultFile) {
+            super(HelioServiceName.ILS, startTime, endTime, from, where, expectedResultFile);
         }
         
     }
@@ -36,11 +36,11 @@ public class HecStressTest {
      * @param from the list of from catalogs
      * @param where the where clause
      */
-    public Callable<HelioQueryResult> doHecStressTest(final String[] startTime, final String[] endTime, final String[] from, final String where, final String expectedResultFile) {
+    public Callable<HelioQueryResult> doIlsStressTest(final String[] startTime, final String[] endTime, final String[] from, final String where, final String expectedResultFile) {
         Callable<HelioQueryResult> worker = new Callable<HelioQueryResult>() {
             @Override
             public HelioQueryResult call() throws Exception {
-                HecStressTestImpl stressTest = new HecStressTestImpl(startTime, endTime, from, where, expectedResultFile);
+                IlsStressTestImpl stressTest = new IlsStressTestImpl(startTime, endTime, from, where, expectedResultFile);
                 stressTest.testCatalog();
                 return null;
             }
@@ -48,12 +48,15 @@ public class HecStressTest {
         return worker;
     }
     
-    @Ignore @Test public void testParallelHecCalls() throws Exception {
-        DataReaderUtil reader = new DataReaderUtil(DataReaderUtil.class.getResourceAsStream("/hec/hec_testdata.txt"));
-        Collection<Object[]> testData = reader.getTestData();
+    @Ignore @Test public void testParallelIlsCalls() throws Exception {
+        DataReaderUtil reader = new DataReaderUtil(DataReaderUtil.class.getResourceAsStream("/ils/ils_testdata.txt"));
+        List<Object[]> testData = new ArrayList<Object[]>();
+        for (int i = 0; i < 20; i++) {
+            testData.addAll(reader.getTestData());
+        }
         Collection<Callable<HelioQueryResult>> workers = new ArrayList<Callable<HelioQueryResult>>();
         for (Object[] objects : testData) {
-            Method method = getClass().getMethod("doHecStressTest", String[].class, String[].class, String[].class, String.class, String.class);
+            Method method = getClass().getMethod("doIlsStressTest", String[].class, String[].class, String[].class, String.class, String.class);
             assertNotNull(method);
             @SuppressWarnings("unchecked")
             Callable<HelioQueryResult> worker = (Callable<HelioQueryResult>)method.invoke(this, objects);

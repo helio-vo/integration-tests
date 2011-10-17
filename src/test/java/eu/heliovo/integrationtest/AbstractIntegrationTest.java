@@ -77,7 +77,14 @@ public abstract class AbstractIntegrationTest {
         HelioQueryResult result = testAsyncQuery(serviceName, Arrays.asList(startTime), Arrays.asList(endTime), Arrays.asList(from), where, saveto);
         assertNotNull(result);
         
-        StarTable[] actualTables = STILUtils.read(result.asURL());
+        StarTable[] actualTables;
+        try {
+            actualTables = STILUtils.read(result.asURL());
+        } catch (Exception e) {
+            System.err.println("Invalid URL " + result.asString());
+            System.err.println("Failed to read " + Arrays.toString(this.from) + " | " + Arrays.toString(startTime) + " | " + Arrays.toString(endTime) + " | " + where + " | " + expectedResultFile);
+            throw e;
+        }
         
         InputStream expectedResult = getClass().getResourceAsStream(expectedResultFile);
         assertNotNull(expectedResult);
@@ -88,6 +95,7 @@ public abstract class AbstractIntegrationTest {
             StarTable expectedTable = expectedTables[i];
             StarTable actualTable = actualTables[i];
             assertEquals(expectedTable.getRowCount(), actualTable.getRowCount());
+            assertEquals(expectedTable.getColumnCount(), actualTable.getColumnCount());
             
             System.out.println(Arrays.toString(this.from) + " | " + Arrays.toString(startTime) + " | " + Arrays.toString(endTime) + " | " + where + " | " + expectedResultFile + " -> " + actualTable.getRowCount());
             if (actualTable.getRowCount() > 0) {

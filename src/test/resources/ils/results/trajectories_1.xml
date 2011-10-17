@@ -2,9 +2,9 @@
 <RESOURCE>
 <DESCRIPTION>Helio ILS service information.</DESCRIPTION>
 <INFO name="QUERY_STATUS" value="OK"/>
-<INFO name="EXECUTED_AT" value="2011-09-26 20:42:29"/>
+<INFO name="EXECUTED_AT" value="2011-10-17 11:42:40"/>
 <INFO name="MAX_RECORD_ALLOWED" value="50000"/>
-<INFO name="QUERY_STRING"><![CDATA[SELECT trajectories.target_obj,trajectories.time,trajectories.julian_int,trajectories.r_hci,trajectories.long_hee,trajectories.lat_hee,trajectories.long_hci,trajectories.lat_hci,trajectories.long_carr FROM trajectories WHERE  ( time>='2003-02-01T00:00:00'  AND time <='2003-02-10T00:00:00' )  AND target_obj like '%%'  ORDER BY trajectories.time  LIMIT 100 OFFSET 0]]></INFO>
+<INFO name="QUERY_STRING"><![CDATA[SELECT trajectories.target_obj,trajectories.time,trajectories.julian_int,trajectories.julian_fractional,trajectories.r_hci,trajectories.long_hee,trajectories.lat_hee,trajectories.long_hci,trajectories.lat_hci,trajectories.long_carr FROM trajectories WHERE  ( time>='2003-02-01T00:00:00'  AND time <='2003-02-10T00:00:00' )  AND target_obj like '%%'  ORDER BY trajectories.time  LIMIT 100 OFFSET 0]]></INFO>
 <INFO name="QUERY_URL"><![CDATA[http://msslxw.mssl.ucl.ac.uk:8080/helio-ils/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=trajectories]]></INFO>
 <TABLE name="ils-trajectories">
 <FIELD arraysize="*" datatype="char" name="target_obj" utype="helio:trajectories.target_object">
@@ -17,14 +17,17 @@
 <DESCRIPTION>Julian integer</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
+<FIELD datatype="double" name="julian_fractional">
+<DESCRIPTION>Julian Fraction</DESCRIPTION>
+</FIELD>
 <FIELD datatype="double" name="r_hci" ucd="pos.bodyrc.alt;pos.heliocentric" utype="helio:location.r_hci">
-<DESCRIPTION>The heliocentric distance of the observatory for which the information is provided</DESCRIPTION>
+<DESCRIPTION>Radial Distance AU</DESCRIPTION>
 </FIELD>
 <FIELD datatype="double" name="long_hee" ucd="pos.ecliptic.lon;pos.heliocentric" utype="helio:location.long_hee">
-<DESCRIPTION>Radial Distance</DESCRIPTION>
+<DESCRIPTION>Solar Ecliptic-HAE longitude</DESCRIPTION>
 </FIELD>
 <FIELD datatype="double" name="lat_hee" ucd="pos.ecliptic.lat;pos.heliocentric" utype="helio:location.lat_hee">
-<DESCRIPTION>SE Longitude</DESCRIPTION>
+<DESCRIPTION>Solar Ecliptic-HEE latitude</DESCRIPTION>
 </FIELD>
 <FIELD datatype="double" name="long_hci" ucd="pos.bodyrc.long;pos.heliocentric" utype="helio:location.long_hci">
 <DESCRIPTION>HGI Longitude</DESCRIPTION>
@@ -33,7 +36,7 @@
 <DESCRIPTION>HGI Latitude</DESCRIPTION>
 </FIELD>
 <FIELD datatype="double" name="long_carr" ucd="pos" utype="helio:location.long_carr">
-<DESCRIPTION>HG Longitude</DESCRIPTION>
+<DESCRIPTION>Carrington Longitude</DESCRIPTION>
 </FIELD>
 <DATA>
 <TABLEDATA>
@@ -41,6 +44,7 @@
     <TD>SATURN</TD>
     <TD>2003-02-01T00:00:00</TD>
     <TD>2452671</TD>
+    <TD>0.5</TD>
     <TD>8.994</TD>
     <TD>87.75</TD>
     <TD>-1.09</TD>
@@ -58,50 +62,19 @@
     <TD>3.1743491</TD>
     <TD>111.69198</TD>
     <TD>-3.5652837</TD>
+    <TD>309.95544</TD>
   </TR>
   <TR>
-    <TD>URANUS</TD>
-    <TD>2003-02-01T00:00:00</TD>
-    <TD>2452671</TD>
-    <TD>20.0</TD>
-    <TD>328.85</TD>
-    <TD>-0.74</TD>
-    <TD>252.94</TD>
-    <TD>6.18</TD>
-    <TD>91.21</TD>
-  </TR>
-  <TR>
-    <TD>MARS</TD>
+    <TD>GALILEO</TD>
     <TD>2003-02-01T00:00:00</TD>
     <TD>2452671</TD>
     <TD>0.5</TD>
-    <TD>1.5842406</TD>
-    <TD>-143.84318</TD>
-    <TD>0.42840524</TD>
-    <TD>140.57493</TD>
-    <TD>-4.1895979</TD>
-  </TR>
-  <TR>
-    <TD>JUPITER</TD>
-    <TD>2003-02-01T00:00:00</TD>
-    <TD>2452671</TD>
-    <TD>5.308</TD>
-    <TD>132.98</TD>
+    <TD>5.31</TD>
+    <TD>133.0</TD>
     <TD>0.7</TD>
-    <TD>57.01</TD>
-    <TD>-5.38</TD>
-    <TD>255.28</TD>
-  </TR>
-  <TR>
-    <TD>VOYAGER1</TD>
-    <TD>2003-02-01T00:00:00</TD>
-    <TD>2452671</TD>
-    <TD>87.27</TD>
-    <TD>252.4</TD>
-    <TD>34.6</TD>
-    <TD>171.7</TD>
-    <TD>33.9</TD>
-    <TD>9.9</TD>
+    <TD>57.0</TD>
+    <TD>-5.4</TD>
+    <TD>255.3</TD>
   </TR>
   <TR>
     <TD>EARTH</TD>
@@ -113,44 +86,37 @@
     <TD>-2.249269E-4</TD>
     <TD>55.683966</TD>
     <TD>-5.9998838</TD>
+    <TD>253.94742</TD>
   </TR>
   <TR>
-    <TD>ULYSSES</TD>
+    <TD>MARS</TD>
     <TD>2003-02-01T00:00:00</TD>
     <TD>2452671</TD>
-    <TD>4.57</TD>
-    <TD>152.1</TD>
-    <TD>28.7</TD>
-    <TD>77.1</TD>
-    <TD>21.7</TD>
-    <TD>275.4</TD>
+    <TD>0.5</TD>
+    <TD>1.5842406</TD>
+    <TD>-143.84318</TD>
+    <TD>0.42840524</TD>
+    <TD>140.57493</TD>
+    <TD>-4.1895979</TD>
+    <TD>338.83838</TD>
   </TR>
   <TR>
-    <TD>GALILEO</TD>
+    <TD>URANUS</TD>
     <TD>2003-02-01T00:00:00</TD>
     <TD>2452671</TD>
-    <TD>5.31</TD>
-    <TD>133.0</TD>
-    <TD>0.7</TD>
-    <TD>57.0</TD>
-    <TD>-5.4</TD>
-    <TD>255.3</TD>
-  </TR>
-  <TR>
-    <TD>VOYAGER2</TD>
-    <TD>2003-02-01T00:00:00</TD>
-    <TD>2452671</TD>
-    <TD>69.32</TD>
-    <TD>287.8</TD>
-    <TD>-28.2</TD>
-    <TD>214.9</TD>
-    <TD>-24.2</TD>
-    <TD>53.2</TD>
+    <TD>0.5</TD>
+    <TD>20.0</TD>
+    <TD>328.85</TD>
+    <TD>-0.74</TD>
+    <TD>252.94</TD>
+    <TD>6.18</TD>
+    <TD>91.21</TD>
   </TR>
   <TR>
     <TD>NEPTUNE</TD>
     <TD>2003-02-01T00:00:00</TD>
     <TD>2452671</TD>
+    <TD>0.5</TD>
     <TD>30.05</TD>
     <TD>310.77</TD>
     <TD>0.04</TD>
@@ -159,15 +125,52 @@
     <TD>73.0</TD>
   </TR>
   <TR>
-    <TD>CASSINI</TD>
+    <TD>VOYAGER2</TD>
     <TD>2003-02-01T00:00:00</TD>
     <TD>2452671</TD>
-    <TD>8.08</TD>
-    <TD>95.8</TD>
-    <TD>-0.4</TD>
-    <TD>19.8</TD>
-    <TD>-2.9</TD>
-    <TD>218.1</TD>
+    <TD>0.5</TD>
+    <TD>69.32</TD>
+    <TD>287.8</TD>
+    <TD>-28.2</TD>
+    <TD>214.9</TD>
+    <TD>-24.2</TD>
+    <TD>53.2</TD>
+  </TR>
+  <TR>
+    <TD>VOYAGER1</TD>
+    <TD>2003-02-01T00:00:00</TD>
+    <TD>2452671</TD>
+    <TD>0.5</TD>
+    <TD>87.27</TD>
+    <TD>252.4</TD>
+    <TD>34.6</TD>
+    <TD>171.7</TD>
+    <TD>33.9</TD>
+    <TD>9.9</TD>
+  </TR>
+  <TR>
+    <TD>JUPITER</TD>
+    <TD>2003-02-01T00:00:00</TD>
+    <TD>2452671</TD>
+    <TD>0.5</TD>
+    <TD>5.308</TD>
+    <TD>132.98</TD>
+    <TD>0.7</TD>
+    <TD>57.01</TD>
+    <TD>-5.38</TD>
+    <TD>255.28</TD>
+  </TR>
+  <TR>
+    <TD>ULYSSES</TD>
+    <TD>2003-02-01T00:00:00</TD>
+    <TD>2452671</TD>
+    <TD>0.5</TD>
+    <TD>4.57</TD>
+    <TD>152.1</TD>
+    <TD>28.7</TD>
+    <TD>77.1</TD>
+    <TD>21.7</TD>
+    <TD>275.4</TD>
   </TR>
   <TR>
     <TD>MERCURY</TD>
@@ -179,39 +182,19 @@
     <TD>2.9708161</TD>
     <TD>127.56899</TD>
     <TD>-2.7796137</TD>
+    <TD>325.83245</TD>
   </TR>
   <TR>
-    <TD>MERCURY</TD>
-    <TD>2003-02-01T06:00:00</TD>
+    <TD>CASSINI</TD>
+    <TD>2003-02-01T00:00:00</TD>
     <TD>2452671</TD>
-    <TD>0.75</TD>
-    <TD>0.42247496</TD>
-    <TD>-155.81901</TD>
-    <TD>2.8773278</TD>
-    <TD>128.41243</TD>
-    <TD>-2.8076466</TD>
-  </TR>
-  <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-01T06:00:00</TD>
-    <TD>2452671</TD>
-    <TD>0.75</TD>
-    <TD>0.98533712</TD>
-    <TD>131.91762</TD>
-    <TD>-2.189065E-4</TD>
-    <TD>55.938604</TD>
-    <TD>-6.0178855</TD>
-  </TR>
-  <TR>
-    <TD>VENUS</TD>
-    <TD>2003-02-01T06:00:00</TD>
-    <TD>2452671</TD>
-    <TD>0.75</TD>
-    <TD>0.72059821</TD>
-    <TD>-172.14724</TD>
-    <TD>3.1657924</TD>
-    <TD>112.09621</TD>
-    <TD>-3.5548095</TD>
+    <TD>0.5</TD>
+    <TD>8.08</TD>
+    <TD>95.8</TD>
+    <TD>-0.4</TD>
+    <TD>19.8</TD>
+    <TD>-2.9</TD>
+    <TD>218.1</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -223,39 +206,43 @@
     <TD>0.42461579</TD>
     <TD>140.69566</TD>
     <TD>-4.1815981</TD>
+    <TD>335.41301</TD>
   </TR>
   <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-01T12:00:00</TD>
-    <TD>2452672</TD>
-    <TD>0.0</TD>
-    <TD>0.98537211</TD>
-    <TD>132.17148</TD>
-    <TD>-2.1334989E-4</TD>
-    <TD>56.193242</TD>
-    <TD>-6.0357685</TD>
-  </TR>
-  <TR>
-    <TD>MARS</TD>
-    <TD>2003-02-01T12:00:00</TD>
-    <TD>2452672</TD>
-    <TD>0.0</TD>
-    <TD>1.5836726</TD>
-    <TD>-143.6019</TD>
-    <TD>0.42082309</TD>
-    <TD>140.81643</TD>
-    <TD>-4.1735769</TD>
+    <TD>VENUS</TD>
+    <TD>2003-02-01T06:00:00</TD>
+    <TD>2452671</TD>
+    <TD>0.75</TD>
+    <TD>0.72059821</TD>
+    <TD>-172.14724</TD>
+    <TD>3.1657924</TD>
+    <TD>112.09621</TD>
+    <TD>-3.5548095</TD>
+    <TD>306.81356</TD>
   </TR>
   <TR>
     <TD>MERCURY</TD>
-    <TD>2003-02-01T12:00:00</TD>
-    <TD>2452672</TD>
-    <TD>0.0</TD>
-    <TD>0.42363523</TD>
-    <TD>-154.98497</TD>
-    <TD>2.7837439</TD>
-    <TD>129.25126</TD>
-    <TD>-2.8349227</TD>
+    <TD>2003-02-01T06:00:00</TD>
+    <TD>2452671</TD>
+    <TD>0.75</TD>
+    <TD>0.42247496</TD>
+    <TD>-155.81901</TD>
+    <TD>2.8773278</TD>
+    <TD>128.41243</TD>
+    <TD>-2.8076466</TD>
+    <TD>323.12978</TD>
+  </TR>
+  <TR>
+    <TD>EARTH</TD>
+    <TD>2003-02-01T06:00:00</TD>
+    <TD>2452671</TD>
+    <TD>0.75</TD>
+    <TD>0.98533712</TD>
+    <TD>131.91762</TD>
+    <TD>-2.189065E-4</TD>
+    <TD>55.938604</TD>
+    <TD>-6.0178855</TD>
+    <TD>250.65596</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -267,6 +254,43 @@
     <TD>3.1570793</TD>
     <TD>112.50039</TD>
     <TD>-3.5441597</TD>
+    <TD>303.67165</TD>
+  </TR>
+  <TR>
+    <TD>MARS</TD>
+    <TD>2003-02-01T12:00:00</TD>
+    <TD>2452672</TD>
+    <TD>0.0</TD>
+    <TD>1.5836726</TD>
+    <TD>-143.6019</TD>
+    <TD>0.42082309</TD>
+    <TD>140.81643</TD>
+    <TD>-4.1735769</TD>
+    <TD>331.98768</TD>
+  </TR>
+  <TR>
+    <TD>EARTH</TD>
+    <TD>2003-02-01T12:00:00</TD>
+    <TD>2452672</TD>
+    <TD>0.0</TD>
+    <TD>0.98537211</TD>
+    <TD>132.17148</TD>
+    <TD>-2.1334989E-4</TD>
+    <TD>56.193242</TD>
+    <TD>-6.0357685</TD>
+    <TD>247.3645</TD>
+  </TR>
+  <TR>
+    <TD>MERCURY</TD>
+    <TD>2003-02-01T12:00:00</TD>
+    <TD>2452672</TD>
+    <TD>0.0</TD>
+    <TD>0.42363523</TD>
+    <TD>-154.98497</TD>
+    <TD>2.7837439</TD>
+    <TD>129.25126</TD>
+    <TD>-2.8349227</TD>
+    <TD>320.42251</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -278,6 +302,7 @@
     <TD>3.1482102</TD>
     <TD>112.90454</TD>
     <TD>-3.5333348</TD>
+    <TD>300.52969</TD>
   </TR>
   <TR>
     <TD>MERCURY</TD>
@@ -289,6 +314,7 @@
     <TD>2.6900844</TD>
     <TD>130.08557</TD>
     <TD>-2.8614489</TD>
+    <TD>317.71073</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -300,6 +326,7 @@
     <TD>0.41702717</TD>
     <TD>140.93724</TD>
     <TD>-4.1655344</TD>
+    <TD>328.5624</TD>
   </TR>
   <TR>
     <TD>EARTH</TD>
@@ -311,22 +338,49 @@
     <TD>-2.0826759E-4</TD>
     <TD>56.447878</TD>
     <TD>-6.0535323</TD>
+    <TD>244.07303</TD>
   </TR>
   <TR>
-    <TD>VENUS</TD>
+    <TD>MERCURY</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
     <TD>0.5</TD>
-    <TD>0.7206839</TD>
-    <TD>-170.93515</TD>
-    <TD>3.1391856</TD>
-    <TD>113.30864</TD>
-    <TD>-3.5223354</TD>
+    <TD>0.42591698</TD>
+    <TD>-153.3308</TD>
+    <TD>2.5963683</TD>
+    <TD>130.91545</TD>
+    <TD>-2.8872321</TD>
+    <TD>314.99451</TD>
+  </TR>
+  <TR>
+    <TD>CASSINI</TD>
+    <TD>2003-02-02T00:00:00</TD>
+    <TD>2452672</TD>
+    <TD>0.5</TD>
+    <TD>8.08</TD>
+    <TD>95.9</TD>
+    <TD>-0.4</TD>
+    <TD>19.9</TD>
+    <TD>-2.9</TD>
+    <TD>203.9</TD>
+  </TR>
+  <TR>
+    <TD>GALILEO</TD>
+    <TD>2003-02-02T00:00:00</TD>
+    <TD>2452672</TD>
+    <TD>0.5</TD>
+    <TD>5.31</TD>
+    <TD>133.1</TD>
+    <TD>0.7</TD>
+    <TD>57.1</TD>
+    <TD>-5.4</TD>
+    <TD>241.2</TD>
   </TR>
   <TR>
     <TD>SATURN</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
+    <TD>0.5</TD>
     <TD>8.994</TD>
     <TD>87.79</TD>
     <TD>-1.09</TD>
@@ -344,22 +398,13 @@
     <TD>0.41322803</TD>
     <TD>141.05809</TD>
     <TD>-4.1574705</TD>
-  </TR>
-  <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-02T00:00:00</TD>
-    <TD>2452672</TD>
-    <TD>0.5</TD>
-    <TD>0.98544267</TD>
-    <TD>132.67915</TD>
-    <TD>-2.0366831E-4</TD>
-    <TD>56.702512</TD>
-    <TD>-6.0711767</TD>
+    <TD>325.13715</TD>
   </TR>
   <TR>
     <TD>JUPITER</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
+    <TD>0.5</TD>
     <TD>5.309</TD>
     <TD>133.06</TD>
     <TD>0.7</TD>
@@ -371,6 +416,7 @@
     <TD>ULYSSES</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
+    <TD>0.5</TD>
     <TD>4.58</TD>
     <TD>152.1</TD>
     <TD>28.7</TD>
@@ -379,53 +425,34 @@
     <TD>261.2</TD>
   </TR>
   <TR>
-    <TD>MERCURY</TD>
+    <TD>EARTH</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
     <TD>0.5</TD>
-    <TD>0.42591698</TD>
-    <TD>-153.3308</TD>
-    <TD>2.5963683</TD>
-    <TD>130.91545</TD>
-    <TD>-2.8872321</TD>
+    <TD>0.98544267</TD>
+    <TD>132.67915</TD>
+    <TD>-2.0366831E-4</TD>
+    <TD>56.702512</TD>
+    <TD>-6.0711767</TD>
+    <TD>240.78157</TD>
   </TR>
   <TR>
-    <TD>GALILEO</TD>
+    <TD>VENUS</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
-    <TD>5.31</TD>
-    <TD>133.1</TD>
-    <TD>0.7</TD>
-    <TD>57.1</TD>
-    <TD>-5.4</TD>
-    <TD>241.2</TD>
-  </TR>
-  <TR>
-    <TD>VOYAGER1</TD>
-    <TD>2003-02-02T00:00:00</TD>
-    <TD>2452672</TD>
-    <TD>87.28</TD>
-    <TD>252.4</TD>
-    <TD>34.6</TD>
-    <TD>171.7</TD>
-    <TD>33.9</TD>
-    <TD>355.8</TD>
-  </TR>
-  <TR>
-    <TD>CASSINI</TD>
-    <TD>2003-02-02T00:00:00</TD>
-    <TD>2452672</TD>
-    <TD>8.08</TD>
-    <TD>95.9</TD>
-    <TD>-0.4</TD>
-    <TD>19.9</TD>
-    <TD>-2.9</TD>
-    <TD>203.9</TD>
+    <TD>0.5</TD>
+    <TD>0.7206839</TD>
+    <TD>-170.93515</TD>
+    <TD>3.1391856</TD>
+    <TD>113.30864</TD>
+    <TD>-3.5223354</TD>
+    <TD>297.38769</TD>
   </TR>
   <TR>
     <TD>NEPTUNE</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
+    <TD>0.5</TD>
     <TD>30.05</TD>
     <TD>310.77</TD>
     <TD>0.04</TD>
@@ -434,20 +461,10 @@
     <TD>58.82</TD>
   </TR>
   <TR>
-    <TD>URANUS</TD>
-    <TD>2003-02-02T00:00:00</TD>
-    <TD>2452672</TD>
-    <TD>20.0</TD>
-    <TD>328.86</TD>
-    <TD>-0.74</TD>
-    <TD>252.95</TD>
-    <TD>6.18</TD>
-    <TD>77.03</TD>
-  </TR>
-  <TR>
     <TD>VOYAGER2</TD>
     <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
+    <TD>0.5</TD>
     <TD>69.33</TD>
     <TD>287.8</TD>
     <TD>-28.2</TD>
@@ -456,26 +473,28 @@
     <TD>39.0</TD>
   </TR>
   <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-02T06:00:00</TD>
+    <TD>URANUS</TD>
+    <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
-    <TD>0.75</TD>
-    <TD>0.98547825</TD>
-    <TD>132.93295</TD>
-    <TD>-1.9955901E-4</TD>
-    <TD>56.957144</TD>
-    <TD>-6.0887012</TD>
+    <TD>0.5</TD>
+    <TD>20.0</TD>
+    <TD>328.86</TD>
+    <TD>-0.74</TD>
+    <TD>252.95</TD>
+    <TD>6.18</TD>
+    <TD>77.03</TD>
   </TR>
   <TR>
-    <TD>MERCURY</TD>
-    <TD>2003-02-02T06:00:00</TD>
+    <TD>VOYAGER1</TD>
+    <TD>2003-02-02T00:00:00</TD>
     <TD>2452672</TD>
-    <TD>0.75</TD>
-    <TD>0.42703813</TD>
-    <TD>-152.51047</TD>
-    <TD>2.5026142</TD>
-    <TD>131.74099</TD>
-    <TD>-2.9122792</TD>
+    <TD>0.5</TD>
+    <TD>87.28</TD>
+    <TD>252.4</TD>
+    <TD>34.6</TD>
+    <TD>171.7</TD>
+    <TD>33.9</TD>
+    <TD>355.8</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -487,6 +506,7 @@
     <TD>3.130006</TD>
     <TD>113.7127</TD>
     <TD>-3.5111622</TD>
+    <TD>294.24565</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -498,6 +518,31 @@
     <TD>0.40942569</TD>
     <TD>141.17899</TD>
     <TD>-4.1493852</TD>
+    <TD>321.71194</TD>
+  </TR>
+  <TR>
+    <TD>EARTH</TD>
+    <TD>2003-02-02T06:00:00</TD>
+    <TD>2452672</TD>
+    <TD>0.75</TD>
+    <TD>0.98547825</TD>
+    <TD>132.93295</TD>
+    <TD>-1.9955901E-4</TD>
+    <TD>56.957144</TD>
+    <TD>-6.0887012</TD>
+    <TD>237.4901</TD>
+  </TR>
+  <TR>
+    <TD>MERCURY</TD>
+    <TD>2003-02-02T06:00:00</TD>
+    <TD>2452672</TD>
+    <TD>0.75</TD>
+    <TD>0.42703813</TD>
+    <TD>-152.51047</TD>
+    <TD>2.5026142</TD>
+    <TD>131.74099</TD>
+    <TD>-2.9122792</TD>
+    <TD>312.27394</TD>
   </TR>
   <TR>
     <TD>MERCURY</TD>
@@ -509,28 +554,7 @@
     <TD>2.4088399</TD>
     <TD>132.56226</TD>
     <TD>-2.9365971</TD>
-  </TR>
-  <TR>
-    <TD>MARS</TD>
-    <TD>2003-02-02T12:00:00</TD>
-    <TD>2452673</TD>
-    <TD>0.0</TD>
-    <TD>1.5825325</TD>
-    <TD>-143.11883</TD>
-    <TD>0.40562015</TD>
-    <TD>141.29992</TD>
-    <TD>-4.1412787</TD>
-  </TR>
-  <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-02T12:00:00</TD>
-    <TD>2452673</TD>
-    <TD>0.0</TD>
-    <TD>0.98551401</TD>
-    <TD>133.18674</TD>
-    <TD>-1.9594492E-4</TD>
-    <TD>57.211772</TD>
-    <TD>-6.1061055</TD>
+    <TD>309.54912</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -542,6 +566,31 @@
     <TD>3.1206719</TD>
     <TD>114.11672</TD>
     <TD>-3.4998157</TD>
+    <TD>291.10357</TD>
+  </TR>
+  <TR>
+    <TD>EARTH</TD>
+    <TD>2003-02-02T12:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.0</TD>
+    <TD>0.98551401</TD>
+    <TD>133.18674</TD>
+    <TD>-1.9594492E-4</TD>
+    <TD>57.211772</TD>
+    <TD>-6.1061055</TD>
+    <TD>234.19863</TD>
+  </TR>
+  <TR>
+    <TD>MARS</TD>
+    <TD>2003-02-02T12:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.0</TD>
+    <TD>1.5825325</TD>
+    <TD>-143.11883</TD>
+    <TD>0.40562015</TD>
+    <TD>141.29992</TD>
+    <TD>-4.1412787</TD>
+    <TD>318.28678</TD>
   </TR>
   <TR>
     <TD>EARTH</TD>
@@ -553,28 +602,7 @@
     <TD>-1.9282955E-4</TD>
     <TD>57.466398</TD>
     <TD>-6.1233893</TD>
-  </TR>
-  <TR>
-    <TD>MARS</TD>
-    <TD>2003-02-02T18:00:00</TD>
-    <TD>2452673</TD>
-    <TD>0.25</TD>
-    <TD>1.5822466</TD>
-    <TD>-142.99795</TD>
-    <TD>0.40181144</TD>
-    <TD>141.4209</TD>
-    <TD>-4.1331508</TD>
-  </TR>
-  <TR>
-    <TD>VENUS</TD>
-    <TD>2003-02-02T18:00:00</TD>
-    <TD>2452673</TD>
-    <TD>0.25</TD>
-    <TD>0.72077074</TD>
-    <TD>-169.7234</TD>
-    <TD>3.1111837</TD>
-    <TD>114.52069</TD>
-    <TD>-3.4882966</TD>
+    <TD>230.90715</TD>
   </TR>
   <TR>
     <TD>MERCURY</TD>
@@ -586,50 +614,67 @@
     <TD>2.3150626</TD>
     <TD>133.37936</TD>
     <TD>-2.9601925</TD>
+    <TD>306.82011</TD>
+  </TR>
+  <TR>
+    <TD>VENUS</TD>
+    <TD>2003-02-02T18:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.25</TD>
+    <TD>0.72077074</TD>
+    <TD>-169.7234</TD>
+    <TD>3.1111837</TD>
+    <TD>114.52069</TD>
+    <TD>-3.4882966</TD>
+    <TD>287.96145</TD>
+  </TR>
+  <TR>
+    <TD>MARS</TD>
+    <TD>2003-02-02T18:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.25</TD>
+    <TD>1.5822466</TD>
+    <TD>-142.99795</TD>
+    <TD>0.40181144</TD>
+    <TD>141.4209</TD>
+    <TD>-4.1331508</TD>
+    <TD>314.86166</TD>
+  </TR>
+  <TR>
+    <TD>MARS</TD>
+    <TD>2003-02-03T00:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.5</TD>
+    <TD>1.5819604</TD>
+    <TD>-142.87703</TD>
+    <TD>0.39799956</TD>
+    <TD>141.54192</TD>
+    <TD>-4.1250015</TD>
+    <TD>311.43657</TD>
+  </TR>
+  <TR>
+    <TD>CASSINI</TD>
+    <TD>2003-02-03T00:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.5</TD>
+    <TD>8.09</TD>
+    <TD>95.9</TD>
+    <TD>-0.4</TD>
+    <TD>19.9</TD>
+    <TD>-2.9</TD>
+    <TD>189.8</TD>
   </TR>
   <TR>
     <TD>GALILEO</TD>
     <TD>2003-02-03T00:00:00</TD>
     <TD>2452673</TD>
+    <TD>0.5</TD>
     <TD>5.31</TD>
     <TD>133.1</TD>
     <TD>0.7</TD>
     <TD>57.2</TD>
     <TD>-5.4</TD>
     <TD>227.1</TD>
-  </TR>
-  <TR>
-    <TD>SATURN</TD>
-    <TD>2003-02-03T00:00:00</TD>
-    <TD>2452673</TD>
-    <TD>8.994</TD>
-    <TD>87.82</TD>
-    <TD>-1.08</TD>
-    <TD>11.78</TD>
-    <TD>-2.58</TD>
-    <TD>181.68</TD>
-  </TR>
-  <TR>
-    <TD>ULYSSES</TD>
-    <TD>2003-02-03T00:00:00</TD>
-    <TD>2452673</TD>
-    <TD>4.58</TD>
-    <TD>152.2</TD>
-    <TD>28.6</TD>
-    <TD>77.1</TD>
-    <TD>21.6</TD>
-    <TD>247.0</TD>
-  </TR>
-  <TR>
-    <TD>VOYAGER1</TD>
-    <TD>2003-02-03T00:00:00</TD>
-    <TD>2452673</TD>
-    <TD>87.29</TD>
-    <TD>252.4</TD>
-    <TD>34.6</TD>
-    <TD>171.7</TD>
-    <TD>33.9</TD>
-    <TD>341.6</TD>
   </TR>
   <TR>
     <TD>EARTH</TD>
@@ -641,11 +686,49 @@
     <TD>-1.9021475E-4</TD>
     <TD>57.72102</TD>
     <TD>-6.1405522</TD>
+    <TD>227.61567</TD>
+  </TR>
+  <TR>
+    <TD>URANUS</TD>
+    <TD>2003-02-03T00:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.5</TD>
+    <TD>20.0</TD>
+    <TD>328.87</TD>
+    <TD>-0.74</TD>
+    <TD>252.96</TD>
+    <TD>6.18</TD>
+    <TD>62.86</TD>
+  </TR>
+  <TR>
+    <TD>ULYSSES</TD>
+    <TD>2003-02-03T00:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.5</TD>
+    <TD>4.58</TD>
+    <TD>152.2</TD>
+    <TD>28.6</TD>
+    <TD>77.1</TD>
+    <TD>21.6</TD>
+    <TD>247.0</TD>
+  </TR>
+  <TR>
+    <TD>VOYAGER1</TD>
+    <TD>2003-02-03T00:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.5</TD>
+    <TD>87.29</TD>
+    <TD>252.4</TD>
+    <TD>34.6</TD>
+    <TD>171.7</TD>
+    <TD>33.9</TD>
+    <TD>341.6</TD>
   </TR>
   <TR>
     <TD>VOYAGER2</TD>
     <TD>2003-02-03T00:00:00</TD>
     <TD>2452673</TD>
+    <TD>0.5</TD>
     <TD>69.34</TD>
     <TD>287.8</TD>
     <TD>-28.2</TD>
@@ -663,50 +746,7 @@
     <TD>2.2212986</TD>
     <TD>134.19236</TD>
     <TD>-2.9830723</TD>
-  </TR>
-  <TR>
-    <TD>MARS</TD>
-    <TD>2003-02-03T00:00:00</TD>
-    <TD>2452673</TD>
-    <TD>0.5</TD>
-    <TD>1.5819604</TD>
-    <TD>-142.87703</TD>
-    <TD>0.39799956</TD>
-    <TD>141.54192</TD>
-    <TD>-4.1250015</TD>
-  </TR>
-  <TR>
-    <TD>URANUS</TD>
-    <TD>2003-02-03T00:00:00</TD>
-    <TD>2452673</TD>
-    <TD>20.0</TD>
-    <TD>328.87</TD>
-    <TD>-0.74</TD>
-    <TD>252.96</TD>
-    <TD>6.18</TD>
-    <TD>62.86</TD>
-  </TR>
-  <TR>
-    <TD>CASSINI</TD>
-    <TD>2003-02-03T00:00:00</TD>
-    <TD>2452673</TD>
-    <TD>8.09</TD>
-    <TD>95.9</TD>
-    <TD>-0.4</TD>
-    <TD>19.9</TD>
-    <TD>-2.9</TD>
-    <TD>189.8</TD>
-  </TR>
-  <TR>
-    <TD>JUPITER</TD>
-    <TD>2003-02-03T00:00:00</TD>
-    <TD>2452673</TD>
-    <TD>5.309</TD>
-    <TD>133.14</TD>
-    <TD>0.7</TD>
-    <TD>57.17</TD>
-    <TD>-5.39</TD>
-    <TD>227.07</TD>
+    <TD>304.08701</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -718,11 +758,37 @@
     <TD>3.1015421</TD>
     <TD>114.92463</TD>
     <TD>-3.4766054</TD>
+    <TD>284.81928</TD>
+  </TR>
+  <TR>
+    <TD>SATURN</TD>
+    <TD>2003-02-03T00:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.5</TD>
+    <TD>8.994</TD>
+    <TD>87.82</TD>
+    <TD>-1.08</TD>
+    <TD>11.78</TD>
+    <TD>-2.58</TD>
+    <TD>181.68</TD>
+  </TR>
+  <TR>
+    <TD>JUPITER</TD>
+    <TD>2003-02-03T00:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.5</TD>
+    <TD>5.309</TD>
+    <TD>133.14</TD>
+    <TD>0.7</TD>
+    <TD>57.17</TD>
+    <TD>-5.39</TD>
+    <TD>227.07</TD>
   </TR>
   <TR>
     <TD>NEPTUNE</TD>
     <TD>2003-02-03T00:00:00</TD>
     <TD>2452673</TD>
+    <TD>0.5</TD>
     <TD>30.05</TD>
     <TD>310.78</TD>
     <TD>0.04</TD>
@@ -740,17 +806,7 @@
     <TD>2.1275641</TD>
     <TD>135.00134</TD>
     <TD>-3.0052431</TD>
-  </TR>
-  <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-03T06:00:00</TD>
-    <TD>2452673</TD>
-    <TD>0.75</TD>
-    <TD>0.98562248</TD>
-    <TD>133.94798</TD>
-    <TD>-1.8810075E-4</TD>
-    <TD>57.975637</TD>
-    <TD>-6.1575939</TD>
+    <TD>301.3499</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -762,6 +818,19 @@
     <TD>3.0917475</TD>
     <TD>115.32852</TD>
     <TD>-3.4647429</TD>
+    <TD>281.67707</TD>
+  </TR>
+  <TR>
+    <TD>EARTH</TD>
+    <TD>2003-02-03T06:00:00</TD>
+    <TD>2452673</TD>
+    <TD>0.75</TD>
+    <TD>0.98562248</TD>
+    <TD>133.94798</TD>
+    <TD>-1.8810075E-4</TD>
+    <TD>57.975637</TD>
+    <TD>-6.1575939</TD>
+    <TD>224.32419</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -773,39 +842,7 @@
     <TD>0.39418452</TD>
     <TD>141.66298</TD>
     <TD>-4.116831</TD>
-  </TR>
-  <TR>
-    <TD>MERCURY</TD>
-    <TD>2003-02-03T12:00:00</TD>
-    <TD>2452674</TD>
-    <TD>0.0</TD>
-    <TD>0.43244021</TD>
-    <TD>-148.47288</TD>
-    <TD>2.0338742</TD>
-    <TD>135.8064</TD>
-    <TD>-3.0267115</TD>
-  </TR>
-  <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-03T12:00:00</TD>
-    <TD>2452674</TD>
-    <TD>0.0</TD>
-    <TD>0.98565903</TD>
-    <TD>134.20168</TD>
-    <TD>-1.8648623E-4</TD>
-    <TD>58.23025</TD>
-    <TD>-6.174514</TD>
-  </TR>
-  <TR>
-    <TD>VENUS</TD>
-    <TD>2003-02-03T12:00:00</TD>
-    <TD>2452674</TD>
-    <TD>0.0</TD>
-    <TD>0.72085871</TD>
-    <TD>-168.51202</TD>
-    <TD>3.0818004</TD>
-    <TD>115.73236</TD>
-    <TD>-3.4527096</TD>
+    <TD>308.01153</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -817,6 +854,43 @@
     <TD>0.39036634</TD>
     <TD>141.78408</TD>
     <TD>-4.1086392</TD>
+    <TD>304.58653</TD>
+  </TR>
+  <TR>
+    <TD>EARTH</TD>
+    <TD>2003-02-03T12:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.0</TD>
+    <TD>0.98565903</TD>
+    <TD>134.20168</TD>
+    <TD>-1.8648623E-4</TD>
+    <TD>58.23025</TD>
+    <TD>-6.174514</TD>
+    <TD>221.03271</TD>
+  </TR>
+  <TR>
+    <TD>MERCURY</TD>
+    <TD>2003-02-03T12:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.0</TD>
+    <TD>0.43244021</TD>
+    <TD>-148.47288</TD>
+    <TD>2.0338742</TD>
+    <TD>135.8064</TD>
+    <TD>-3.0267115</TD>
+    <TD>298.60885</TD>
+  </TR>
+  <TR>
+    <TD>VENUS</TD>
+    <TD>2003-02-03T12:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.0</TD>
+    <TD>0.72085871</TD>
+    <TD>-168.51202</TD>
+    <TD>3.0818004</TD>
+    <TD>115.73236</TD>
+    <TD>-3.4527096</TD>
+    <TD>278.53482</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -828,6 +902,7 @@
     <TD>0.38654504</TD>
     <TD>141.90522</TD>
     <TD>-4.1004262</TD>
+    <TD>301.16158</TD>
   </TR>
   <TR>
     <TD>MERCURY</TD>
@@ -839,17 +914,7 @@
     <TD>1.9402437</TD>
     <TD>136.6076</TD>
     <TD>-3.0474843</TD>
-  </TR>
-  <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-03T18:00:00</TD>
-    <TD>2452674</TD>
-    <TD>0.25</TD>
-    <TD>0.98569578</TD>
-    <TD>134.45537</TD>
-    <TD>-1.8536835E-4</TD>
-    <TD>58.484857</TD>
-    <TD>-6.1913123</TD>
+    <TD>295.86395</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -861,33 +926,25 @@
     <TD>3.0717015</TD>
     <TD>116.13617</TD>
     <TD>-3.4405061</TD>
+    <TD>275.39252</TD>
   </TR>
   <TR>
-    <TD>SATURN</TD>
-    <TD>2003-02-04T00:00:00</TD>
+    <TD>EARTH</TD>
+    <TD>2003-02-03T18:00:00</TD>
     <TD>2452674</TD>
-    <TD>8.994</TD>
-    <TD>87.86</TD>
-    <TD>-1.08</TD>
-    <TD>11.82</TD>
-    <TD>-2.58</TD>
-    <TD>167.54</TD>
-  </TR>
-  <TR>
-    <TD>URANUS</TD>
-    <TD>2003-02-04T00:00:00</TD>
-    <TD>2452674</TD>
-    <TD>20.0</TD>
-    <TD>328.88</TD>
-    <TD>-0.74</TD>
-    <TD>252.97</TD>
-    <TD>6.18</TD>
-    <TD>48.69</TD>
+    <TD>0.25</TD>
+    <TD>0.98569578</TD>
+    <TD>134.45537</TD>
+    <TD>-1.8536835E-4</TD>
+    <TD>58.484857</TD>
+    <TD>-6.1913123</TD>
+    <TD>217.74121</TD>
   </TR>
   <TR>
     <TD>VOYAGER2</TD>
     <TD>2003-02-04T00:00:00</TD>
     <TD>2452674</TD>
+    <TD>0.5</TD>
     <TD>69.34</TD>
     <TD>287.8</TD>
     <TD>-28.2</TD>
@@ -896,70 +953,40 @@
     <TD>10.7</TD>
   </TR>
   <TR>
+    <TD>SATURN</TD>
+    <TD>2003-02-04T00:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.5</TD>
+    <TD>8.994</TD>
+    <TD>87.86</TD>
+    <TD>-1.08</TD>
+    <TD>11.82</TD>
+    <TD>-2.58</TD>
+    <TD>167.54</TD>
+  </TR>
+  <TR>
+    <TD>CASSINI</TD>
+    <TD>2003-02-04T00:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.5</TD>
+    <TD>8.09</TD>
+    <TD>95.9</TD>
+    <TD>-0.4</TD>
+    <TD>19.9</TD>
+    <TD>-2.9</TD>
+    <TD>175.6</TD>
+  </TR>
+  <TR>
     <TD>GALILEO</TD>
     <TD>2003-02-04T00:00:00</TD>
     <TD>2452674</TD>
+    <TD>0.5</TD>
     <TD>5.31</TD>
     <TD>133.2</TD>
     <TD>0.7</TD>
     <TD>57.3</TD>
     <TD>-5.4</TD>
     <TD>213.0</TD>
-  </TR>
-  <TR>
-    <TD>NEPTUNE</TD>
-    <TD>2003-02-04T00:00:00</TD>
-    <TD>2452674</TD>
-    <TD>30.05</TD>
-    <TD>310.78</TD>
-    <TD>0.04</TD>
-    <TD>234.75</TD>
-    <TD>5.96</TD>
-    <TD>30.47</TD>
-  </TR>
-  <TR>
-    <TD>VOYAGER1</TD>
-    <TD>2003-02-04T00:00:00</TD>
-    <TD>2452674</TD>
-    <TD>87.3</TD>
-    <TD>252.4</TD>
-    <TD>34.6</TD>
-    <TD>171.7</TD>
-    <TD>33.9</TD>
-    <TD>327.4</TD>
-  </TR>
-  <TR>
-    <TD>VENUS</TD>
-    <TD>2003-02-04T00:00:00</TD>
-    <TD>2452674</TD>
-    <TD>0.5</TD>
-    <TD>0.72091795</TD>
-    <TD>-167.70463</TD>
-    <TD>3.0614512</TD>
-    <TD>116.53993</TD>
-    <TD>-3.4281333</TD>
-  </TR>
-  <TR>
-    <TD>MERCURY</TD>
-    <TD>2003-02-04T00:00:00</TD>
-    <TD>2452674</TD>
-    <TD>0.5</TD>
-    <TD>0.43450326</TD>
-    <TD>-146.88609</TD>
-    <TD>1.8466869</TD>
-    <TD>137.40502</TD>
-    <TD>-3.0675679</TD>
-  </TR>
-  <TR>
-    <TD>MARS</TD>
-    <TD>2003-02-04T00:00:00</TD>
-    <TD>2452674</TD>
-    <TD>0.5</TD>
-    <TD>1.5808122</TD>
-    <TD>-142.39291</TD>
-    <TD>0.38272062</TD>
-    <TD>142.0264</TD>
-    <TD>-4.0921918</TD>
   </TR>
   <TR>
     <TD>EARTH</TD>
@@ -971,11 +998,13 @@
     <TD>-1.8474282E-4</TD>
     <TD>58.73946</TD>
     <TD>-6.2079883</TD>
+    <TD>214.44971</TD>
   </TR>
   <TR>
     <TD>ULYSSES</TD>
     <TD>2003-02-04T00:00:00</TD>
     <TD>2452674</TD>
+    <TD>0.5</TD>
     <TD>4.58</TD>
     <TD>152.2</TD>
     <TD>28.5</TD>
@@ -984,26 +1013,88 @@
     <TD>232.9</TD>
   </TR>
   <TR>
-    <TD>CASSINI</TD>
+    <TD>NEPTUNE</TD>
     <TD>2003-02-04T00:00:00</TD>
     <TD>2452674</TD>
-    <TD>8.09</TD>
-    <TD>95.9</TD>
-    <TD>-0.4</TD>
-    <TD>19.9</TD>
-    <TD>-2.9</TD>
-    <TD>175.6</TD>
+    <TD>0.5</TD>
+    <TD>30.05</TD>
+    <TD>310.78</TD>
+    <TD>0.04</TD>
+    <TD>234.75</TD>
+    <TD>5.96</TD>
+    <TD>30.47</TD>
   </TR>
   <TR>
     <TD>JUPITER</TD>
     <TD>2003-02-04T00:00:00</TD>
     <TD>2452674</TD>
+    <TD>0.5</TD>
     <TD>5.309</TD>
     <TD>133.22</TD>
     <TD>0.7</TD>
     <TD>57.25</TD>
     <TD>-5.39</TD>
     <TD>212.96</TD>
+  </TR>
+  <TR>
+    <TD>VENUS</TD>
+    <TD>2003-02-04T00:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.5</TD>
+    <TD>0.72091795</TD>
+    <TD>-167.70463</TD>
+    <TD>3.0614512</TD>
+    <TD>116.53993</TD>
+    <TD>-3.4281333</TD>
+    <TD>272.25018</TD>
+  </TR>
+  <TR>
+    <TD>URANUS</TD>
+    <TD>2003-02-04T00:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.5</TD>
+    <TD>20.0</TD>
+    <TD>328.88</TD>
+    <TD>-0.74</TD>
+    <TD>252.97</TD>
+    <TD>6.18</TD>
+    <TD>48.69</TD>
+  </TR>
+  <TR>
+    <TD>VOYAGER1</TD>
+    <TD>2003-02-04T00:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.5</TD>
+    <TD>87.3</TD>
+    <TD>252.4</TD>
+    <TD>34.6</TD>
+    <TD>171.7</TD>
+    <TD>33.9</TD>
+    <TD>327.4</TD>
+  </TR>
+  <TR>
+    <TD>MERCURY</TD>
+    <TD>2003-02-04T00:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.5</TD>
+    <TD>0.43450326</TD>
+    <TD>-146.88609</TD>
+    <TD>1.8466869</TD>
+    <TD>137.40502</TD>
+    <TD>-3.0675679</TD>
+    <TD>293.11528</TD>
+  </TR>
+  <TR>
+    <TD>MARS</TD>
+    <TD>2003-02-04T00:00:00</TD>
+    <TD>2452674</TD>
+    <TD>0.5</TD>
+    <TD>1.5808122</TD>
+    <TD>-142.39291</TD>
+    <TD>0.38272062</TD>
+    <TD>142.0264</TD>
+    <TD>-4.0921918</TD>
+    <TD>297.73666</TD>
   </TR>
   <TR>
     <TD>MERCURY</TD>
@@ -1015,6 +1106,7 @@
     <TD>1.7532175</TD>
     <TD>138.19875</TD>
     <TD>-3.0869688</TD>
+    <TD>290.36291</TD>
   </TR>
   <TR>
     <TD>EARTH</TD>
@@ -1026,6 +1118,7 @@
     <TD>-1.8460395E-4</TD>
     <TD>58.994056</TD>
     <TD>-6.2245417</TD>
+    <TD>211.15821</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -1037,6 +1130,7 @@
     <TD>3.05105</TD>
     <TD>116.94365</TD>
     <TD>-3.4155916</TD>
+    <TD>269.1078</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -1048,39 +1142,7 @@
     <TD>0.37889309</TD>
     <TD>142.14763</TD>
     <TD>-4.0839362</TD>
-  </TR>
-  <TR>
-    <TD>EARTH</TD>
-    <TD>2003-02-04T12:00:00</TD>
-    <TD>2452675</TD>
-    <TD>0.0</TD>
-    <TD>0.98580723</TD>
-    <TD>135.21628</TD>
-    <TD>-1.8494473E-4</TD>
-    <TD>59.248646</TD>
-    <TD>-6.2409722</TD>
-  </TR>
-  <TR>
-    <TD>VENUS</TD>
-    <TD>2003-02-04T12:00:00</TD>
-    <TD>2452675</TD>
-    <TD>0.0</TD>
-    <TD>0.72097766</TD>
-    <TD>-166.89741</TD>
-    <TD>3.0404986</TD>
-    <TD>117.34732</TD>
-    <TD>-3.4028819</TD>
-  </TR>
-  <TR>
-    <TD>MERCURY</TD>
-    <TD>2003-02-04T12:00:00</TD>
-    <TD>2452675</TD>
-    <TD>0.0</TD>
-    <TD>0.4365088</TD>
-    <TD>-145.31442</TD>
-    <TD>1.6598487</TD>
-    <TD>138.98886</TD>
-    <TD>-3.1056933</TD>
+    <TD>294.31178</TD>
   </TR>
   <TR>
     <TD>MARS</TD>
@@ -1092,17 +1154,43 @@
     <TD>0.37506248</TD>
     <TD>142.2689</TD>
     <TD>-4.0756594</TD>
+    <TD>290.88695</TD>
   </TR>
   <TR>
-    <TD>MARS</TD>
-    <TD>2003-02-04T18:00:00</TD>
+    <TD>MERCURY</TD>
+    <TD>2003-02-04T12:00:00</TD>
     <TD>2452675</TD>
-    <TD>0.25</TD>
-    <TD>1.5799476</TD>
-    <TD>-142.02935</TD>
-    <TD>0.37122879</TD>
-    <TD>142.3902</TD>
-    <TD>-4.0673613</TD>
+    <TD>0.0</TD>
+    <TD>0.4365088</TD>
+    <TD>-145.31442</TD>
+    <TD>1.6598487</TD>
+    <TD>138.98886</TD>
+    <TD>-3.1056933</TD>
+    <TD>287.60692</TD>
+  </TR>
+  <TR>
+    <TD>VENUS</TD>
+    <TD>2003-02-04T12:00:00</TD>
+    <TD>2452675</TD>
+    <TD>0.0</TD>
+    <TD>0.72097766</TD>
+    <TD>-166.89741</TD>
+    <TD>3.0404986</TD>
+    <TD>117.34732</TD>
+    <TD>-3.4028819</TD>
+    <TD>265.96537</TD>
+  </TR>
+  <TR>
+    <TD>EARTH</TD>
+    <TD>2003-02-04T12:00:00</TD>
+    <TD>2452675</TD>
+    <TD>0.0</TD>
+    <TD>0.98580723</TD>
+    <TD>135.21628</TD>
+    <TD>-1.8494473E-4</TD>
+    <TD>59.248646</TD>
+    <TD>-6.2409722</TD>
+    <TD>207.8667</TD>
   </TR>
   <TR>
     <TD>VENUS</TD>
@@ -1114,17 +1202,7 @@
     <TD>3.0297976</TD>
     <TD>117.75095</TD>
     <TD>-3.3900047</TD>
-  </TR>
-  <TR>
-    <TD>MERCURY</TD>
-    <TD>2003-02-04T18:00:00</TD>
-    <TD>2452675</TD>
-    <TD>0.25</TD>
-    <TD>0.4374897</TD>
-    <TD>-144.53405</TD>
-    <TD>1.5665933</TD>
-    <TD>139.77543</TD>
-    <TD>-3.1237477</TD>
+    <TD>262.8229</TD>
   </TR>
   <TR>
     <TD>EARTH</TD>
@@ -1136,6 +1214,31 @@
     <TD>-1.8575687E-4</TD>
     <TD>59.503229</TD>
     <TD>-6.2572795</TD>
+    <TD>204.57518</TD>
+  </TR>
+  <TR>
+    <TD>MARS</TD>
+    <TD>2003-02-04T18:00:00</TD>
+    <TD>2452675</TD>
+    <TD>0.25</TD>
+    <TD>1.5799476</TD>
+    <TD>-142.02935</TD>
+    <TD>0.37122879</TD>
+    <TD>142.3902</TD>
+    <TD>-4.0673613</TD>
+    <TD>287.46216</TD>
+  </TR>
+  <TR>
+    <TD>MERCURY</TD>
+    <TD>2003-02-04T18:00:00</TD>
+    <TD>2452675</TD>
+    <TD>0.25</TD>
+    <TD>0.4374897</TD>
+    <TD>-144.53405</TD>
+    <TD>1.5665933</TD>
+    <TD>139.77543</TD>
+    <TD>-3.1237477</TD>
+    <TD>284.84739</TD>
   </TR>
 </TABLEDATA>
 </DATA>
