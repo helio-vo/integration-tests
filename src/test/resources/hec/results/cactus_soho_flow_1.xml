@@ -15,7 +15,7 @@
 <FIELD arraysize="*" datatype="char" name="sat_id">
 <DESCRIPTION>Satellite ID</DESCRIPTION>
 </FIELD>
-<FIELD datatype="float" name="r_hci">
+<FIELD datatype="double" name="r_hci">
 <DESCRIPTION>Heliocentric Inertial (HCI) Radial distance</DESCRIPTION>
 </FIELD>
 <FIELD datatype="float" name="long_hci">
