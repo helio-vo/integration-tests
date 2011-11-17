@@ -18,10 +18,10 @@
 <FIELD datatype="double" name="r_hci">
 <DESCRIPTION>Heliocentric Inertial (HCI) Radial distance</DESCRIPTION>
 </FIELD>
-<FIELD datatype="float" name="long_hci">
+<FIELD datatype="double" name="long_hci">
 <DESCRIPTION>Heliocentric Inertial (HCI) Longitude</DESCRIPTION>
 </FIELD>
-<FIELD datatype="float" name="lat_hci">
+<FIELD datatype="double" name="lat_hci">
 <DESCRIPTION>Heliocentric Inertial (HCI) Latitude</DESCRIPTION>
 </FIELD>
 <FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
