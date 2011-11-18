@@ -21,12 +21,12 @@ Infrastructure
   * <<SVN:>> This Maven module is stored in the HELIO {{{http://de.wikipedia.org/wiki/Apache_Subversion}SVN}}: {{https://helio-vo.svn.sourceforge.net/svnroot/helio-vo/trunk/integration-tests}}.
     You can view the files at {{http://helio-vo.svn.sourceforge.net/viewvc/helio-vo/trunk/integration-tests/}}.
 
-  * <<Automatic execution:>> Daily at 4.00 CET our {{{http://helio-dev.i4ds.ch/hudson/}Jenkins}} continuous delivery server fetches the content of <integration-tests> and runs the tests. 
+  * <<Automatic execution:>> Daily at 4.00 CET our {{{http://helio-dev.cs.technik.fhnw.ch/jenkins/}Jenkins}} continuous delivery server fetches the content of <integration-tests> and runs the tests. 
     Alternatively, a test run can be started manually by Jenkins administrators (i.e. Marco Soldati).
     
   * <<Manual execution:>> In addition the tests can be executed by any user on their own system (see tutorial below).
   
-  * <<Result publishing:>> The results of these tests are published to {{http://helio-dev.i4ds.ch/hudson/job/helio-integrationtests/}}.
+  * <<Result publishing:>> The results of these tests are published to {{http://helio-dev.cs.technik.fhnw.ch/jenkins/job/helio-integrationtests/}}.
     A mail is sent to registered users in case of a test failure (send a message to Marco Soldati if you want to receive these mails)
   
 Directory structure
