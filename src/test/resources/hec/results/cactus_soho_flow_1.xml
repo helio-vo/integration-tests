@@ -1,45 +1,44 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
 <RESOURCE>
-<DESCRIPTION>Helio HEC time based query V1.16.25</DESCRIPTION>
-<INFO name="QUERY_STATUS">OK</INFO>
-<INFO name="EXECUTED_AT">2011-05-23 19:28:29</INFO>
-<INFO name="MAX_RECORD_ALLOWED">20000</INFO>
+<DESCRIPTION>Helio HEC time based query V1.16.84</DESCRIPTION>
+<INFO name="QUERY_STATUS" value="OK"/>
+<INFO name="EXECUTED_AT" value="2011-11-18 07:51:24"/>
+<INFO name="MAX_RECORD_ALLOWED" value="20000"/>
 <INFO name="QUERY_STRING"><![CDATA[SELECT cactus_soho_flow.hec_id,cactus_soho_flow.sat_id,cactus_soho_flow.r_hci,cactus_soho_flow.long_hci,cactus_soho_flow.lat_hci,cactus_soho_flow.time_start,cactus_soho_flow.duration,cactus_soho_flow.pa,cactus_soho_flow.pa_width,cactus_soho_flow.v,cactus_soho_flow.dv,cactus_soho_flow.v_min,cactus_soho_flow.v_max,cactus_soho_flow.cme_number,cactus_soho_flow.flag_halo,cactus_soho_flow.event_detail FROM cactus_soho_flow WHERE  time_start>='2003-02-01T00:00:00' AND time_start<='2003-02-10T00:00:00'    LIMIT 100 OFFSET 0]]></INFO>
 <INFO name="QUERY_URL"><![CDATA[http://festung1.oats.inaf.it:8080/helio-hec/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=cactus_soho_flow]]></INFO>
 <INFO name="TABLE_NAME" value="cactus_soho_flow"/>
-<TABLE name="hec_cactus_soho_flow">
-<FIELD datatype="int" name="hec_id">
+<TABLE name="hec-cactus_soho_flow">
+<FIELD datatype="int" name="hec_id" ucd="meta.record">
 <DESCRIPTION>Event Identification number (HEC internal number)</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="sat_id">
+<FIELD arraysize="*" datatype="char" name="sat_id" ucd="meta.id;instr.obsty">
 <DESCRIPTION>Satellite ID</DESCRIPTION>
 </FIELD>
-<FIELD datatype="double" name="r_hci">
+<FIELD datatype="float" name="r_hci" ucd="pos.bodyrc.alt;pos.heliocentric">
 <DESCRIPTION>Heliocentric Inertial (HCI) Radial distance</DESCRIPTION>
 </FIELD>
-<FIELD datatype="double" name="long_hci">
+<FIELD datatype="float" name="long_hci" ucd="pos.bodyrc.lat;pos.heliocentric">
 <DESCRIPTION>Heliocentric Inertial (HCI) Longitude</DESCRIPTION>
 </FIELD>
-<FIELD datatype="double" name="lat_hci">
+<FIELD datatype="float" name="lat_hci" ucd="pos.bodyrc.long;pos.heliocentric" utype="helio:location.long_err">
 <DESCRIPTION>Heliocentric Inertial (HCI) Latitude</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
+<FIELD arraysize="*" datatype="char" name="time_start" ucd="time.start" utype="helio:time_period.time_start" xtype="iso8601">
 <DESCRIPTION>Onset time</DESCRIPTION>
 </FIELD>
-<FIELD datatype="int" name="duration">
+<FIELD datatype="int" name="duration" ucd="time.duration">
 <DESCRIPTION>Duration of liftoff (hours)</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
-<FIELD datatype="int" name="pa">
+<FIELD datatype="int" name="pa" ucd="pos.posAng" utype="helio:location.pa">
 <DESCRIPTION>Position angle (degrees</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
-<FIELD datatype="int" name="pa_width">
+<FIELD datatype="int" name="pa_width" ucd="pos.posAng;phys.angSize" utype="helio:location.pa_width">
 <DESCRIPTION>Angular width of the CME (degrees)</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
-<FIELD datatype="int" name="v">
+<FIELD datatype="int" name="v" ucd="phys.veloc" utype="helio:cme.velocity.v">
 <DESCRIPTION>Median velocity (km/s)</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
@@ -47,21 +46,21 @@
 <DESCRIPTION>Variation (1 sigma) of velocity over the width of the CME</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
-<FIELD datatype="int" name="v_min">
+<FIELD datatype="int" name="v_min" ucd="phys.veloc;stat.min">
 <DESCRIPTION>Lowest velocity detected within the CME</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
-<FIELD datatype="int" name="v_max">
+<FIELD datatype="int" name="v_max" ucd="phys.veloc;stat.max">
 <DESCRIPTION>Highest velocity detected within the CME  maxv Highest velocity detected within the CME</DESCRIPTION>
 <VALUES null="-2147483648"/>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="cme_number">
+<FIELD arraysize="*" datatype="char" name="cme_number" ucd="meta.code">
 <DESCRIPTION>II if da greater than 90</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="flag_halo">
+<FIELD arraysize="*" datatype="char" name="flag_halo" ucd="meta.number">
 <DESCRIPTION>CME number [[corresponds to column 'CME' in the original file without leading zeros]]</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="event_detail">
+<FIELD arraysize="*" datatype="char" name="event_detail" ucd="meta.ref.url">
 <DESCRIPTION>Link to details and graphs of specified CME [yymm-CME0010]</DESCRIPTION>
 </FIELD>
 <DATA>
