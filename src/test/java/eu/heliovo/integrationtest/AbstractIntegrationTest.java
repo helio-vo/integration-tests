@@ -81,7 +81,7 @@ public abstract class AbstractIntegrationTest {
         try {
             actualTables = STILUtils.read(result.asURL());
         } catch (Exception e) {
-            System.err.println("Invalid URL " + result.asString());
+            System.err.println("Invalid URL " + result.asURL());
             System.err.println("Failed to read " + Arrays.toString(this.from) + " | " + Arrays.toString(startTime) + " | " + Arrays.toString(endTime) + " | " + where + " | " + expectedResultFile);
             throw e;
         }
