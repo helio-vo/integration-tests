@@ -1,7 +1,7 @@
 <VOTABLE version='1.1' xmlns="http://www.ivoa.net/xml/VOTable/v1.1">
 <RESOURCE>
 <DESCRIPTION>VSO query response SHA</DESCRIPTION>
-<INFO name="QUERY_STATUS" value="OK"/><INFO name="EXECUTED_AT" value="2011-09-06 16:40:22"/><INFO name="HELIO_INSTRUMENT_NAME" value="BBSO__GONG"/><INFO name="PROVIDER_INSTRUMENT_NAME" value="Big Bear"/><INFO name="PROVIDER_MISSION_NAME" value="GONG"/><INFO name="TIME_RANGE" value="FROM : 2007-10-30T20:00:00 TO: 2007-10-31T03:59:59"/><INFO name="QUERY_URL" ><![CDATA[http://msslxw.mssl.ucl.ac.uk:8080/helio-dpas/HelioQueryServlet?STARTTIME=2007-10-30T20:00:00&ENDTIME=2007-10-31T03:59:59&INSTRUMENT=BBSO__GONG]]></INFO><TABLE name="BBSO__GONG" nrows="14">
+<INFO name="QUERY_STATUS" value="OK"/><INFO name="EXECUTED_AT" value="2012-01-15 23:59:11"/><INFO name="HELIO_INSTRUMENT_NAME" value="BBSO__GONG"/><INFO name="PROVIDER_INSTRUMENT_NAME" value="Big Bear"/><INFO name="PROVIDER_MISSION_NAME" value="GONG"/><INFO name="TIME_RANGE" value="FROM : 2007-10-30T20:00:00 TO: 2007-10-31T03:59:59"/><INFO name="QUERY_URL" ><![CDATA[http://msslxw.mssl.ucl.ac.uk:8080/helio-dpas/HelioQueryServlet?STARTTIME=2007-10-30T20:00:00&ENDTIME=2007-10-31T03:59:59&INSTRUMENT=BBSO__GONG]]></INFO><TABLE name="BBSO__GONG" nrows="75">
 <FIELD arraysize="*" datatype="char" name="instrument_name">
 <DESCRIPTION>Instrument name</DESCRIPTION>
 </FIELD>
@@ -133,6 +133,494 @@
     <TD>VSO:NSO</TD>
     <TD>2007-10-30 23:54:00</TD>
     <TD>2007-10-30 23:55:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2230.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:30:00</TD>
+    <TD>2007-10-30 22:31:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2231.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:31:00</TD>
+    <TD>2007-10-30 22:32:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2232.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:32:00</TD>
+    <TD>2007-10-30 22:33:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2233.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:33:00</TD>
+    <TD>2007-10-30 22:34:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2234.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:34:00</TD>
+    <TD>2007-10-30 22:35:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2235.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:35:00</TD>
+    <TD>2007-10-30 22:36:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2236.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:36:00</TD>
+    <TD>2007-10-30 22:37:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2240.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:40:00</TD>
+    <TD>2007-10-30 22:41:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2241.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:41:00</TD>
+    <TD>2007-10-30 22:42:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2242.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:42:00</TD>
+    <TD>2007-10-30 22:43:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2243.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:43:00</TD>
+    <TD>2007-10-30 22:44:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2244.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:44:00</TD>
+    <TD>2007-10-30 22:45:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2245.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:45:00</TD>
+    <TD>2007-10-30 22:46:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2246.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:46:00</TD>
+    <TD>2007-10-30 22:47:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2247.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:47:00</TD>
+    <TD>2007-10-30 22:48:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2248.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:48:00</TD>
+    <TD>2007-10-30 22:49:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2249.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:49:00</TD>
+    <TD>2007-10-30 22:50:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2250.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:50:00</TD>
+    <TD>2007-10-30 22:51:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2251.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:51:00</TD>
+    <TD>2007-10-30 22:52:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2252.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:52:00</TD>
+    <TD>2007-10-30 22:53:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2253.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:53:00</TD>
+    <TD>2007-10-30 22:54:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2254.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:54:00</TD>
+    <TD>2007-10-30 22:55:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2255.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:55:00</TD>
+    <TD>2007-10-30 22:56:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2256.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:56:00</TD>
+    <TD>2007-10-30 22:57:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2257.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:57:00</TD>
+    <TD>2007-10-30 22:58:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2258.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:58:00</TD>
+    <TD>2007-10-30 22:59:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2259.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 22:59:00</TD>
+    <TD>2007-10-30 23:00:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2300.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:00:00</TD>
+    <TD>2007-10-30 23:01:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2301.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:01:00</TD>
+    <TD>2007-10-30 23:02:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2302.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:02:00</TD>
+    <TD>2007-10-30 23:03:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2303.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:03:00</TD>
+    <TD>2007-10-30 23:04:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2304.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:04:00</TD>
+    <TD>2007-10-30 23:05:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2305.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:05:00</TD>
+    <TD>2007-10-30 23:06:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2306.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:06:00</TD>
+    <TD>2007-10-30 23:07:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2307.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:07:00</TD>
+    <TD>2007-10-30 23:08:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2308.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:08:00</TD>
+    <TD>2007-10-30 23:09:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2309.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:09:00</TD>
+    <TD>2007-10-30 23:10:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2310.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:10:00</TD>
+    <TD>2007-10-30 23:11:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2311.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:11:00</TD>
+    <TD>2007-10-30 23:12:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2312.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:12:00</TD>
+    <TD>2007-10-30 23:13:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2313.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:13:00</TD>
+    <TD>2007-10-30 23:14:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2314.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:14:00</TD>
+    <TD>2007-10-30 23:15:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2315.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:15:00</TD>
+    <TD>2007-10-30 23:16:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2316.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:16:00</TD>
+    <TD>2007-10-30 23:17:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2317.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:17:00</TD>
+    <TD>2007-10-30 23:18:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2318.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:18:00</TD>
+    <TD>2007-10-30 23:19:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2319.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:19:00</TD>
+    <TD>2007-10-30 23:20:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2320.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:20:00</TD>
+    <TD>2007-10-30 23:21:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2321.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:21:00</TD>
+    <TD>2007-10-30 23:22:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2322.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:22:00</TD>
+    <TD>2007-10-30 23:23:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2323.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:23:00</TD>
+    <TD>2007-10-30 23:24:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2324.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:24:00</TD>
+    <TD>2007-10-30 23:25:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2325.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:25:00</TD>
+    <TD>2007-10-30 23:26:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2326.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:26:00</TD>
+    <TD>2007-10-30 23:27:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2328.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:28:00</TD>
+    <TD>2007-10-30 23:29:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2329.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:29:00</TD>
+    <TD>2007-10-30 23:30:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2330.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:30:00</TD>
+    <TD>2007-10-30 23:31:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2331.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:31:00</TD>
+    <TD>2007-10-30 23:32:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2332.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:32:00</TD>
+    <TD>2007-10-30 23:33:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2333.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:33:00</TD>
+    <TD>2007-10-30 23:34:00</TD>
+  </TR>
+  <TR>
+    <TD>BBSO__GONG</TD>
+    <TD>Big bear</TD>
+    <TD>ftp://gong2.nso.edu/oDM/bzi/200710/bbbzi071030/bbbzi071030t2334.fits.gz</TD>
+    <TD>VSO:NSO</TD>
+    <TD>2007-10-30 23:34:00</TD>
+    <TD>2007-10-30 23:35:00</TD>
   </TR>
 </TABLEDATA>
 </DATA>
