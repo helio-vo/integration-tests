@@ -2,28 +2,30 @@
 <VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.1" version="1.1">
 <RESOURCE>
 <DESCRIPTION>Helio ICS time based query</DESCRIPTION>
-<INFO name="QUERY_STATUS">OK</INFO>
-<INFO name="EXECUTED_AT">2011-06-19 00:07:40</INFO>
-<INFO name="MAX_RECORD_ALLOWED"/>
-<INFO name="QUERY_STRING"><![CDATA[SELECT instrument.name,instrument.observatory_name,instrument.obsinst_key,instrument.time_start,instrument.time_end,instrument.longname,instrument.inst_type,instrument.inst_od1,instrument.inst_od2,instrument.inst_oe1,instrument.inst_oe2,instrument.inst_fd,instrument.inst_nd,instrument.syn1,instrument.syn2,instrument.syn3,instrument.syn4,instrument.group_name,instrument.keywords FROM instrument WHERE  ( '2003-02-01T00:00:00'<=instrument.time_end  AND '2003-02-10T00:00:00'>=instrument.time_start )  AND instrument.obsinst_key like '%%'  ORDER BY instrument.time_start  LIMIT 100 OFFSET 0]]></INFO>
-<INFO name="QUERY_URL"><![CDATA[http://msslxw.mssl.ucl.ac.uk:8080/helio-ics/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=instrument]]></INFO>
-<TABLE name="ics_instrument">
-<FIELD arraysize="*" datatype="char" name="name" ucd="meta.id;instr">
+<INFO name="QUERY_STATUS" value="OK"/>
+<INFO name="EXECUTED_AT" value="2012-06-19 17:20:13"/>
+<INFO name="QUERY_STRING"><![CDATA[SELECT instrument.name,instrument.observatory_name,instrument.obsinst_key,instrument.experiment_id,instrument.time_start,instrument.time_end,instrument.longname,instrument.inst_type,instrument.inst_od1,instrument.inst_od2,instrument.inst_oe1,instrument.inst_oe2,instrument.inst_fd,instrument.inst_nd,instrument.group_name,instrument.keywords,instrument.net_key FROM instrument WHERE  ( '2003-02-01T00:00:00'<=instrument.time_end  AND '2003-02-10T00:00:00'>=instrument.time_start )  AND instrument.obsinst_key like '%%'  ORDER BY instrument.time_start ]]></INFO>
+<INFO name="QUERY_URL"><![CDATA[http://msslkz.mssl.ucl.ac.uk:80/helio-ics/HelioQueryService?STARTTIME=2003-02-01T00:00:00&ENDTIME=2003-02-10T00:00:00&FROM=instrument]]></INFO>
+<TABLE name="ics-instrument">
+<FIELD arraysize="*" datatype="char" name="name">
 <DESCRIPTION>Instrument Name</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="observatory_name" ucd="meta.id;instr.obsty">
+<FIELD arraysize="*" datatype="char" name="observatory_name">
 <DESCRIPTION>Observatory Name</DESCRIPTION>
 </FIELD>
 <FIELD arraysize="*" datatype="char" name="obsinst_key">
 <DESCRIPTION>Helio Instrument Name</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="time_start" ucd="time.start" xtype="iso8601">
+<FIELD arraysize="*" datatype="char" name="experiment_id">
+<DESCRIPTION>Experiment ID</DESCRIPTION>
+</FIELD>
+<FIELD arraysize="*" datatype="char" name="time_start" xtype="iso8601">
 <DESCRIPTION>Instrument Start Date</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="time_end" ucd="time.end" xtype="iso8601">
+<FIELD arraysize="*" datatype="char" name="time_end" xtype="iso8601">
 <DESCRIPTION>Instrument End Date</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="longname" ucd="meta.title;instr">
+<FIELD arraysize="*" datatype="char" name="longname">
 <DESCRIPTION>Instrument Full Name</DESCRIPTION>
 </FIELD>
 <FIELD arraysize="*" datatype="char" name="inst_type">
@@ -47,33 +49,44 @@
 <FIELD arraysize="*" datatype="char" name="inst_nd">
 <DESCRIPTION>Instrument observation wavelength nd</DESCRIPTION>
 </FIELD>
-<FIELD arraysize="*" datatype="char" name="syn1">
-<DESCRIPTION>Synonyms1</DESCRIPTION>
-</FIELD>
-<FIELD arraysize="*" datatype="char" name="syn2">
-<DESCRIPTION>Synonyms2</DESCRIPTION>
-</FIELD>
-<FIELD arraysize="*" datatype="char" name="syn3">
-<DESCRIPTION>Synonyms3</DESCRIPTION>
-</FIELD>
-<FIELD arraysize="*" datatype="char" name="syn4">
-<DESCRIPTION>Synonyms4</DESCRIPTION>
-</FIELD>
 <FIELD arraysize="*" datatype="char" name="group_name">
 <DESCRIPTION>Group name</DESCRIPTION>
 </FIELD>
 <FIELD arraysize="*" datatype="char" name="keywords">
 <DESCRIPTION>Complete focusing type</DESCRIPTION>
 </FIELD>
+<FIELD arraysize="*" datatype="char" name="net_key">
+<DESCRIPTION>Net Key</DESCRIPTION>
+</FIELD>
 <DATA>
 <TABLEDATA>
+  <TR>
+    <TD>FTS</TD>
+    <TD>KPNO</TD>
+    <TD>KPNO__FTS</TD>
+    <TD/>
+    <TD>1976-03-21T00:00:00</TD>
+    <TD>2003-12-31T00:00:00</TD>
+    <TD>McMath Fourier Transform Spectrometer</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
   <TR>
     <TD>RSS</TD>
     <TD>Voyager-2</TD>
     <TD>VOYAGER_2__RSS</TD>
+    <TD>1977-076A-02</TD>
     <TD>1977-08-20T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>Radio Science (RSS) </TD>
+    <TD>Radio Science</TD>
     <TD>remote</TD>
     <TD>planetary</TD>
     <TD>environment</TD>
@@ -84,14 +97,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>MAG</TD>
     <TD>Voyager-2</TD>
     <TD>VOYAGER_2__MAG</TD>
+    <TD>1977-076A-05</TD>
     <TD>1977-08-20T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Triaxial Fluxgate Magnetometer</TD>
@@ -103,16 +114,14 @@
     <TD>0</TD>
     <TD>0</TD>
     <TD/>
-    <TD/>
     <TD>magnetometer</TD>
     <TD/>
-    <TD/>
-    <TD>magnetometer</TD>
   </TR>
   <TR>
     <TD>PLS</TD>
     <TD>Voyager-2</TD>
     <TD>VOYAGER_2__PLS</TD>
+    <TD>1977-076A-06</TD>
     <TD>1977-08-20T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Plasma Spectrometer</TD>
@@ -126,14 +135,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>LECP</TD>
     <TD>Voyager-2</TD>
     <TD>VOYAGER_2__LECP</TD>
+    <TD>1977-076A-07</TD>
     <TD>1977-08-20T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Low-Energy Charged Particles</TD>
@@ -145,16 +152,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>CRS</TD>
     <TD>Voyager-2</TD>
     <TD>VOYAGER_2__CRS</TD>
+    <TD>1977-076A-08</TD>
     <TD>1977-08-20T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Cosmic Ray System</TD>
@@ -165,17 +170,15 @@
     <TD>energetic</TD>
     <TD>0</TD>
     <TD>?</TD>
-    <TD>cosmic-ray</TD>
-    <TD/>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>cosmic-ray</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>PRA</TD>
     <TD>Voyager-2</TD>
     <TD>VOYAGER_2__PRA</TD>
+    <TD>1977-076A-10</TD>
     <TD>1977-08-20T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Planetary Radio Astronomy</TD>
@@ -189,14 +192,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>PWS</TD>
     <TD>Voyager-2</TD>
     <TD>VOYAGER_2__PWS</TD>
+    <TD>1977-076A-13</TD>
     <TD>1977-08-20T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Plasma Wave System</TD>
@@ -210,14 +211,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>RSS</TD>
     <TD>Voyager-1</TD>
     <TD>VOYAGER_1__RSS</TD>
+    <TD>1977-084A-02</TD>
     <TD>1977-09-05T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Radio Science</TD>
@@ -231,14 +230,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>MAG</TD>
     <TD>Voyager-1</TD>
     <TD>VOYAGER_1__MAG</TD>
+    <TD>1977-084A-05</TD>
     <TD>1977-09-05T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Triaxial Fluxgate Magnetometer</TD>
@@ -250,16 +247,14 @@
     <TD>0</TD>
     <TD>0</TD>
     <TD/>
-    <TD/>
     <TD>magnetometer</TD>
     <TD/>
-    <TD/>
-    <TD>magnetometer</TD>
   </TR>
   <TR>
     <TD>PLS</TD>
     <TD>Voyager-1</TD>
     <TD>VOYAGER_1__PLS</TD>
+    <TD>1977-084A-06</TD>
     <TD>1977-09-05T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Plasma Spectrometer</TD>
@@ -273,14 +268,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>LECP</TD>
     <TD>Voyager-1</TD>
     <TD>VOYAGER_1__LECP</TD>
+    <TD>1977-084A-07</TD>
     <TD>1977-09-05T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Low-Energy Charged Particles</TD>
@@ -292,16 +285,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>CRS</TD>
     <TD>Voyager-1</TD>
     <TD>VOYAGER_1__CRS</TD>
+    <TD>1977-084A-08</TD>
     <TD>1977-09-05T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Cosmic Ray System</TD>
@@ -312,17 +303,15 @@
     <TD>energetic</TD>
     <TD>0</TD>
     <TD>?</TD>
-    <TD>cosmic-ray</TD>
-    <TD/>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>cosmic-ray</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>PRA</TD>
     <TD>Voyager-1</TD>
     <TD>VOYAGER_1__PRA</TD>
+    <TD>1977-084A-10</TD>
     <TD>1977-09-05T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Planetary Radio Astronomy</TD>
@@ -336,14 +325,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>PWS</TD>
     <TD>Voyager-1</TD>
     <TD>VOYAGER_1__PWS</TD>
+    <TD>1977-084A-13</TD>
     <TD>1977-09-05T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Plasma Wave System</TD>
@@ -357,28 +344,23 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>XRS</TD>
     <TD>GOES</TD>
     <TD>GOES__XRS</TD>
+    <TD/>
     <TD>1978-06-16T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>X-ray Sensor</TD>
+    <TD>X-ray Sensor (SEM)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>SXR</TD>
     <TD>4</TD>
     <TD>0</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
+    <TD>cGOES</TD>
     <TD/>
     <TD/>
   </TR>
@@ -386,20 +368,18 @@
     <TD>HEPAD</TD>
     <TD>GOES</TD>
     <TD>GOES__HEPAD</TD>
+    <TD/>
     <TD>1978-06-16T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>High Energy Proton and Alpha Detector</TD>
+    <TD>High Energy Proton and Alpha Detector (SEM)</TD>
     <TD>in-situ</TD>
-    <TD>sun</TD>
+    <TD>Earth</TD>
     <TD>disk/helios.</TD>
     <TD>particles</TD>
     <TD>energetic</TD>
     <TD>0</TD>
     <TD>0</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
+    <TD>cGOES</TD>
     <TD/>
     <TD/>
   </TR>
@@ -407,20 +387,18 @@
     <TD>EPS</TD>
     <TD>GOES</TD>
     <TD>GOES__EPS</TD>
+    <TD/>
     <TD>1978-06-16T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>Energetic Particle Sensor</TD>
+    <TD>Energetic Particle Sensor (SEM)</TD>
     <TD>in-situ</TD>
-    <TD>sun</TD>
+    <TD>Earth</TD>
     <TD>disk/helios.</TD>
     <TD>particles</TD>
     <TD>energetic</TD>
     <TD>0</TD>
     <TD>0</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
+    <TD>cGOES</TD>
     <TD/>
     <TD/>
   </TR>
@@ -428,111 +406,254 @@
     <TD>MAG</TD>
     <TD>GOES</TD>
     <TD>GOES__MAG</TD>
+    <TD/>
     <TD>1978-06-16T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>Magnetometer</TD>
+    <TD>Magnetometer (SEM)</TD>
     <TD>in-situ</TD>
-    <TD>heliosphere</TD>
+    <TD>Earth</TD>
     <TD>solar-wind</TD>
     <TD>fields</TD>
     <TD>magnetic</TD>
     <TD>0</TD>
     <TD>0</TD>
-    <TD/>
-    <TD/>
+    <TD>cGOES</TD>
     <TD>magnetometer</TD>
     <TD/>
-    <TD/>
-    <TD>magnetometer</TD>
   </TR>
   <TR>
     <TD>CFDT1</TD>
     <TD>KSFO</TD>
     <TD>KSFO__CFDT1</TD>
+    <TD/>
     <TD>1985-05-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Cartesian Full Disk Telecsope No. 1</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>imager,heliograph</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>MWLT</TD>
     <TD>MEUD</TD>
     <TD>MEUD__MWLT</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Meudon White Light Telescope</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD/>
-    <TD>WhiteL</TD>
-    <TD/>
     <TD/>
     <TD>imager,WhiteL</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>MSH</TD>
     <TD>MEUD</TD>
     <TD>MEUD__MSH</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Meudon Spectroheliograph </TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>K-line</TD>
-    <TD>H-alpha</TD>
-    <TD/>
     <TD>nGHAN</TD>
     <TD>imager,K-line,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
-    <TD>NRH</TD>
-    <TD>NANC</TD>
-    <TD>NANC__NRH</TD>
+    <TD>HALPH</TD>
+    <TD>PDMO</TD>
+    <TD>PDMO__HALPH</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>Nancay Radioheliograph  (164 + 327 MHz)</TD>
+    <TD>Pic-du-Midi H-Alpha Telescope</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGHAN</TD>
+    <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>COGHA</TD>
+    <TD>PDMO</TD>
+    <TD>PDMO__COGHA</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Pic-du-Midi H-alpha Coronagraph</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>outer corona</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,coronagraph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>HALPH</TD>
+    <TD>KISF</TD>
+    <TD>KISF__HALPH</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>H-Alpha Telescope  (Patrol)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>?</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>HALPH</TD>
+    <TD>THEM</TD>
+    <TD>THEM__HALPH</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>H-Alpha Telescope</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>?</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>NAC</TD>
+    <TD>KPNO</TD>
+    <TD>KPNO__NAC</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>McMath NSO Array Camera</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>COGHA</TD>
+    <TD>KSAC</TD>
+    <TD>KSAC__COGHA</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Evans Coronagraph</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>outer corona</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,coronagraph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SHELIO</TD>
+    <TD>KSAC</TD>
+    <TD>KSAC__SHELIO</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Evans Spectroheliograph</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>?</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MAGMP</TD>
+    <TD>MWSO</TD>
+    <TD>MWSO__MAGMP</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Magnetograph</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>?</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,magnetograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RHELIO</TD>
+    <TD>NANC</TD>
+    <TD>NANC__RHELIO</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Nancay Radioheliograph  (164 and 327 MHz)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>radio</TD>
     <TD>6?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>radioheliograph</TD>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>imager,radioheliograph</TD>
+    <TD/>
   </TR>
   <TR>
-    <TD>NDA</TD>
+    <TD>DAN</TD>
     <TD>NANC</TD>
-    <TD>NANC__NDA</TD>
+    <TD>NANC__DAN</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Nancay Decametric Array</TD>
@@ -546,19 +667,17 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
-    <TD>NTRFA</TD>
+    <TD>TRFA</TD>
     <TD>NANC</TD>
-    <TD>NANC__NTRFA</TD>
+    <TD>NANC__TRFA</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Nancay Total Radio Flux Antenna</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk</TD>
     <TD>photons</TD>
     <TD>radio</TD>
@@ -567,313 +686,74 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
-    <TD>HALPH</TD>
-    <TD>PDMO</TD>
-    <TD>PDMO__HALPH</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Pic-du-Midi H-Alpha Telescope</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
-    <TD>nGHAN</TD>
-    <TD>imager,heliograph,H-alpha</TD>
-  </TR>
-  <TR>
-    <TD>COGHA</TD>
-    <TD>PDMO</TD>
-    <TD>PDMO__COGHA</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Pic-du-Midi H-alpha Coronagraph</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>outer corona</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>coronagraph</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD>imager,coronagraph</TD>
-  </TR>
-  <TR>
-    <TD>FTS</TD>
-    <TD>KPNO</TD>
-    <TD>KPNO__FTS</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>McMath Fourier Transform Spectrometer</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-  </TR>
-  <TR>
-    <TD>NAC</TD>
-    <TD>KPNO</TD>
-    <TD>KPNO__NAC</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>McMath NSO Array Camera</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-  </TR>
-  <TR>
-    <TD>COGHA</TD>
-    <TD>KSAC</TD>
-    <TD>KSAC__COGHA</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Evans Coronagraph</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>outer corona</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>coronagraph</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD>imager,coronagraph</TD>
-  </TR>
-  <TR>
-    <TD>SHELIO</TD>
-    <TD>KSAC</TD>
-    <TD>KSAC__SHELIO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Evans Spectroheliograph</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>?</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
-    <TD/>
-    <TD>imager,heliograph,H-alpha</TD>
-  </TR>
-  <TR>
-    <TD>OSPAN</TD>
-    <TD>KSAC</TD>
-    <TD>KSAC__OSPAN</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Optical Solar Patrol Network (ISOON)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD/>
-    <TD/>
-    <TD>imager</TD>
-    <TD>magnetograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
-    <TD/>
-    <TD>imager,magnetograph,H-alpha</TD>
-  </TR>
-  <TR>
-    <TD>SHELIO</TD>
-    <TD>MWSO</TD>
-    <TD>MWSO__SHELIO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Spectroheliograph</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>?</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
-    <TD/>
-    <TD>imager,heliograph,H-alpha</TD>
-  </TR>
-  <TR>
-    <TD>MAGMP</TD>
-    <TD>MWSO</TD>
-    <TD>MWSO__MAGMP</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Magnetograph</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>?</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>magnetograph</TD>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD>imager,magnetograph</TD>
-  </TR>
-  <TR>
-    <TD>HALPH</TD>
-    <TD>KISF</TD>
-    <TD>KISF__HALPH</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>H-Alpha Telescope  (Patrol)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>?</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
-    <TD/>
-    <TD>imager,heliograph,H-alpha</TD>
-  </TR>
-  <TR>
-    <TD>HALPH</TD>
-    <TD>THEM</TD>
-    <TD>THEM__HALPH</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>H-Alpha Telescope</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>?</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
-    <TD/>
-    <TD>imager,heliograph,H-alpha</TD>
-  </TR>
-  <TR>
-    <TD>NORH</TD>
+    <TD>RHELIO</TD>
     <TD>NOBE</TD>
-    <TD>NOBE__NORH</TD>
+    <TD>NOBE__RHELIO</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>Nobeyama Radioheliograph  (17 + 34 GHz)</TD>
+    <TD>Nobeyama Radioheliograph  (17 and 34 GHz)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>microwave</TD>
     <TD>6?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>radioheliograph</TD>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>imager,radioheliograph</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>OVSA</TD>
     <TD>OVRO</TD>
     <TD>OVRO__OVSA</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Owens Valley Solar Array  (radioheliograph, 1-18 GHz)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>microwave</TD>
     <TD>6?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>radioheliograph</TD>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>imager,radioheliograph</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>SRBL</TD>
     <TD>OVRO</TD>
     <TD>OVRO__SRBL</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Solar Radio Burst Locator</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>microwave</TD>
     <TD>6?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD/>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>imager</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>Phoenix-2</TD>
-    <TD>Bleien</TD>
-    <TD>BLEIEN__PHOENIX_2</TD>
+    <TD>BLEN</TD>
+    <TD>BLEN__PHOENIX_2</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Phoenix-2 Radio Spectrometer  (0.1 to 4.0 GHz)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>microwave</TD>
@@ -882,287 +762,164 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
+  </TR>
+  <TR>
+    <TD>ISOON</TD>
+    <TD>KSAC</TD>
+    <TD>KSAC__ISOON</TD>
+    <TD/>
+    <TD>1990-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Improved Solar Observing Optical Network</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
+    <TD>nISOON</TD>
+    <TD>imager,magnetograph,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HALPH</TD>
     <TD>HSOS</TD>
     <TD>HSOS__HALPH</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>H-Alpha Telescope  (GHAN)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>1</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
     <TD>nGHAN</TD>
     <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HALPH</TD>
     <TD>YNAO</TD>
     <TD>YNAO__HALPH</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>H-Alpha Telescope  (GHAN)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>1</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
     <TD>nGHAN</TD>
     <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HALPH</TD>
     <TD>OACT</TD>
     <TD>OACT__HALPH</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>H-Alpha Telescope  (GHAN)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>1</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
     <TD>nGHAN</TD>
     <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HALPH</TD>
     <TD>KANZ</TD>
     <TD>KANZ__HALPH</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>H-Alpha Telescope  (GHAN)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>1</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
     <TD>nGHAN</TD>
     <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>SYNOP</TD>
     <TD>KANZ</TD>
     <TD>KANZ__SYNOP</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>H-Alpha Telescope  (GHAN)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>1</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
     <TD>nGHAN</TD>
     <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>SYNOP</TD>
     <TD>BBSO</TD>
     <TD>BBSO__SYNOP</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>H-Alpha Telescope  (GHAN + Synoptic)</TD>
+    <TD>H-Alpha Telescope  (GHAN and Synoptic)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>1</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
     <TD>nGHAN</TD>
     <TD>imager,heliograph,H-alpha</TD>
-  </TR>
-  <TR>
-    <TD>FTACHO</TD>
-    <TD>LEAR</TD>
-    <TD>LEAR__FTACHO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Fourier Tachometer (GONG)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>magnetograph</TD>
-    <TD>oscillations</TD>
-    <TD>nGONG</TD>
-    <TD>imager,heliograph,magnetograph,oscillations</TD>
-  </TR>
-  <TR>
-    <TD>FTACHO</TD>
-    <TD>UDPR</TD>
-    <TD>UDPR__FTACHO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Fourier Tachometer (GONG)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>magnetograph</TD>
-    <TD>oscillations</TD>
-    <TD>nGONG</TD>
-    <TD>imager,heliograph,magnetograph,oscillations</TD>
-  </TR>
-  <TR>
-    <TD>FTACHO</TD>
-    <TD>TEID</TD>
-    <TD>TEID__FTACHO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Fourier Tachometer (GONG)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>magnetograph</TD>
-    <TD>oscillations</TD>
-    <TD>nGONG</TD>
-    <TD>imager,heliograph,magnetograph,oscillations</TD>
-  </TR>
-  <TR>
-    <TD>FTACHO</TD>
-    <TD>CTIO</TD>
-    <TD>CTIO__FTACHO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Fourier Tachometer (GONG)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>magnetograph</TD>
-    <TD>oscillations</TD>
-    <TD>nGONG</TD>
-    <TD>imager,heliograph,magnetograph,oscillations</TD>
-  </TR>
-  <TR>
-    <TD>FTACHO</TD>
-    <TD>BBSO</TD>
-    <TD>BBSO__FTACHO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Fourier Tachometer (GONG)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>magnetograph</TD>
-    <TD>oscillations</TD>
-    <TD>nGONG</TD>
-    <TD>imager,heliograph,magnetograph,oscillations</TD>
-  </TR>
-  <TR>
-    <TD>FTACHO</TD>
-    <TD>MLSO</TD>
-    <TD>MLSO__FTACHO</TD>
-    <TD>1990-01-01T00:00:00</TD>
-    <TD>2020-01-01T00:00:00</TD>
-    <TD>Fourier Tachometer (GONG)</TD>
-    <TD>remote</TD>
-    <TD>sun</TD>
-    <TD>disk/inr. cor.</TD>
-    <TD>photons</TD>
-    <TD>visible</TD>
-    <TD>1</TD>
-    <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>magnetograph</TD>
-    <TD>oscillations</TD>
-    <TD>nGONG</TD>
-    <TD>imager,heliograph,magnetograph,oscillations</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HALPH</TD>
-    <TD>MLSO</TD>
-    <TD>MLSO__HALPH</TD>
+    <TD>GHAN</TD>
+    <TD>GHAN__HALPH</TD>
+    <TD/>
     <TD>1990-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
-    <TD>H-Alpha Telescope (GONG)</TD>
+    <TD>Global H-Alpha Network  (all stations)</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
-    <TD/>
-    <TD/>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD>H-alpha</TD>
-    <TD/>
-    <TD>nGONG</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>cGHAN</TD>
     <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>VHM/FGM</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__VHM_FGM</TD>
+    <TD>1990-090B-08</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Magnetometer</TD>
@@ -1174,16 +931,14 @@
     <TD>0</TD>
     <TD>0</TD>
     <TD/>
-    <TD/>
     <TD>magnetometer</TD>
     <TD/>
-    <TD/>
-    <TD>magnetometer</TD>
   </TR>
   <TR>
     <TD>SWOOPS</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__SWOOPS</TD>
+    <TD>1990-090B-05</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Solar Wind Plasma Experiment</TD>
@@ -1197,14 +952,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>SWICS</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__SWICS</TD>
+    <TD>1990-090B-04</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Solar Wind Ion Composition Spectrometer</TD>
@@ -1216,16 +969,14 @@
     <TD>0</TD>
     <TD>1</TD>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>URAP</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__URAP</TD>
+    <TD>1990-090B-06</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Unified Radio and Plasma Wave Investigation</TD>
@@ -1236,17 +987,15 @@
     <TD>elect/magn.</TD>
     <TD>0</TD>
     <TD/>
-    <TD>plasma</TD>
-    <TD/>
-    <TD>waves</TD>
-    <TD/>
     <TD/>
     <TD>plasma,waves</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HISCALE</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__HISCALE</TD>
+    <TD>1990-090B-03</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Heliospheric Instrument for Spectra, Composition and Anisotropy at Low Energy</TD>
@@ -1258,28 +1007,23 @@
     <TD>0</TD>
     <TD>1</TD>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>SCE</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__SCE</TD>
+    <TD>1990-090B-10</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Coronal-Sounding Experiment</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>outer corona</TD>
     <TD>photons</TD>
     <TD>radio</TD>
     <TD>0</TD>
-    <TD/>
-    <TD/>
-    <TD/>
     <TD/>
     <TD/>
     <TD/>
@@ -1289,6 +1033,7 @@
     <TD>GAS</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__GAS</TD>
+    <TD>1990-090B-13</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Interstellar Neutral Gas Experiment</TD>
@@ -1302,14 +1047,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>DUST</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__DUST</TD>
+    <TD>1990-090B-07</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Dust Experiment</TD>
@@ -1321,16 +1064,14 @@
     <TD>0</TD>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
     <TD>dust</TD>
     <TD/>
-    <TD>dust</TD>
   </TR>
   <TR>
     <TD>GWE</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__GWE</TD>
+    <TD>1990-090B-11</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Gravitation Wave Experiment</TD>
@@ -1342,16 +1083,14 @@
     <TD>0</TD>
     <TD/>
     <TD/>
-    <TD/>
     <TD>waves</TD>
     <TD/>
-    <TD/>
-    <TD>waves</TD>
   </TR>
   <TR>
     <TD>EPAC</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__EPAC</TD>
+    <TD>1990-090B-12</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Energetic Particle Composition Experiment</TD>
@@ -1363,16 +1102,14 @@
     <TD>0</TD>
     <TD>1</TD>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>COSPIN</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__COSPIN</TD>
+    <TD>1990-090B-02</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Cosmic-ray and Solar Particle Investigation</TD>
@@ -1383,29 +1120,24 @@
     <TD>energetic</TD>
     <TD>0</TD>
     <TD/>
-    <TD>cosmic-ray</TD>
-    <TD/>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>cosmic-ray</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>GRB</TD>
     <TD>Ulysses</TD>
     <TD>ULYSSES__GRB</TD>
+    <TD>1990-090B-01</TD>
     <TD>1990-10-06T00:00:00</TD>
     <TD>2009-06-26T00:00:00</TD>
     <TD>Solar X-ray and Cosmic Gamma-Ray Burst Instrument</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>energy release</TD>
     <TD>photons</TD>
     <TD>GMR</TD>
     <TD>0</TD>
-    <TD/>
-    <TD/>
-    <TD/>
     <TD/>
     <TD/>
     <TD/>
@@ -1415,27 +1147,26 @@
     <TD>CFDT2</TD>
     <TD>KSFO</TD>
     <TD>KSFO__CFDT2</TD>
+    <TD/>
     <TD>1992-01-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Cartesian Full Disk Telecsope No. 2</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>?</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>heliograph</TD>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>imager,heliograph</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>LICA</TD>
     <TD>SAMPEX</TD>
     <TD>SAMPEX__LICA</TD>
+    <TD>1992-038A-01</TD>
     <TD>1992-07-03T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Low-Energy Ion Composition Analyzer </TD>
@@ -1447,16 +1178,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HILT</TD>
     <TD>SAMPEX</TD>
     <TD>SAMPEX__HILT</TD>
+    <TD>1992-038A-02</TD>
     <TD>1992-07-03T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Heavy Ion Large Telescope</TD>
@@ -1467,17 +1196,15 @@
     <TD>energetic</TD>
     <TD/>
     <TD/>
-    <TD>high-energy</TD>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
     <TD/>
     <TD>high-energy,spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>MAST</TD>
     <TD>SAMPEX</TD>
     <TD>SAMPEX__MAST</TD>
+    <TD>1992-038A-03</TD>
     <TD>1992-07-03T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Mass Spectrometer Telescope</TD>
@@ -1488,17 +1215,15 @@
     <TD>energetic</TD>
     <TD/>
     <TD/>
-    <TD>high-energy</TD>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
     <TD/>
     <TD>high-energy,spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>PET</TD>
     <TD>SAMPEX</TD>
     <TD>SAMPEX__PET</TD>
+    <TD>1992-038A-04</TD>
     <TD>1992-07-03T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Proton-Electron Telescope</TD>
@@ -1509,17 +1234,15 @@
     <TD>energetic</TD>
     <TD/>
     <TD/>
-    <TD>high-energy</TD>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
     <TD/>
     <TD>high-energy,spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>HEP</TD>
     <TD>Geotail</TD>
     <TD>GEOTAIL__HEP</TD>
+    <TD>1992-044A-01</TD>
     <TD>1992-07-24T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>High Energy Particles</TD>
@@ -1533,14 +1256,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>PWI</TD>
     <TD>Geotail</TD>
     <TD>GEOTAIL__PWI</TD>
+    <TD>1992-044A-02</TD>
     <TD>1992-07-24T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Plasma Wave Investigation</TD>
@@ -1554,14 +1275,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>EPIC</TD>
     <TD>Geotail</TD>
     <TD>GEOTAIL__EPIC</TD>
+    <TD>1992-044A-03</TD>
     <TD>1992-07-24T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Energetic Particles and Ion Composition </TD>
@@ -1573,16 +1292,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>CPI</TD>
     <TD>Geotail</TD>
     <TD>GEOTAIL__CPI</TD>
+    <TD>1992-044A-04</TD>
     <TD>1992-07-24T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Comprehensive Plasma Instrument </TD>
@@ -1594,16 +1311,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
+    <TD>plasma,spectrometer,composition</TD>
     <TD/>
-    <TD/>
-    <TD>spectrometer,composition</TD>
   </TR>
   <TR>
     <TD>EFD</TD>
     <TD>Geotail</TD>
     <TD>GEOTAIL__EFD</TD>
+    <TD>1992-044A-05</TD>
     <TD>1992-07-24T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Electric Field Detector </TD>
@@ -1617,14 +1332,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>MGF</TD>
     <TD>Geotail</TD>
     <TD>GEOTAIL__MGF</TD>
+    <TD>1992-044A-06</TD>
     <TD>1992-07-24T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Magnetic Fields Measurement</TD>
@@ -1636,16 +1349,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
     <TD>magnetometer</TD>
     <TD/>
-    <TD/>
-    <TD>magnetometer</TD>
   </TR>
   <TR>
     <TD>LEP</TD>
     <TD>Geotail</TD>
     <TD>GEOTAIL__LEP</TD>
+    <TD>1992-044A-07</TD>
     <TD>1992-07-24T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Low Energy Particles</TD>
@@ -1657,37 +1368,33 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
+    <TD>plasma,spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>SPMAG</TD>
     <TD>KPNO</TD>
     <TD>KPNO__SPMAG</TD>
+    <TD/>
     <TD>1994-04-21T00:00:00</TD>
     <TD>2003-09-21T00:00:00</TD>
     <TD>KPVT Spectro-Magnetograph</TD>
     <TD>remote</TD>
-    <TD>sun</TD>
+    <TD>Sun</TD>
     <TD>disk/inr. cor.</TD>
     <TD>photons</TD>
     <TD>visible</TD>
     <TD>1</TD>
     <TD>2</TD>
-    <TD>imager</TD>
-    <TD>magnetograph</TD>
-    <TD>He10830</TD>
-    <TD/>
     <TD/>
     <TD>imager,magnetograph,He10830</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>3DP</TD>
     <TD>Wind</TD>
     <TD>WIND__3DP</TD>
+    <TD>1994-071A-01</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Hot Plasma and Charged Particles</TD>
@@ -1699,16 +1406,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
+    <TD>plasma,spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>TGRS</TD>
     <TD>Wind</TD>
     <TD>WIND__TGRS</TD>
+    <TD>1994-071A-02</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Transient Gamma Ray and EUV Spectrometer</TD>
@@ -1722,14 +1427,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>MFI</TD>
     <TD>Wind</TD>
     <TD>WIND__MFI</TD>
+    <TD>1994-071A-04</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Magnetic Fields Instrument</TD>
@@ -1741,37 +1444,33 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
     <TD>magnetometer</TD>
     <TD/>
-    <TD/>
-    <TD>magnetometer</TD>
   </TR>
   <TR>
     <TD>WAVES</TD>
     <TD>Wind</TD>
     <TD>WIND__WAVES</TD>
+    <TD>1994-071A-05</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Plasma and Radio Waves</TD>
     <TD>in-situ</TD>
     <TD>Earth/L1</TD>
     <TD>solar-wind</TD>
-    <TD>fields</TD>
-    <TD>elect/magn.</TD>
+    <TD>photons</TD>
+    <TD>radio</TD>
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
+    <TD>plasma,waves</TD>
     <TD/>
   </TR>
   <TR>
     <TD>SWE</TD>
     <TD>Wind</TD>
     <TD>WIND__SWE</TD>
+    <TD>1994-071A-06</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Solar Wind Experiment </TD>
@@ -1783,16 +1482,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
+    <TD>plasma,spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>EPACT</TD>
     <TD>Wind</TD>
     <TD>WIND__EPACT</TD>
+    <TD>1994-071A-07</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Energetic Particle Acceleration, Composition and Transport</TD>
@@ -1804,16 +1501,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>SWICS</TD>
     <TD>Wind</TD>
     <TD>WIND__SWICS</TD>
+    <TD>1994-071A-08</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Solar Wind Ion Composition Spectrometer  (SMS)</TD>
@@ -1824,17 +1519,15 @@
     <TD>charged</TD>
     <TD/>
     <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
     <TD>pSMS</TD>
-    <TD>spectrometer,composition</TD>
+    <TD>plasma,spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>STICS</TD>
     <TD>Wind</TD>
     <TD>WIND__STICS</TD>
+    <TD>1994-071A-08</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>SupraThermal Ion Composition Spectrometer  (SMS)</TD>
@@ -1845,17 +1538,15 @@
     <TD>energetic</TD>
     <TD/>
     <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
     <TD>pSMS</TD>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>MASS</TD>
     <TD>Wind</TD>
     <TD>WIND__MASS</TD>
+    <TD/>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>High MASS Resolution Spectrometer  (SMS)</TD>
@@ -1866,17 +1557,15 @@
     <TD>charged</TD>
     <TD/>
     <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
     <TD>pSMS</TD>
-    <TD>spectrometer,composition</TD>
+    <TD>plasma,spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>KONUS</TD>
     <TD>Wind</TD>
     <TD>WIND__KONUS</TD>
+    <TD>1994-071A-09</TD>
     <TD>1994-11-01T00:00:00</TD>
     <TD>2020-01-01T00:00:00</TD>
     <TD>Gamma Ray Burst Detector</TD>
@@ -1890,14 +1579,145 @@
     <TD/>
     <TD/>
     <TD/>
+  </TR>
+  <TR>
+    <TD>GONG</TD>
+    <TD>LEAR</TD>
+    <TD>LEAR__GONG</TD>
     <TD/>
+    <TD>1995-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>GONG Instrument (Fourier Tachometer)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGONG</TD>
+    <TD>imager,heliograph,magnetograph,oscillations</TD>
     <TD/>
+  </TR>
+  <TR>
+    <TD>GONG</TD>
+    <TD>UDPR</TD>
+    <TD>UDPR__GONG</TD>
+    <TD/>
+    <TD>1995-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>GONG Instrument (Fourier Tachometer)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGONG</TD>
+    <TD>imager,heliograph,magnetograph,oscillations</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GONG</TD>
+    <TD>TEID</TD>
+    <TD>TEID__GONG</TD>
+    <TD/>
+    <TD>1995-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>GONG Instrument (Fourier Tachometer)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGONG</TD>
+    <TD>imager,heliograph,magnetograph,oscillations</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GONG</TD>
+    <TD>CTIO</TD>
+    <TD>CTIO__GONG</TD>
+    <TD/>
+    <TD>1995-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>GONG Instrument (Fourier Tachometer)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGONG</TD>
+    <TD>imager,heliograph,magnetograph,oscillations</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GONG</TD>
+    <TD>BBSO</TD>
+    <TD>BBSO__GONG</TD>
+    <TD/>
+    <TD>1995-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>GONG Instrument (Fourier Tachometer)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGONG</TD>
+    <TD>imager,heliograph,magnetograph,oscillations</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GONG</TD>
+    <TD>MLSO</TD>
+    <TD>MLSO__GONG</TD>
+    <TD/>
+    <TD>1995-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>GONG Instrument (Fourier Tachometer)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGONG</TD>
+    <TD>imager,heliograph,magnetograph,oscillations</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GONG</TD>
+    <TD>GONG</TD>
+    <TD>GONG__GONG</TD>
+    <TD/>
+    <TD>1995-01-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>GONG Instrument (all stations)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>cGONG</TD>
+    <TD>imager,heliograph,magnetograph,oscillations</TD>
     <TD/>
   </TR>
   <TR>
     <TD>MAG</TD>
     <TD>Galileo</TD>
     <TD>GALILEO__MAG</TD>
+    <TD>1989-084B-03</TD>
     <TD>1995-12-07T00:00:00</TD>
     <TD>2003-09-21T00:00:00</TD>
     <TD>Magnetometer</TD>
@@ -1909,16 +1729,14 @@
     <TD>0</TD>
     <TD>0</TD>
     <TD/>
-    <TD/>
     <TD>magnetometer</TD>
     <TD/>
-    <TD/>
-    <TD>magnetometer</TD>
   </TR>
   <TR>
     <TD>PLS</TD>
     <TD>Galileo</TD>
     <TD>GALILEO__PLS</TD>
+    <TD>1989-084B-04</TD>
     <TD>1995-12-07T00:00:00</TD>
     <TD>2003-09-21T00:00:00</TD>
     <TD>Plasma Detector</TD>
@@ -1930,16 +1748,14 @@
     <TD>0</TD>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>EPD</TD>
     <TD>Galileo</TD>
     <TD>GALILEO__EPD</TD>
+    <TD>1989-084B-06</TD>
     <TD>1995-12-07T00:00:00</TD>
     <TD>2003-09-21T00:00:00</TD>
     <TD>Energetic Particles Detector</TD>
@@ -1951,16 +1767,14 @@
     <TD>0</TD>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>DDS</TD>
     <TD>Galileo</TD>
     <TD>GALILEO__DDS</TD>
+    <TD>1989-084B-09</TD>
     <TD>1995-12-07T00:00:00</TD>
     <TD>2003-09-21T00:00:00</TD>
     <TD>Dust Detection System</TD>
@@ -1974,14 +1788,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>PWS</TD>
     <TD>Galileo</TD>
     <TD>GALILEO__PWS</TD>
+    <TD>1989-084B-07</TD>
     <TD>1995-12-07T00:00:00</TD>
     <TD>2003-09-21T00:00:00</TD>
     <TD>Plasma Wave Spectrometer</TD>
@@ -1995,14 +1807,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>RS</TD>
     <TD>Galileo</TD>
     <TD>GALILEO__RS</TD>
+    <TD>1989-084B-11</TD>
     <TD>1995-12-07T00:00:00</TD>
     <TD>2003-09-21T00:00:00</TD>
     <TD>Radio Science: Propagation</TD>
@@ -2016,14 +1826,12 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD/>
   </TR>
   <TR>
     <TD>TIMAS</TD>
     <TD>Polar</TD>
     <TD>POLAR__TIMAS</TD>
+    <TD>1996-013A-01</TD>
     <TD>1996-02-24T00:00:00</TD>
     <TD>2008-04-01T00:00:00</TD>
     <TD>Toroidal Imaging Mass-Angle Spectrograph </TD>
@@ -2035,16 +1843,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
+    <TD>plasma,spectrometer,composition</TD>
     <TD/>
-    <TD/>
-    <TD>spectrometer,composition</TD>
   </TR>
   <TR>
     <TD>PWI</TD>
     <TD>Polar</TD>
     <TD>POLAR__PWI</TD>
+    <TD>1996-013A-02</TD>
     <TD>1996-02-24T00:00:00</TD>
     <TD>2008-04-01T00:00:00</TD>
     <TD>Plasma Waves Investigation</TD>
@@ -2058,14 +1864,12 @@
     <TD/>
     <TD>waves</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>waves</TD>
   </TR>
   <TR>
     <TD>Hydra</TD>
     <TD>Polar</TD>
     <TD>POLAR__HYDRA</TD>
+    <TD>1996-013A-03</TD>
     <TD>1996-02-24T00:00:00</TD>
     <TD>2008-04-01T00:00:00</TD>
     <TD>Hot Plasma Analyzer </TD>
@@ -2077,16 +1881,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
+    <TD>plasma,spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>TIDE</TD>
     <TD>Polar</TD>
     <TD>POLAR__TIDE</TD>
+    <TD>1996-013A-04</TD>
     <TD>1996-02-24T00:00:00</TD>
     <TD>2008-04-01T00:00:00</TD>
     <TD>Thermal Ion Dynamics Experiment </TD>
@@ -2098,16 +1900,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
+    <TD>plasma,spectrometer,composition</TD>
     <TD/>
-    <TD/>
-    <TD>spectrometer,composition</TD>
   </TR>
   <TR>
     <TD>CEPPAD</TD>
     <TD>Polar</TD>
     <TD>POLAR__CEPPAD</TD>
+    <TD>1996-013A-05</TD>
     <TD>1996-02-24T00:00:00</TD>
     <TD>2008-04-01T00:00:00</TD>
     <TD>Comprehensive Energetic-Particle Pitch-Angle Distribution</TD>
@@ -2121,14 +1921,12 @@
     <TD/>
     <TD>spectrometer</TD>
     <TD/>
-    <TD/>
-    <TD/>
-    <TD>spectrometer</TD>
   </TR>
   <TR>
     <TD>CAMMICE</TD>
     <TD>Polar</TD>
     <TD>POLAR__CAMMICE</TD>
+    <TD>1996-013A-06</TD>
     <TD>1996-02-24T00:00:00</TD>
     <TD>2008-04-01T00:00:00</TD>
     <TD>Charge and Mass Magnetospheric Ion Composition Experiment</TD>
@@ -2140,16 +1938,14 @@
     <TD/>
     <TD/>
     <TD/>
-    <TD>spectrometer</TD>
-    <TD>composition</TD>
-    <TD/>
-    <TD/>
     <TD>spectrometer,composition</TD>
+    <TD/>
   </TR>
   <TR>
     <TD>PIXIE</TD>
     <TD>Polar</TD>
     <TD>POLAR__PIXIE</TD>
+    <TD>1996-013A-07</TD>
     <TD>1996-02-24T00:00:00</TD>
     <TD>2008-04-01T00:00:00</TD>
     <TD>Polar Ionospheric X-ray Imaging Experiment</TD>
@@ -2160,12 +1956,2023 @@
     <TD>SXR</TD>
     <TD/>
     <TD/>
-    <TD>imager</TD>
-    <TD/>
-    <TD/>
-    <TD/>
     <TD/>
     <TD>imager</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MFE</TD>
+    <TD>Polar</TD>
+    <TD>POLAR__MFE</TD>
+    <TD>1996-013A-08</TD>
+    <TD>1996-02-24T00:00:00</TD>
+    <TD>2008-04-01T00:00:00</TD>
+    <TD>Magnetic Fields Experiment </TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>magnetometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EFI</TD>
+    <TD>Polar</TD>
+    <TD>POLAR__EFI</TD>
+    <TD>1996-013A-09</TD>
+    <TD>1996-02-24T00:00:00</TD>
+    <TD>2008-04-01T00:00:00</TD>
+    <TD>Electric Fields Investigation</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>UVI</TD>
+    <TD>Polar</TD>
+    <TD>POLAR__UVI</TD>
+    <TD>1996-013A-11</TD>
+    <TD>1996-02-24T00:00:00</TD>
+    <TD>2008-04-01T00:00:00</TD>
+    <TD>Ultraviolet Imager </TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD>aurora</TD>
+    <TD>photons</TD>
+    <TD>UV</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>imager</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>VIS</TD>
+    <TD>Polar</TD>
+    <TD>POLAR__VIS</TD>
+    <TD>1996-013A-12</TD>
+    <TD>1996-02-24T00:00:00</TD>
+    <TD>2008-04-01T00:00:00</TD>
+    <TD>Visible Imaging System</TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD>aurora</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>imager</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EIT</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__EIT</TD>
+    <TD>1995-065A-03</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Extreme-ultraviolet Imaging Telescope</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>EUV</TD>
+    <TD>2</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CDS</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__CDS</TD>
+    <TD>1995-065A-02</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Coronal Diagnostic Spectrometer</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>EUV</TD>
+    <TD>3</TD>
+    <TD>3</TD>
+    <TD/>
+    <TD>imager,spectrometer,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SUMER</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__SUMER</TD>
+    <TD>1995-065A-01</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Ultraviolet Measurements of Emitted Radiation </TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>UV</TD>
+    <TD>3</TD>
+    <TD>3</TD>
+    <TD/>
+    <TD>imager,spectrometer,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>UVCS</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__UVCS</TD>
+    <TD>1995-065A-04</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>UltraViolet Coronagraph Spectrometer</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>outer corona</TD>
+    <TD>photons</TD>
+    <TD>UV</TD>
+    <TD>1</TD>
+    <TD>3</TD>
+    <TD/>
+    <TD>imager,spectrometer,coronagraph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>LASCO</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__LASCO</TD>
+    <TD>1995-065A-05</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Large Angle Spectroscopic Coronagraph</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>outer corona</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,coronagraph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SWAN</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__SWAN</TD>
+    <TD>1995-065A-06</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Wind ANisotropies</TD>
+    <TD>remote</TD>
+    <TD>heliosphere</TD>
+    <TD>structure</TD>
+    <TD>photons</TD>
+    <TD>UV</TD>
+    <TD>0?</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MDI</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__MDI</TD>
+    <TD>1995-065A-12</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Michelson Doppler Imager</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,heliograph,magnetograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SOI/MDI</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__SOI_MDI</TD>
+    <TD>1995-065A-12</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Oscillation Investigation / Michelson Doppler Imager</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>interior</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,oscillations</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GOLF</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__GOLF</TD>
+    <TD>1995-065A-10</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Global Oscillations at Low Frequency</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>interior</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>4?</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>oscillations</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>VIRGO</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__VIRGO</TD>
+    <TD>1995-065A-11</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Variability of solar IRradiance and Gravity Oscillations</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>interior</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>4?</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>oscillations,irradiance</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CELIAS</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__CELIAS</TD>
+    <TD>1995-065A-07</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Charge, Element and Isotope Analysis System</TD>
+    <TD>in-situ</TD>
+    <TD>heliosphere</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1?</TD>
+    <TD/>
+    <TD>plasma,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>COSTEP</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__COSTEP</TD>
+    <TD>1995-065A-08</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Comprehensive Suprathermal and Energetic Particle Analyzer</TD>
+    <TD>in-situ</TD>
+    <TD>heliosphere</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>ERNE</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__ERNE</TD>
+    <TD>1995-065A-09</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Energetic Particle and Relative Nuclei and Electron Experiment</TD>
+    <TD>in-situ</TD>
+    <TD>heliosphere</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SEM</TD>
+    <TD>SOHO</TD>
+    <TD>SOHO__SEM</TD>
+    <TD>1995-065A-07</TD>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Extreme ultraviolet Monitor</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>EUV</TD>
+    <TD>4</TD>
+    <TD>0</TD>
+    <TD>pCELIAS</TD>
+    <TD>irradiance</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CHIP</TD>
+    <TD>MLSO</TD>
+    <TD>MLSO__CHIP</TD>
+    <TD/>
+    <TD>1996-03-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Chromospheric Helium Imaging Photometer</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,photometer,He10830,LOS-velocity</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CRIS</TD>
+    <TD>ACE</TD>
+    <TD>ACE__CRIS</TD>
+    <TD/>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Cosmic Ray Isotope Spectrometer</TD>
+    <TD>in-situ</TD>
+    <TD>galactic</TD>
+    <TD>energy release</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>cosmic-ray,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SIS</TD>
+    <TD>ACE</TD>
+    <TD>ACE__SIS</TD>
+    <TD>1997-045A-05</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Isotope Spectrometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>disk/helios.</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>cosmic-ray,SEP,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>ULEIS</TD>
+    <TD>ACE</TD>
+    <TD>ACE__ULEIS</TD>
+    <TD>1997-045A-03</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Ulltra Low Energy Isotope Spectometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>disk/helios.</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>shocks,SEP,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EPAM</TD>
+    <TD>ACE</TD>
+    <TD>ACE__EPAM</TD>
+    <TD>1997-045A-08</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electron, Proton and Alpha Monitor</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>disk/helios.</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>shocks</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SEPICA</TD>
+    <TD>ACE</TD>
+    <TD>ACE__SEPICA</TD>
+    <TD>1997-045A-04</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Energetic Particle Ionic Charge Analyzer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>disk/helios.</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD>0</TD>
+    <TD>4</TD>
+    <TD/>
+    <TD>composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SWIMS</TD>
+    <TD>ACE</TD>
+    <TD>ACE__SWIMS</TD>
+    <TD>1997-045A-01</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Wind Ion Mass Spectrometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>plasma,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SWICS</TD>
+    <TD>ACE</TD>
+    <TD>ACE__SWICS</TD>
+    <TD>1997-045A-02</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Wind Ion Composition Spectrometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>plasma,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SWEPAM</TD>
+    <TD>ACE</TD>
+    <TD>ACE__SWEPAM</TD>
+    <TD>1997-045A-07</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Wind Electron, Proton and Alpha Monitor</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MAG</TD>
+    <TD>ACE</TD>
+    <TD>ACE__MAG</TD>
+    <TD>1997-045A-09</TD>
+    <TD>1997-08-25T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Magnetic Field Experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth/L1</TD>
+    <TD>solar-wind</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>magnetometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>PICS</TD>
+    <TD>MLSO</TD>
+    <TD>MLSO__PICS</TD>
+    <TD/>
+    <TD>1997-08-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Polarimeter for Inner Coronal Studies</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,heliograph,H-alpha</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MAG</TD>
+    <TD>MGS</TD>
+    <TD>MGS__MAG</TD>
+    <TD>1996-062A-05</TD>
+    <TD>1997-09-12T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Magnetometer (MAG/ER)</TD>
+    <TD>in-situ</TD>
+    <TD>Mars</TD>
+    <TD>environment</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>magnetometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>ER</TD>
+    <TD>MGS</TD>
+    <TD>MGS__ER</TD>
+    <TD>1996-062A-05</TD>
+    <TD>1997-09-12T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electron Reflectometer (MAG/ER)</TD>
+    <TD>in-situ</TD>
+    <TD>Mars</TD>
+    <TD>environment</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RS</TD>
+    <TD>MGS</TD>
+    <TD>MGS__RS</TD>
+    <TD>1996-062A-04</TD>
+    <TD>1997-09-12T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Radio Science Investigations</TD>
+    <TD>remote</TD>
+    <TD>Mars</TD>
+    <TD>environment</TD>
+    <TD>photons</TD>
+    <TD>radio</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>TRACE-EUV</TD>
+    <TD>TRACE</TD>
+    <TD>TRACE__TRACE_EUV</TD>
+    <TD>1998-020A-01</TD>
+    <TD>1998-03-30T00:00:00</TD>
+    <TD>2010-06-21T00:00:00</TD>
+    <TD>TRACE EUV Observations</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>EUV</TD>
+    <TD>3</TD>
+    <TD>2</TD>
+    <TD>pTRACE</TD>
+    <TD>imager,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>TRACE-UV</TD>
+    <TD>TRACE</TD>
+    <TD>TRACE__TRACE_UV</TD>
+    <TD>1998-020A-01</TD>
+    <TD>1998-03-30T00:00:00</TD>
+    <TD>2010-06-21T00:00:00</TD>
+    <TD>TRACE UV Observations</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>UV</TD>
+    <TD>3</TD>
+    <TD>2</TD>
+    <TD>pTRACE</TD>
+    <TD>imager,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>TRACE-VIS</TD>
+    <TD>TRACE</TD>
+    <TD>TRACE__TRACE_VIS</TD>
+    <TD>1998-020A-01</TD>
+    <TD>1998-03-30T00:00:00</TD>
+    <TD>2010-06-21T00:00:00</TD>
+    <TD>TRACE Visible Observations</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>3</TD>
+    <TD>2</TD>
+    <TD>pTRACE</TD>
+    <TD>imager,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MK4</TD>
+    <TD>MLSO</TD>
+    <TD>MLSO__MK4</TD>
+    <TD/>
+    <TD>1999-08-31T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Coronagraph, Mk IV</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>outer corona</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,coronagraph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RPI</TD>
+    <TD>IMAGE</TD>
+    <TD>IMAGE__RPI</TD>
+    <TD>2000-017A-01</TD>
+    <TD>2000-03-25T00:00:00</TD>
+    <TD>2005-12-18T00:00:00</TD>
+    <TD>Radio Plasma Imager</TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>elect/magn.</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>LENA</TD>
+    <TD>IMAGE</TD>
+    <TD>IMAGE__LENA</TD>
+    <TD>2000-017A-02</TD>
+    <TD>2000-03-25T00:00:00</TD>
+    <TD>2005-12-18T00:00:00</TD>
+    <TD>Low-Energy Neutral Atom Imager</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>neutral</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MENA</TD>
+    <TD>IMAGE</TD>
+    <TD>IMAGE__MENA</TD>
+    <TD>2000-017A-03</TD>
+    <TD>2000-03-25T00:00:00</TD>
+    <TD>2005-12-18T00:00:00</TD>
+    <TD>Medium-Energy Neutral Atom Imager</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>neutral</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>HENA</TD>
+    <TD>IMAGE</TD>
+    <TD>IMAGE__HENA</TD>
+    <TD>2000-017A-04</TD>
+    <TD>2000-03-25T00:00:00</TD>
+    <TD>2005-12-18T00:00:00</TD>
+    <TD>High-Energy Neutral Atom Imager</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>neutral</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>FUV</TD>
+    <TD>IMAGE</TD>
+    <TD>IMAGE__FUV</TD>
+    <TD>2000-017A-05</TD>
+    <TD>2000-03-25T00:00:00</TD>
+    <TD>2005-12-18T00:00:00</TD>
+    <TD>Far Ultraviolet Imager</TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD>aurora</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>imager</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EUV</TD>
+    <TD>IMAGE</TD>
+    <TD>IMAGE__EUV</TD>
+    <TD>2000-017A-06</TD>
+    <TD>2000-03-25T00:00:00</TD>
+    <TD>2005-12-18T00:00:00</TD>
+    <TD>Extreme Ultraviolet Imager</TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD>aurora</TD>
+    <TD>photons</TD>
+    <TD>EUV</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>imager</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>PEACE</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__PEACE</TD>
+    <TD>2000-041B-05</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Plasma Electron And Current Experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>4</TD>
+    <TD/>
+    <TD>plasma,spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>FGM</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__FGM</TD>
+    <TD>2000-041B-04</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Fluxgate Magnetometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>magnetometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EDI</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__EDI</TD>
+    <TD>2000-041B-03</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electron Drift Instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>electron-drift</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>ASPOC</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__ASPOC</TD>
+    <TD>2000-041B-01</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Active Spacecraft Potential Control experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>STAFF</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__STAFF</TD>
+    <TD>2000-041B-09</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Spatio-Temporal Analysis of Field Fluctuation experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>elect/magn.</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EFW</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__EFW</TD>
+    <TD>2000-041B-08</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electric Field and Wave experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>DWP</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__DWP</TD>
+    <TD>2000-041B-07</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Digital Wave Processing experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WHISPER</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__WHISPER</TD>
+    <TD>2000-041B-11</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Waves of HIgh frequency and Sounder for Probing of Electron density by Relaxation</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WBD</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__WBD</TD>
+    <TD>2000-041B-10</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Wide Band Data instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CIS</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__CIS</TD>
+    <TD>2000-041B-02</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Cluster Ion Spectrometer experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>plasma,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RAPID</TD>
+    <TD>Cluster-2</TD>
+    <TD>CLUSTER_2__RAPID</TD>
+    <TD>2000-041B-06</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Research with Adaptive Particle Imaging Detector</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>high-energy,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>PEACE</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__PEACE</TD>
+    <TD>2000-041A-05</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Plasma Electron And Current Experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>4</TD>
+    <TD/>
+    <TD>plasma,spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>FGM</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__FGM</TD>
+    <TD>2000-041A-04</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Fluxgate Magnetometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>magnetometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EDI</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__EDI</TD>
+    <TD>2000-041A-03</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electron Drift Instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>electron-drift</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>ASPOC</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__ASPOC</TD>
+    <TD>2000-041A-01</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Active Spacecraft Potential Control experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>STAFF</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__STAFF</TD>
+    <TD>2000-041A-09</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Spatio-Temporal Analysis of Field Fluctuation experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>elect/magn.</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EFW</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__EFW</TD>
+    <TD>2000-041A-08</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electric Field and Wave experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>DWP</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__DWP</TD>
+    <TD>2000-041A-07</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Digital Wave Processing experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WHISPER</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__WHISPER</TD>
+    <TD>2000-041A-11</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Waves of HIgh frequency and Sounder for Probing of Electron density by Relaxation</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WBD</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__WBD</TD>
+    <TD>2000-041A-10</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Wide Band Data instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CIS</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__CIS</TD>
+    <TD>2000-041A-02</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Cluster Ion Spectrometer experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>plasma,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RAPID</TD>
+    <TD>Cluster-3</TD>
+    <TD>CLUSTER_3__RAPID</TD>
+    <TD>2000-041A-06</TD>
+    <TD>2000-07-16T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Research with Adaptive Particle Imaging Detector</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>high-energy,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>PEACE</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__PEACE</TD>
+    <TD>2000-045A-05</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Plasma Electron And Current Experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>4</TD>
+    <TD/>
+    <TD>plasma,spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>FGM</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__FGM</TD>
+    <TD>2000-045A-04</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Fluxgate Magnetometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>magnetometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EDI</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__EDI</TD>
+    <TD>2000-045A-03</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electron Drift Instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>electron-drift</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>ASPOC</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__ASPOC</TD>
+    <TD>2000-045A-01</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Active Spacecraft Potential Control experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>STAFF</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__STAFF</TD>
+    <TD>2000-045A-09</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Spatio-Temporal Analysis of Field Fluctuation experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>elect/magn.</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EFW</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__EFW</TD>
+    <TD>2000-045A-08</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electric Field and Wave experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>DWP</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__DWP</TD>
+    <TD>2000-045A-07</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Digital Wave Processing experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WHISPER</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__WHISPER</TD>
+    <TD>2000-045A-11</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Waves of HIgh frequency and Sounder for Probing of Electron density by Relaxation</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WBD</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__WBD</TD>
+    <TD>2000-045A-10</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Wide Band Data instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CIS</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__CIS</TD>
+    <TD>2000-045A-02</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Cluster Ion Spectrometer experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>plasma,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RAPID</TD>
+    <TD>Cluster-1</TD>
+    <TD>CLUSTER_1__RAPID</TD>
+    <TD>2000-045A-06</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Research with Adaptive Particle Imaging Detector</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>high-energy,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>PEACE</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__PEACE</TD>
+    <TD>2000-045B-05</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Plasma Electron And Current Experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>4</TD>
+    <TD/>
+    <TD>plasma,spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>FGM</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__FGM</TD>
+    <TD>2000-045B-04</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Fluxgate Magnetometer</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>magnetometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EDI</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__EDI</TD>
+    <TD>2000-045B-03</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electron Drift Instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>magnetic</TD>
+    <TD>0</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>electron-drift</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>ASPOC</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__ASPOC</TD>
+    <TD>2000-045B-01</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Active Spacecraft Potential Control experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>STAFF</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__STAFF</TD>
+    <TD>2000-045B-09</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Spatio-Temporal Analysis of Field Fluctuation experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>elect/magn.</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>EFW</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__EFW</TD>
+    <TD>2000-045B-08</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Electric Field and Wave experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>DWP</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__DWP</TD>
+    <TD>2000-045B-07</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Digital Wave Processing experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>plasma</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WHISPER</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__WHISPER</TD>
+    <TD>2000-045B-11</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Waves of HIgh frequency and Sounder for Probing of Electron density by Relaxation</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>spectrometer,waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>WBD</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__WBD</TD>
+    <TD>2000-045B-10</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Wide Band Data instrument</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>fields</TD>
+    <TD>electric</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>pWEC</TD>
+    <TD>waves</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>CIS</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__CIS</TD>
+    <TD>2000-045B-02</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Cluster Ion Spectrometer experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD>0</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>plasma,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RAPID</TD>
+    <TD>Cluster-4</TD>
+    <TD>CLUSTER_4__RAPID</TD>
+    <TD>2000-045B-06</TD>
+    <TD>2000-08-09T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Research with Adaptive Particle Imaging Detector</TD>
+    <TD>in-situ</TD>
+    <TD>Earth</TD>
+    <TD>magnetosphere</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD/>
+    <TD>high-energy,spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>HASTA</TD>
+    <TD>CUCS</TD>
+    <TD>CUCS__HASTA</TD>
+    <TD/>
+    <TD>2000-09-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>H-Alpha Telescope for Argentina</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager,heliograph,H-alpha,WhiteL</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SRT</TD>
+    <TD>Coronas-F</TD>
+    <TD>CORONAS_F__SRT</TD>
+    <TD/>
+    <TD>2001-07-31T00:00:00</TD>
+    <TD>2006-02-02T00:00:00</TD>
+    <TD>Soft X-ray telescope  (SPIRIT)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>EUV</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>pSPIRIT</TD>
+    <TD>imager,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RES</TD>
+    <TD>Coronas-F</TD>
+    <TD>CORONAS_F__RES</TD>
+    <TD>2001-032A-11</TD>
+    <TD>2001-07-31T00:00:00</TD>
+    <TD>2006-02-02T00:00:00</TD>
+    <TD>X-ray Spectroheliograph  (SPIRIT)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>SXR</TD>
+    <TD>1</TD>
+    <TD>3</TD>
+    <TD>pSPIRIT</TD>
+    <TD>imager,spectrometer,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>DIFOS</TD>
+    <TD>Coronas-F</TD>
+    <TD>CORONAS_F__DIFOS</TD>
+    <TD>2001-032A-01</TD>
+    <TD>2001-07-31T00:00:00</TD>
+    <TD>2006-02-02T00:00:00</TD>
+    <TD>Multichannel solar photometer</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>4</TD>
+    <TD>0</TD>
+    <TD/>
+    <TD>photometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>DIOGENESS</TD>
+    <TD>Coronas-F</TD>
+    <TD>CORONAS_F__DIOGENESS</TD>
+    <TD>2001-032A-06</TD>
+    <TD>2001-07-31T00:00:00</TD>
+    <TD>2006-02-02T00:00:00</TD>
+    <TD>X-ray Spectrometer and Photometer</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>SXR</TD>
+    <TD>4</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>photometer,spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RESIK</TD>
+    <TD>Coronas-F</TD>
+    <TD>CORONAS_F__RESIK</TD>
+    <TD>2001-032A-07</TD>
+    <TD>2001-07-31T00:00:00</TD>
+    <TD>2006-02-02T00:00:00</TD>
+    <TD>X-ray Spectrometer</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>SXR</TD>
+    <TD>4</TD>
+    <TD>1</TD>
+    <TD/>
+    <TD>spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GEM</TD>
+    <TD>Genesis</TD>
+    <TD>GENESIS__GEM</TD>
+    <TD>2001-034A-01</TD>
+    <TD>2001-08-08T00:00:00</TD>
+    <TD>2004-08-04T00:00:00</TD>
+    <TD>Genesis Electron Monitor</TD>
+    <TD>in-situ</TD>
+    <TD>heliospere</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD/>
+    <TD/>
+    <TD>pGPS</TD>
+    <TD>spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GIM</TD>
+    <TD>Genesis</TD>
+    <TD>GENESIS__GIM</TD>
+    <TD>2001-034A-01</TD>
+    <TD>2001-08-08T00:00:00</TD>
+    <TD>2004-08-04T00:00:00</TD>
+    <TD>Genesis Ion Monitor</TD>
+    <TD>in-situ</TD>
+    <TD>heliospere</TD>
+    <TD>solar-wind</TD>
+    <TD>particles</TD>
+    <TD>charged</TD>
+    <TD/>
+    <TD/>
+    <TD>pGPS</TD>
+    <TD>spectrometer,composition</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SXI</TD>
+    <TD>GOES</TD>
+    <TD>GOES__SXI</TD>
+    <TD/>
+    <TD>2001-09-07T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Soft X-ray Imager  (from G12)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>SXR</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>cGOES</TD>
+    <TD>imager,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SXI</TD>
+    <TD>GOES-12</TD>
+    <TD>GOES_12__SXI</TD>
+    <TD>2001-031A-03</TD>
+    <TD>2001-09-07T00:00:00</TD>
+    <TD>2006-09-18T00:00:00</TD>
+    <TD>Soft X-ray Imager</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>SXR</TD>
+    <TD>1</TD>
+    <TD>2</TD>
+    <TD>nGOES</TD>
+    <TD>imager,heliograph</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>MARIE</TD>
+    <TD>Odyssey</TD>
+    <TD>ODYSSEY__MARIE</TD>
+    <TD>2001-014A-03</TD>
+    <TD>2001-10-24T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Mars Radiation Environment Experiment</TD>
+    <TD>in-situ</TD>
+    <TD>Mars</TD>
+    <TD>environment</TD>
+    <TD>particles</TD>
+    <TD>energetic</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RS</TD>
+    <TD>Odyssey</TD>
+    <TD>ODYSSEY__RS</TD>
+    <TD>2001-014A-06</TD>
+    <TD>2001-10-24T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Radio Science </TD>
+    <TD>remote</TD>
+    <TD>Mars</TD>
+    <TD>environment</TD>
+    <TD>photons</TD>
+    <TD>radio</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>GUVI</TD>
+    <TD>TIMED</TD>
+    <TD>TIMED__GUVI</TD>
+    <TD>2001-055B-01</TD>
+    <TD>2001-12-07T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Global Ultraviolet Imager</TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD>disk/helios.</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>TIDI</TD>
+    <TD>TIMED</TD>
+    <TD>TIMED__TIDI</TD>
+    <TD>2001-055B-02</TD>
+    <TD>2001-12-07T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>TIMED Doppler Interferometer</TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SABER</TD>
+    <TD>TIMED</TD>
+    <TD>TIMED__SABER</TD>
+    <TD>2001-055B-03</TD>
+    <TD>2001-12-07T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Sounding of the Atmosphere using Broadband Emission Radiometry</TD>
+    <TD>remote</TD>
+    <TD>Earth</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SEE</TD>
+    <TD>TIMED</TD>
+    <TD>TIMED__SEE</TD>
+    <TD>2001-055B-04</TD>
+    <TD>2001-12-07T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar EUV Experiment</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>EUV/XUV</TD>
+    <TD/>
+    <TD/>
+    <TD/>
+    <TD>photometer,irradiance</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>HESSI-GMR</TD>
+    <TD>RHESSI</TD>
+    <TD>RHESSI__HESSI_GMR</TD>
+    <TD>2002-004A-01</TD>
+    <TD>2002-02-05T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>RHESSI Gamma-ray Observations</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>GMR</TD>
+    <TD>6</TD>
+    <TD>2</TD>
+    <TD>pRHESSI</TD>
+    <TD>imager,spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>HESSI-HXR</TD>
+    <TD>RHESSI</TD>
+    <TD>RHESSI__HESSI_HXR</TD>
+    <TD>2002-004A-01</TD>
+    <TD>2002-02-05T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>RHESSI Hard X-ray Observations</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>HXR</TD>
+    <TD>6</TD>
+    <TD>2</TD>
+    <TD>pRHESSI</TD>
+    <TD>imager,spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>RSPECT</TD>
+    <TD>CALLISTO</TD>
+    <TD>CALLISTO__RSPECT</TD>
+    <TD/>
+    <TD>2002-09-01T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>CALLISTO Radio Spectometer  (45 to 870 MHz) (all stations)</TD>
+    <TD>remote</TD>
+    <TD>Sun</TD>
+    <TD>disk/inr. cor.</TD>
+    <TD>photons</TD>
+    <TD>radio</TD>
+    <TD/>
+    <TD/>
+    <TD>cCALLISTO</TD>
+    <TD>spectrometer</TD>
+    <TD/>
+  </TR>
+  <TR>
+    <TD>SMEI</TD>
+    <TD>Coriolis</TD>
+    <TD>CORIOLIS__SMEI</TD>
+    <TD>2003-001A-02</TD>
+    <TD>2002-12-15T00:00:00</TD>
+    <TD>2020-01-01T00:00:00</TD>
+    <TD>Solar Mass Ejection Imager</TD>
+    <TD>remote</TD>
+    <TD>heliosphere</TD>
+    <TD>structure</TD>
+    <TD>photons</TD>
+    <TD>visible</TD>
+    <TD>0?</TD>
+    <TD>2</TD>
+    <TD/>
+    <TD>imager</TD>
+    <TD/>
   </TR>
 </TABLEDATA>
 </DATA>

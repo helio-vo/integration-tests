@@ -9,17 +9,20 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 import uk.ac.starlink.table.ColumnInfo;
 import uk.ac.starlink.table.StarTable;
+import eu.heliovo.clientapi.HelioClient;
 import eu.heliovo.clientapi.query.HelioQueryResult;
 import eu.heliovo.clientapi.query.asyncquery.AsyncQueryService;
-import eu.heliovo.clientapi.query.asyncquery.impl.AsyncQueryServiceFactoryConfig;
 import eu.heliovo.clientapi.utils.STILUtils;
 import eu.heliovo.clientapi.workerservice.HelioWorkerServiceHandler.Phase;
 import eu.heliovo.integrationtest.hec.HecIntegrationTest;
 import eu.heliovo.registryclient.HelioServiceName;
+import eu.heliovo.registryclient.ServiceCapability;
 
 /**
  * Abstract base class for integration tests.
@@ -51,8 +54,12 @@ public abstract class AbstractIntegrationTest {
     
     private final String expectedResultFile;
     
-
+    private HelioClient helioClient;
     
+    @Before public void setup() {
+        GenericXmlApplicationContext context = new GenericXmlApplicationContext("classpath:spring/clientapi-main.xml");        
+        helioClient = (HelioClient) context.getBean("helioClient");        
+    }
     
     /**
      * Create the integration test
@@ -79,9 +86,10 @@ public abstract class AbstractIntegrationTest {
         HelioQueryResult result = testAsyncQuery(serviceName, Arrays.asList(startTime), Arrays.asList(endTime), Arrays.asList(from), where, saveto);
         assertNotNull(result);
         
+        STILUtils stilUtils = new STILUtils();
         StarTable[] actualTables;
         try {
-            actualTables = STILUtils.read(result.asURL());
+            actualTables = stilUtils.read(result.asURL());
         } catch (Exception e) {
             System.err.println("Invalid URL " + result.asURL());
             System.err.println("Failed to read " + Arrays.toString(this.from) + " | " + Arrays.toString(startTime) + " | " + Arrays.toString(endTime) + " | " + where + " | " + expectedResultFile);
@@ -90,7 +98,7 @@ public abstract class AbstractIntegrationTest {
         
         InputStream expectedResult = getClass().getResourceAsStream(expectedResultFile);
         assertNotNull(expectedResult);
-        StarTable[] expectedTables = STILUtils.read(expectedResult);
+        StarTable[] expectedTables = stilUtils.read(expectedResult);
         assertEquals(expectedTables.length, actualTables.length);
         assertTrue(expectedTables.length >= 1);
         for (int i = 0; i < expectedTables.length; i++) {
@@ -150,9 +158,8 @@ public abstract class AbstractIntegrationTest {
      * @param saveto where to save the resutls.
      * @return
      */
-    protected static HelioQueryResult testAsyncQuery(HelioServiceName serviceName, List<String> startTime, List<String> endTime, List<String> from, String where, String saveto) {
-        AsyncQueryServiceFactoryConfig queryServiceFactory = AsyncQueryServiceFactoryConfig.getInstance();
-        AsyncQueryService queryService = queryServiceFactory.getAsyncQueryService(serviceName);
+    protected HelioQueryResult testAsyncQuery(HelioServiceName serviceName, List<String> startTime, List<String> endTime, List<String> from, String where, String saveto) {
+        AsyncQueryService queryService = (AsyncQueryService) helioClient.getServiceInstance(serviceName, null, ServiceCapability.ASYNC_QUERY_SERVICE);
         HelioQueryResult result = queryService.query(startTime, endTime, from, where, 100, 0, null, saveto);
         
         //System.out.println(result);
