@@ -15,7 +15,7 @@ import uk.ac.starlink.table.ColumnInfo;
 import uk.ac.starlink.table.StarTable;
 import eu.heliovo.clientapi.query.HelioQueryResult;
 import eu.heliovo.clientapi.query.asyncquery.AsyncQueryService;
-import eu.heliovo.clientapi.query.asyncquery.impl.AsyncQueryServiceFactory;
+import eu.heliovo.clientapi.query.asyncquery.impl.AsyncQueryServiceFactoryConfig;
 import eu.heliovo.clientapi.utils.STILUtils;
 import eu.heliovo.clientapi.workerservice.HelioWorkerServiceHandler.Phase;
 import eu.heliovo.integrationtest.hec.HecIntegrationTest;
@@ -52,6 +52,8 @@ public abstract class AbstractIntegrationTest {
     private final String expectedResultFile;
     
 
+    
+    
     /**
      * Create the integration test
      * @param startTime the start time list
@@ -149,7 +151,7 @@ public abstract class AbstractIntegrationTest {
      * @return
      */
     protected static HelioQueryResult testAsyncQuery(HelioServiceName serviceName, List<String> startTime, List<String> endTime, List<String> from, String where, String saveto) {
-        AsyncQueryServiceFactory queryServiceFactory = AsyncQueryServiceFactory.getInstance();
+        AsyncQueryServiceFactoryConfig queryServiceFactory = AsyncQueryServiceFactoryConfig.getInstance();
         AsyncQueryService queryService = queryServiceFactory.getAsyncQueryService(serviceName);
         HelioQueryResult result = queryService.query(startTime, endTime, from, where, 100, 0, null, saveto);
         
