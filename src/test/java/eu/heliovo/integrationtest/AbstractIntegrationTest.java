@@ -50,8 +50,6 @@ public abstract class AbstractIntegrationTest {
 
     private final String where;
 
-    private final String saveto = "integation-test";
-    
     private final String expectedResultFile;
     
     private HelioClient helioClient;
@@ -83,7 +81,7 @@ public abstract class AbstractIntegrationTest {
     }
     
     @Test public void testCatalog() throws Exception {
-        HelioQueryResult result = testAsyncQuery(serviceName, Arrays.asList(startTime), Arrays.asList(endTime), Arrays.asList(from), where, saveto);
+        HelioQueryResult result = testAsyncQuery(serviceName, Arrays.asList(startTime), Arrays.asList(endTime), Arrays.asList(from), where);
         assertNotNull(result);
         
         STILUtils stilUtils = new STILUtils();
@@ -155,12 +153,11 @@ public abstract class AbstractIntegrationTest {
      * @param endTime the time of end
      * @param from the from clause
      * @param where the where clause
-     * @param saveto where to save the resutls.
      * @return
      */
-    protected HelioQueryResult testAsyncQuery(HelioServiceName serviceName, List<String> startTime, List<String> endTime, List<String> from, String where, String saveto) {
+    protected HelioQueryResult testAsyncQuery(HelioServiceName serviceName, List<String> startTime, List<String> endTime, List<String> from, String where) {
         AsyncQueryService queryService = (AsyncQueryService) helioClient.getServiceInstance(serviceName, null, ServiceCapability.ASYNC_QUERY_SERVICE);
-        HelioQueryResult result = queryService.query(startTime, endTime, from, where, 100, 0, null, saveto);
+        HelioQueryResult result = queryService.query(startTime, endTime, from, where, 100, 0, null);
         
         //System.out.println(result);
         if (result != null) {
