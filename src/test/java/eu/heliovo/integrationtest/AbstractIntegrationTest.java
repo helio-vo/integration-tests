@@ -97,7 +97,8 @@ public abstract class AbstractIntegrationTest {
         InputStream expectedResult = getClass().getResourceAsStream(expectedResultFile);
         assertNotNull(expectedResult);
         StarTable[] expectedTables = stilUtils.read(expectedResult);
-        assertEquals(expectedTables.length, actualTables.length);
+        assertEquals("Expected " + expectedTables.length + " tables, but got: " + actualTables.length + " tables", 
+                expectedTables.length, actualTables.length);
         assertTrue(expectedTables.length >= 1);
         for (int i = 0; i < expectedTables.length; i++) {
             StarTable expectedTable = expectedTables[i];
